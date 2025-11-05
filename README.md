@@ -204,29 +204,22 @@ cd flag- [ ] Intégration avec d’autres outils (à venir)
 
 ## 📁 Structure du Projet
 
-**Développé par** : Xavier (WolwX)  
-
-```**Contact** : [wolwx@hotmail.com](mailto:wolwx@hotmail.com)  
-
-flag/**GitHub** : [https://github.com/WolwX](https://github.com/WolwX)
-
+```
+flag/
 ├── index.html                  # Page principale
-
-├── css/---
-
+├── test_url_params.html        # Page de test des paramètres URL (nouveau v1.0)
+├── README.md                   # Documentation complète
+├── EXEMPLES_URL.md            # Guide des paramètres URL (nouveau v1.0)
+├── css/
 │   ├── flag_style.css          # Styles principaux (version propre v1.0)
-
-│   └── flag_style_backup.css   # Backup version précédente## 📄 Licence
-
+│   └── flag_style_backup.css   # Backup version précédente
 ├── js/
-
-│   └── flag_script.js          # Logique applicative**Propriétaire** - Tous droits réservés  
-
-├── img/Ce logiciel est la propriété exclusive de Xavier (WolwX). Toute distribution, modification ou utilisation commerciale non autorisée est strictement interdite.
-
+│   └── flag_script.js          # Logique applicative + support paramètres URL
+├── img/
 │   └── qr_code.png            # QR code de sensibilisation
-
-└── README.md                   # Documentation---
+└── docs/
+    ├── PROJECT_CONTEXT         # Contexte du projet
+    └── PROJECT_REFERENCE       # Référence technique
 ```
 
 ---
@@ -330,18 +323,121 @@ Barre horizontale compacte (52px de hauteur) avec tous les contrôles accessible
 
 ## 🔧 Configuration Avancée
 
-### Paramètres URL (compatibilité v0.x)
+### 🔗 Paramètres URL
 
-L'application supporte également les paramètres URL pour compatibilité :
+L'application supporte **tous les paramètres de configuration via URL** pour une distribution facilitée et une personnalisation rapide sans accès à la config bar.
+
+#### Syntaxe générale
 
 ```
-index.html?code=MONCODE&flagger=Jean&msg=Attention!
+index.html?param1=valeur1&param2=valeur2&param3=valeur3
 ```
 
-**Paramètres disponibles :**
-- `code` - Code de sécurité attendu
-- `flagger` - Nom du flagger
-- `msg` - Message personnalisé
+#### 📋 Liste complète des paramètres
+
+| Paramètre | Type | Description | Exemple | Valeurs possibles |
+|-----------|------|-------------|---------|-------------------|
+| `code` | String | Code de sécurité | `?code=SEC2024` | Texte libre (majuscules auto) |
+| `flagger` | String | Nom du flagger | `?flagger=Jean` | Texte libre |
+| `msg` | String | Message personnalisé | `?msg=Attention%20phishing!` | Texte (encoder avec `%20` pour espaces) |
+| `icon` | String | Icône emoji | `?icon=🚨` | Voir liste des 16 icônes ci-dessous |
+| `color` | String | Couleur de fond | `?color=red` ou `?color=ff0000` | `blue`, `red`, `magenta`, `green`, ou code HEX (6 caractères) |
+| `reward` | String | Récompense affichée | `?reward=Café` | Voir liste des 13 récompenses ci-dessous |
+| `lock` | Boolean | État du verrouillage | `?lock=true` | `true`, `false`, `1`, `0`, `on`, `off` |
+
+#### 🎨 Icônes disponibles (paramètre `icon`)
+
+```
+Aucun (vide)
+🚩 (Flag)
+😀 😊 😂 😎 😍 🤔 😱 😡
+🍕 🍔 🍰 🍺
+🏆 ⚠️
+```
+
+**Exemples :**
+- `?icon=🚩` → Affiche le drapeau
+- `?icon=😊` → Affiche un smiley heureux
+- `?icon=🍕` → Affiche une pizza
+
+#### 🎨 Couleurs disponibles (paramètre `color`)
+
+**Couleurs prédéfinies :**
+- `blue` → #0078d7 (bleu Windows)
+- `red` → #e81123 (rouge erreur)
+- `magenta` → #ff00ff (magenta vif)
+- `green` → #00b300 (vert succès)
+
+**Couleur personnalisée (HEX) :**
+- `?color=ff5733` → Orange
+- `?color=#2ecc71` → Vert clair (avec ou sans `#`)
+
+#### 🏆 Récompenses disponibles (paramètre `reward`)
+
+```
+Aucun
+☕ Café
+🥤 Boisson
+🥐 Croissant
+🍫 Chocolat
+🍬 Bonbon
+🍰 Gâteau
+🍕 Pizza
+🍽️ Repas
+🍺 Bière
+💋 Bisous
+🤗 Câlin
+🤝 Service
+```
+
+**Exemples :**
+- `?reward=Café` → Offre un café
+- `?reward=Pizza` → Offre une pizza
+- `?reward=Câlin` → Offre un câlin 🤗
+
+#### 🔧 Exemples d'URL complètes
+
+**Configuration simple :**
+```
+index.html?code=SECURE2024&flagger=Marie&msg=Ne%20cliquez%20pas%20sur%20les%20liens%20suspects!
+```
+
+**Configuration complète avec tous les paramètres :**
+```
+index.html?code=FLAG2024&flagger=Jean&msg=Bravo%20pour%20votre%20vigilance!&icon=🏆&color=green&reward=Café&lock=true
+```
+
+**Configuration minimaliste (code uniquement) :**
+```
+index.html?code=ABC123
+```
+
+**Configuration visuelle (sans lock) :**
+```
+index.html?icon=😊&color=magenta&msg=Merci%20de%20votre%20attention&reward=Chocolat
+```
+
+**Configuration entreprise (verrouillée) :**
+```
+index.html?code=COMPANY2024&flagger=Équipe%20Sécurité&msg=Session%20de%20formation%20complétée&icon=🚩&color=0078d7&reward=Service&lock=true
+```
+
+#### 💡 Conseils d'utilisation
+
+1. **Encodage des espaces** : Utilisez `%20` ou `+` pour les espaces dans les paramètres texte
+   - ✅ `msg=Attention%20phishing`
+   - ❌ `msg=Attention phishing`
+
+2. **Couleurs HEX** : Le `#` est optionnel
+   - ✅ `color=ff5733`
+   - ✅ `color=#ff5733`
+
+3. **Majuscules automatiques** : Le paramètre `code` est automatiquement converti en majuscules
+   - `?code=sec2024` → stocké comme `SEC2024`
+
+4. **Lock par défaut** : Si non spécifié, le lock est désactivé (`false`)
+
+5. **Priorité** : Les paramètres URL ont la priorité sur les valeurs par défaut de la config bar
 
 ### Personnalisation CSS
 

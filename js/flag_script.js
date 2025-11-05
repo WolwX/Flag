@@ -213,20 +213,126 @@ function getUrlParameters() {
     
     // 1. Définition du Code Secret
     if (urlParams.has('code')) {
-        expectedCode = urlParams.get('code').trim().toUpperCase();
+        const code = urlParams.get('code').trim().toUpperCase();
+        expectedCode = code;
+        const codeInput = document.getElementById('inputSecurityCode');
+        if (codeInput) {
+            codeInput.value = code;
+        }
     }
     
     // 2. Définition du Nom du Flagger (pour le message de reward)
     if (urlParams.has('flagger')) {
-        flaggerName = urlParams.get('flagger').trim();
+        const name = urlParams.get('flagger').trim();
+        flaggerName = name;
+        currentFlaggerName = name;
+        const nameInput = document.getElementById('flaggerName');
+        if (nameInput) {
+            nameInput.value = name;
+        }
+        // Mise à jour des affichages
+        const flaggerSpans = document.querySelectorAll('.flagger-name');
+        flaggerSpans.forEach(span => {
+            span.textContent = name;
+        });
     }
     
-    // 3. Mise à jour du Message personnalisé (si un message est fourni)
+    // 3. Mise à jour du Message personnalisé
     const customMessageElement = document.getElementById('custom-message');
     if (urlParams.has('msg') && customMessageElement) {
-        // Décodage pour gérer les espaces (%20)
         const msg = decodeURIComponent(urlParams.get('msg')); 
         customMessageElement.innerHTML = msg;
+        const msgInput = document.getElementById('customMessage');
+        if (msgInput) {
+            msgInput.value = msg;
+        }
+    }
+    
+    // 4. Définition de l'Icône emoji
+    if (urlParams.has('icon')) {
+        const icon = decodeURIComponent(urlParams.get('icon'));
+        const iconSelect = document.getElementById('iconEmojiSelect');
+        if (iconSelect) {
+            iconSelect.value = icon;
+            // Déclencher manuellement l'update
+            const emojiBgPreview = document.getElementById('emojiBgPreview');
+            if (emojiBgPreview) {
+                emojiBgPreview.textContent = icon;
+                emojiBgPreview.style.display = icon ? 'flex' : 'none';
+            }
+        }
+    }
+    
+    // 5. Définition de la Couleur de fond
+    if (urlParams.has('color')) {
+        const color = urlParams.get('color').toLowerCase();
+        const colorMap = {
+            'blue': '#0078d7',
+            'red': '#e81123',
+            'magenta': '#ff00ff',
+            'green': '#00b300'
+        };
+        
+        let hexColor;
+        if (colorMap[color]) {
+            // Couleur prédéfinie
+            hexColor = colorMap[color];
+        } else if (color.startsWith('#')) {
+            // Code HEX avec #
+            hexColor = color;
+        } else if (/^[0-9a-f]{6}$/i.test(color)) {
+            // Code HEX sans #
+            hexColor = '#' + color;
+        }
+        
+        if (hexColor) {
+            // Appliquer la couleur
+            document.documentElement.style.setProperty('--main-color', hexColor);
+            const bsodContainer = document.querySelector('.bsod-container');
+            if (bsodContainer) {
+                bsodContainer.style.backgroundColor = hexColor;
+            }
+            document.body.style.backgroundColor = hexColor;
+            
+            // Mettre à jour l'input
+            const mainColorInput = document.getElementById('mainColorInput');
+            if (mainColorInput) {
+                mainColorInput.value = hexColor.toUpperCase();
+            }
+        }
+    }
+    
+    // 6. Définition de la Récompense
+    if (urlParams.has('reward')) {
+        const reward = decodeURIComponent(urlParams.get('reward'));
+        const rewardSelect = document.getElementById('selectReward');
+        const rewardDisplay = document.getElementById('rewardDisplay');
+        const rewardText = document.getElementById('rewardText');
+        
+        if (rewardSelect) {
+            rewardSelect.value = reward;
+            // Appliquer visuellement
+            if (reward && rewardText) {
+                rewardText.textContent = reward;
+                if (rewardDisplay) {
+                    rewardDisplay.style.display = 'block';
+                }
+            } else {
+                if (rewardDisplay) {
+                    rewardDisplay.style.display = 'none';
+                }
+            }
+        }
+    }
+    
+    // 7. Définition de l'État du Verrouillage
+    if (urlParams.has('lock')) {
+        const lockValue = urlParams.get('lock').toLowerCase();
+        const lockToggle = document.getElementById('toggleLock');
+        if (lockToggle) {
+            lockToggle.checked = (lockValue === 'true' || lockValue === '1' || lockValue === 'on');
+            updateLockState();
+        }
     }
 }
 
