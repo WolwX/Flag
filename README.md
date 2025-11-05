@@ -1,44 +1,76 @@
-# 🚩 Flag — Sensibilisation Sécurité
+# 🚩 Flag — Sensibilisation Sécurité# 🚩 Flag — Sensibilisation Sécurité
 
-[![Version](https://img.shields.io/badge/version-1.1-brightgreen)](https://github.com/WolwX/Flag/releases/tag/v1.1)
-[![Licence](https://img.shields.io/badge/licence-Proprietary-red)](LICENSE)
 
-## 🆕 Version 1.1 — Paramètres URL
 
-> **Release v1.1 - 05/11/2025**
+[![Version](https://img.shields.io/badge/version-1.2-brightgreen)](https://github.com/WolwX/Flag/releases/tag/v1.2)[![Version](https://img.shields.io/badge/version-1.2-brightgreen)](https://github.com/WolwX/Flag/releases/tag/v1.2)
 
-- ✨ **Design finalisé** - Reproduction fidèle du BSoD Windows avec optimisations visuelles
-- 🎛️ **Config Bar complète** - Paramétrage dynamique via interface intuitive (6 sections)
-- ⏱️ **Chronomètre intégré** - Suivi du temps de flaggage en temps réel (format MM:SS)
-- 🔒 **Système de Lock** - Verrouillage avec code de sécurité personnalisé
-- 🏆 **Système de récompenses** - 13 récompenses disponibles avec affichage dynamique
-- 💬 **Messages personnalisés** - Texte et icônes personnalisables (16 options)
-- 🎨 **Palette de couleurs** - 4 couleurs prédéfinies + saisie hexadécimale
-- 🔗 **Support URL complet** - **NOUVEAU v1.1** : Tous les paramètres accessibles via URL (7 paramètres)
+[![Licence](https://img.shields.io/badge/licence-Proprietary-red)](LICENSE)[![Licence](https://img.shields.io/badge/licence-Proprietary-red)](LICENSE)
 
-- 📱 **Interface 2 colonnes** - BSoD authentique (gauche) + personnalisation (droite)
 
-- ✅ **Messages de validation** - Pop-ups stylisés sans sortie du plein écran- 🎨 Design fidèle à l’écran bleu Windows (BSoD)
 
-- 🚀 **Mode plein écran** - Déclenchement automatique au clic sur FLAG- 🖼️ QR code intégré pour sensibilisation
+## 🆕 Version 1.2 — Fichier Standalone## 🆕 Version 1.2 — Fichier Standalone
 
-- 🏷️ Saisie de code de sécurité pour déblocage
 
----- � Affichage du Flag et message pédagogique
 
-- � Responsive et prêt à l’emploi
+> **Release v1.2 - 05/11/2025**> **Release v1.2 - 05/11/2025**
 
-## 🛡️ Concept
 
----
 
-**Flag** est une application web de sensibilisation à la sécurité informatique, reproduisant l'écran bleu Windows (BSoD) pour rappeler l'importance de verrouiller sa session en entreprise. L'outil permet de "flagguer" un collègue qui a laissé son poste déverrouillé, avec un message pédagogique et un système de déblocage par code.
+### ✨ Nouveautés v1.2### ✨ Nouveautés v1.2
 
-## 🛡️ Concept
+- 📦 **Fichier standalone minifié** - `flag.html` (51 KB) - Version portable avec CSS/JS/QR code inline- 📦 **Fichier standalone minifié** - `flag.html` (51 KB) - Version portable avec CSS/JS/QR code inline
 
-### 🎯 Objectifs
+- 🗜️ **Minification automatique** - CSS et JavaScript optimisés (réduction de 20%)- 🗜️ **Minification automatique** - CSS et JavaScript optimisés (réduction de 20%)
 
-- **Sensibiliser** les collaborateurs à la sécurité des postes de travail**Flag** est une page web de sensibilisation à la sécurité informatique, inspirée du célèbre écran bleu Windows. Elle s’utilise pour rappeler l’importance de verrouiller sa session en entreprise, via un message impactant et un code de déblocage.
+- 🔄 **Script de build** - `build_standalone_min.ps1` pour regénérer le fichier standalone- 🔄 **Script de build** - `build_standalone_min.ps1` pour regénérer le fichier standalone
+
+- 🧹 **Projet nettoyé** - Suppression des fichiers temporaires et backups- 🧹 **Projet nettoyé** - Suppression des fichiers temporaires et backups
+
+- 📁 **Structure organisée** - `.gitignore` pour éviter les futurs fichiers temporaires- 📁 **Structure organisée** - `.gitignore` pour éviter les futurs fichiers temporaires
+
+
+
+### 🎯 Fonctionnalités v1.1### 🎯 Fonctionnalités v1.1
+
+- ✨ **Design finalisé** - Reproduction fidèle du BSoD Windows avec optimisations visuelles- ✨ **Design finalisé** - Reproduction fidèle du BSoD Windows avec optimisations visuelles
+
+- 🎛️ **Config Bar complète** - Paramétrage dynamique via interface intuitive (6 sections)- 🎛️ **Config Bar complète** - Paramétrage dynamique via interface intuitive (6 sections)
+
+- ⏱️ **Chronomètre intégré** - Suivi du temps de flaggage en temps réel (format MM:SS)- ⏱️ **Chronomètre intégré** - Suivi du temps de flaggage en temps réel (format MM:SS)
+
+- 🔒 **Système de Lock** - Verrouillage avec code de sécurité personnalisé- 🔒 **Système de Lock** - Verrouillage avec code de sécurité personnalisé
+
+- 🏆 **Système de récompenses** - 13 récompenses disponibles avec affichage dynamique- 🏆 **Système de récompenses** - 13 récompenses disponibles avec affichage dynamique
+
+- 💬 **Messages personnalisés** - Texte et icônes personnalisables (16 options)- 💬 **Messages personnalisés** - Texte et icônes personnalisables (16 options)
+
+- 🎨 **Palette de couleurs** - 4 couleurs prédéfinies + saisie hexadécimale- 🎨 **Palette de couleurs** - 4 couleurs prédéfinies + saisie hexadécimale
+
+- 🔗 **Support URL complet** - Tous les paramètres accessibles via URL (7 paramètres)- 🔗 **Support URL complet** - Tous les paramètres accessibles via URL (7 paramètres)
+
+- 📱 **Interface 2 colonnes** - BSoD authentique (gauche) + personnalisation (droite)- 📱 **Interface 2 colonnes** - BSoD authentique (gauche) + personnalisation (droite)
+
+- ✅ **Messages de validation** - Pop-ups stylisés sans sortie du plein écran- ✅ **Messages de validation** - Pop-ups stylisés sans sortie du plein écran- 🎨 Design fidèle à l’écran bleu Windows (BSoD)
+
+
+
+---- 🚀 **Mode plein écran** - Déclenchement automatique au clic sur FLAG- 🖼️ QR code intégré pour sensibilisation
+
+
+
+## 🛡️ Concept- 🏷️ Saisie de code de sécurité pour déblocage
+
+
+
+**Flag** est une application web de sensibilisation à la sécurité informatique, reproduisant l'écran bleu Windows (BSoD) pour rappeler l'importance de verrouiller sa session en entreprise. L'outil permet de "flagguer" un collègue qui a laissé son poste déverrouillé, avec un message pédagogique et un système de déblocage par code.---- � Affichage du Flag et message pédagogique
+
+
+
+### 🎯 Objectifs- � Responsive et prêt à l’emploi
+
+
+
+- **Sensibiliser** les collaborateurs à la sécurité des postes de travail## 🛡️ Concept
 
 - **Gamifier** la sécurité avec un système de récompenses
 
@@ -46,246 +78,515 @@
 
 - **Personnaliser** l'expérience avec messages et icônes
 
-## ✨ Fonctionnalités
+**Flag** est une application web de sensibilisation à la sécurité informatique, reproduisant l'écran bleu Windows (BSoD) pour rappeler l'importance de verrouiller sa session en entreprise. L'outil permet de "flagguer" un collègue qui a laissé son poste déverrouillé, avec un message pédagogique et un système de déblocage par code.
 
 ---
 
-- 💻 Affichage d’un écran bleu type BSoD
+## 🛡️ Concept
 
-## ✨ Fonctionnalités- 😢 Smiley Windows
+## ✨ Fonctionnalités
 
-- 📝 Message personnalisé et pédagogique
+### 🎯 Objectifs
 
-### 🎨 Interface & Design- � Mise en avant du Flag (emoji rouge)
+### 🎨 Interface & Design
 
-- 💻 Reproduction fidèle de l'écran bleu Windows (BSoD)- � Saisie d’un code de sécurité pour déblocage
+- **Sensibiliser** les collaborateurs à la sécurité des postes de travail**Flag** est une page web de sensibilisation à la sécurité informatique, inspirée du célèbre écran bleu Windows. Elle s’utilise pour rappeler l’importance de verrouiller sa session en entreprise, via un message impactant et un code de déblocage.
 
-- 📐 Layout 2 colonnes : BSoD authentique + zone personnalisable- 📱 QR code pour accéder à des ressources de sécurité
+- 💻 Reproduction fidèle de l'écran bleu Windows (BSoD)
 
-- 😢 Smiley Windows triste ":(- 🆔 Code de défaillance affiché
+- 📐 Layout 2 colonnes : BSoD authentique + zone personnalisable- **Gamifier** la sécurité avec un système de récompenses
+
+- 😢 Smiley Windows triste ":("
+
+- 🆔 Code de défaillance affiché- **Mesurer** le temps d'absence avec un chronomètre intégré---
 
 - 🎨 4 couleurs prédéfinies (Bleu, Rouge, Magenta, Vert) + saisie hexadécimale
 
-- 📱 QR code pour ressources de sécurité---
+- 📱 QR code pour ressources de sécurité- **Personnaliser** l'expérience avec messages et icônes
 
 
 
-### 🎛️ Config Bar (Barre de Configuration)## 📥 Installation & Lancement
+### 🎛️ Config Bar (Barre de Configuration)## ✨ Fonctionnalités
 
-Interface de paramétrage horizontale (52px de hauteur) avec 6 sections :
 
-### Prérequis
 
-1. **🎭 Icône** - 16 emojis au choix (Flag, smileys, nourriture, trophée...)
+Interface de paramétrage horizontale (52px de hauteur) avec 6 sections :---
 
-2. **🎨 Couleur** - Palette de 4 couleurs + champ hexadécimal- Un simple navigateur web (Chrome, Edge, Firefox…)
 
-3. **🚩 Flag par** - Nom du collègue vigilant (personnalisable)
 
-4. **💬 Message perso** - Texte personnalisé affiché à droite### Lancer en local
+1. **🎭 Icône** - 16 emojis au choix (Flag, smileys, nourriture, trophée...)- 💻 Affichage d’un écran bleu type BSoD
 
-5. **🏆 Récompense** - 13 options (Café, Chocolat, Pizza, Câlin, Service...)
+2. **🎨 Couleur** - Palette de 4 couleurs + champ hexadécimal
 
-6. **🔒 Lock** - Activation du verrouillage avec code de sécurité```bash
+3. **🚩 Flag par** - Nom du collègue vigilant (personnalisable)## ✨ Fonctionnalités- 😢 Smiley Windows
 
-git clone https://github.com/WolwX/Flag.git
+4. **💬 Message perso** - Texte personnalisé affiché à droite
 
-### ⏱️ Chronomètrecd flag
+5. **🏆 Récompense** - 13 options (Café, Chocolat, Pizza, Câlin, Service...)- 📝 Message personnalisé et pédagogique
 
-- Démarrage automatique au clic sur FLAG# Ouvrir index.html dans votre navigateur
+6. **🔒 Lock** - Activation du verrouillage avec code de sécurité
 
-- Affichage en format MM:SS```
+### 🎨 Interface & Design- � Mise en avant du Flag (emoji rouge)
+
+### ⏱️ Chronomètre
+
+- 💻 Reproduction fidèle de l'écran bleu Windows (BSoD)- � Saisie d’un code de sécurité pour déblocage
+
+- Démarrage automatique au clic sur FLAG
+
+- Affichage en format MM:SS- 📐 Layout 2 colonnes : BSoD authentique + zone personnalisable- 📱 QR code pour accéder à des ressources de sécurité
 
 - Position en haut de la colonne droite
 
-- Design élégant avec police monospace---
+- Design élégant avec police monospace- 😢 Smiley Windows triste ":(- 🆔 Code de défaillance affiché
 
 
 
-### 🔐 Système de Verrouillage## 📁 Structure du Projet
+### 🔐 Système de Verrouillage- 🎨 4 couleurs prédéfinies (Bleu, Rouge, Magenta, Vert) + saisie hexadécimale
 
-- Toggle Lock dans la config bar
 
-- Champ de saisie du code de sécurité personnalisé```
 
-- Section de déblocage cachée par défautflag/
+- Toggle Lock dans la config bar- 📱 QR code pour ressources de sécurité---
+
+- Champ de saisie du code de sécurité personnalisé
+
+- Section de déblocage cachée par défaut
+
+- Messages d'erreur/succès stylisés sans sortie du plein écran
+
+- Validation avec nom du flagger et récompense### 🎛️ Config Bar (Barre de Configuration)## 📥 Installation & Lancement
+
+
+
+### 🏆 Système de RécompensesInterface de paramétrage horizontale (52px de hauteur) avec 6 sections :
+
+
+
+**13 récompenses disponibles :**### Prérequis
+
+
+
+☕ Café | 🥤 Boisson | 🥐 Croissant | 🍫 Chocolat | 🍬 Bonbon | 🍰 Gâteau | 🍕 Pizza | 🍽️ Repas | 🍺 Bière | 💋 Bisous | 🤗 Câlin | 🤝 Service1. **🎭 Icône** - 16 emojis au choix (Flag, smileys, nourriture, trophée...)
+
+
+
+### 💬 Messages & Notifications2. **🎨 Couleur** - Palette de 4 couleurs + champ hexadécimal- Un simple navigateur web (Chrome, Edge, Firefox…)
+
+
+
+- ❌ **Message d'erreur** (rouge) - "Code invalide. Contactez [Nom]."3. **🚩 Flag par** - Nom du collègue vigilant (personnalisable)
+
+- ✅ **Message de succès** (vert) - "Félicitations ! Code correct. Session débloquée."
+
+- 🎭 Affichage des informations du flagger et de la récompense4. **💬 Message perso** - Texte personnalisé affiché à droite### Lancer en local
+
+- 🚫 Aucune sortie du plein écran lors des messages
+
+5. **🏆 Récompense** - 13 options (Café, Chocolat, Pizza, Câlin, Service...)
+
+---
+
+6. **🔒 Lock** - Activation du verrouillage avec code de sécurité```bash
+
+## 📥 Installation & Lancement
+
+git clone https://github.com/WolwX/Flag.git
+
+### Option 1 : Version Standalone (Recommandée) 📦
+
+### ⏱️ Chronomètrecd flag
+
+La version standalone est un fichier unique portable de 51 KB, parfait pour une utilisation rapide sans installation.
+
+- Démarrage automatique au clic sur FLAG# Ouvrir index.html dans votre navigateur
+
+**Téléchargement :**
+
+- Téléchargez directement `flag.html` depuis le dépôt- Affichage en format MM:SS```
+
+- Ou générez-le avec le script : `powershell -ExecutionPolicy Bypass -File build_standalone_min.ps1`
+
+- Position en haut de la colonne droite
+
+**Utilisation :**
+
+```bash- Design élégant avec police monospace---
+
+# Ouvrir directement flag.html dans votre navigateur
+
+# Ou en ligne de commande :
+
+start flag.html
+
+```### 🔐 Système de Verrouillage## 📁 Structure du Projet
+
+
+
+**Avantages :**- Toggle Lock dans la config bar
+
+- ✅ Fichier unique (CSS, JS, QR code inclus)
+
+- ✅ Portable (copier sur n'importe quel PC)- Champ de saisie du code de sécurité personnalisé```
+
+- ✅ Minifié et optimisé (51 KB)
+
+- ✅ Pas de serveur web nécessaire- Section de déblocage cachée par défautflag/
+
+- ✅ Support complet des paramètres URL
 
 - Messages d'erreur/succès stylisés sans sortie du plein écran├── index.html
 
+### Option 2 : Version Complète (Développement)
+
 - Validation avec nom du flagger et récompense├── css/
+
+Pour modifier le code source ou contribuer au projet.
 
 │   └── flag_style.css
 
-### 🏆 Système de Récompenses├── js/
+**Prérequis :**
+
+- Un navigateur web moderne (Chrome, Edge, Firefox, Safari)### 🏆 Système de Récompenses├── js/
+
+- Aucune dépendance externe
 
 **13 récompenses disponibles :**│   └── flag_script.js
 
-├── img/
+**Installation :**
 
-☕ Café | 🥤 Boisson | 🥐 Croissant | 🍫 Chocolat | 🍬 Bonbon | 🍰 Gâteau | 🍕 Pizza | 🍽️ Repas | 🍺 Bière | 💋 Bisous | 🤗 Câlin | 🤝 Service│   └── qr_code.png
+```bash├── img/
 
-└── README.md
+git clone https://github.com/WolwX/Flag.git
+
+cd flag☕ Café | 🥤 Boisson | 🥐 Croissant | 🍫 Chocolat | 🍬 Bonbon | 🍰 Gâteau | 🍕 Pizza | 🍽️ Repas | 🍺 Bière | 💋 Bisous | 🤗 Câlin | 🤝 Service│   └── qr_code.png
+
+
+
+# Ouvrir index.html dans votre navigateur└── README.md
+
+```
 
 ### 💬 Messages & Notifications```
 
-- ❌ **Message d'erreur** (rouge) - "Code invalide. Contactez [Nom]."
+**Regénérer le fichier standalone :**
 
-- ✅ **Message de succès** (vert) - "Félicitations ! Code correct. Session débloquée."---
+```powershell- ❌ **Message d'erreur** (rouge) - "Code invalide. Contactez [Nom]."
 
-- 🎭 Affichage des informations du flagger et de la récompense
+powershell -ExecutionPolicy Bypass -File build_standalone_min.ps1
 
-- 🚫 Aucune sortie du plein écran lors des messages## 🖼️ Aperçu
-
-
-
----![Aperçu](./img/bsod_preview.png) <!-- Ajoute un screenshot si tu veux -->
+```- ✅ **Message de succès** (vert) - "Félicitations ! Code correct. Session débloquée."---
 
 
 
-## 📥 Installation & Lancement---
+---- 🎭 Affichage des informations du flagger et de la récompense
 
 
 
-### Prérequis## 🚦 État du projet
-
-- Un navigateur web moderne (Chrome, Edge, Firefox, Safari)
-
-- Aucune dépendance externe**Version actuelle** : 0.2.1.20251030 (Design validé, prêt à l’emploi)
+## 📁 Structure du Projet- 🚫 Aucune sortie du plein écran lors des messages## 🖼️ Aperçu
 
 
+
+```
+
+flag/
+
+├── index.html                   # Page principale (version complète)---![Aperçu](./img/bsod_preview.png) <!-- Ajoute un screenshot si tu veux -->
+
+├── flag.html                    # Version standalone minifiée (51 KB)
+
+├── build_standalone_min.ps1     # Script de génération du fichier standalone
+
+├── .gitignore                   # Fichiers à ignorer
+
+├── README.md                    # Documentation## 📥 Installation & Lancement---
+
+├── css/
+
+│   └── flag_style.css          # Styles CSS
+
+├── js/
+
+│   └── flag_script.js          # Logique JavaScript### Prérequis## 🚦 État du projet
+
+├── img/
+
+│   ├── qr_code.png             # QR code de sensibilisation- Un navigateur web moderne (Chrome, Edge, Firefox, Safari)
+
+│   └── bsod_preview.png        # Aperçu
+
+└── docs/- Aucune dépendance externe**Version actuelle** : 0.2.1.20251030 (Design validé, prêt à l’emploi)
+
+    ├── PROJECT_CONTEXT          # Contexte du projet pour l'IA
+
+    └── PROJECT_REFERENCE        # Référence technique complète
+
+```
 
 ### Lancer en local- [x] Design BSoD fidèle
 
+---
+
 - [x] QR code et code de défaillance
+
+## 🚀 Utilisation
 
 ```bash- [x] Saisie code de sécurité
 
+### Utilisation Basique
+
 git clone https://github.com/WolwX/Flag.git- [ ] Personnalisation avancée (à venir)
 
-cd flag- [ ] Intégration avec d'autres outils (à venir)
+1. Ouvrir `flag.html` (standalone) ou `index.html` (version complète)
 
-# Ouvrir index.html dans votre navigateur
+2. Paramétrer la Config Bar selon vos besoinscd flag- [ ] Intégration avec d'autres outils (à venir)
+
+3. Cliquer sur **🚩 FLAG** pour basculer en mode plein écran
+
+4. Le chronomètre démarre automatiquement# Ouvrir index.html dans votre navigateur
+
+5. Pour débloquer : entrer le code de sécurité (si Lock activé)
 
 ```---
 
+### Utilisation Avancée : Paramètres URL
 
+
+
+Tous les paramètres sont accessibles via URL pour un partage rapide :
 
 ### Utilisation## 🛠️ Technologies
 
+#### **7 Paramètres Disponibles :**
 
 
-1. **Configurer** - Personnalisez les paramètres dans la config bar- **HTML5 / CSS3**
 
-2. **FLAG** - Cliquez sur le bouton FLAG (vert, à droite)- **JavaScript** (léger)
+| Paramètre | Description | Valeurs | Exemple |
 
-3. **Plein écran** - L'application passe automatiquement en plein écran- **Aucune dépendance externe**
+|-----------|-------------|---------|---------|1. **Configurer** - Personnalisez les paramètres dans la config bar- **HTML5 / CSS3**
 
-4. **Débloquer** - Entrez le code de sécurité configuré
+| `code` | Code de sécurité | Texte libre (10 max) | `?code=1234` |
+
+| `flagger` | Nom du flagger | Texte libre (30 max) | `?flagger=Xavier` |2. **FLAG** - Cliquez sur le bouton FLAG (vert, à droite)- **JavaScript** (léger)
+
+| `msg` | Message personnalisé | Texte libre (100 max) | `?msg=Pense%20à%20verrouiller` |
+
+| `icon` | Icône d'ambiance | 16 emojis disponibles | `?icon=😱` |3. **Plein écran** - L'application passe automatiquement en plein écran- **Aucune dépendance externe**
+
+| `color` | Couleur principale | blue, red, magenta, green ou #HEX | `?color=red` |
+
+| `reward` | Récompense | 13 options disponibles | `?reward=Café%20☕` |4. **Débloquer** - Entrez le code de sécurité configuré
+
+| `lock` | Activer le verrouillage | true, false, 1, 0, on, off | `?lock=true` |
 
 ---
 
+#### **Exemples d'URLs Complètes :**
+
 ---
 
-## 👨‍💻 Auteur
+**Exemple 1 : Flag basique avec code**
 
-## 📁 Structure du Projet
+```## 👨‍💻 Auteur
 
-```
-flag/
-├── index.html                  # Page principale
-├── test_url_params.html        # Page de test des paramètres URL (nouveau v1.0)
+file:///C:/flag.html?code=1234&flagger=Xavier
+
+```## 📁 Structure du Projet
+
+
+
+**Exemple 2 : Flag complet avec récompense**```
+
+```flag/
+
+file:///C:/flag.html?code=AZERTY&flagger=Marie&msg=Verrouille%20ton%20PC%20!&icon=😱&color=red&reward=Pizza%20🍕&lock=true├── index.html                  # Page principale
+
+```├── test_url_params.html        # Page de test des paramètres URL (nouveau v1.0)
+
 ├── README.md                   # Documentation complète
-├── EXEMPLES_URL.md            # Guide des paramètres URL (nouveau v1.0)
-├── css/
-│   ├── flag_style.css          # Styles principaux (version propre v1.0)
-│   └── flag_style_backup.css   # Backup version précédente
+
+**Exemple 3 : Flag avec couleur personnalisée**├── EXEMPLES_URL.md            # Guide des paramètres URL (nouveau v1.0)
+
+```├── css/
+
+file:///C:/flag.html?flagger=Thomas&color=%23FF00FF&reward=Chocolat%20🍫│   ├── flag_style.css          # Styles principaux (version propre v1.0)
+
+```│   └── flag_style_backup.css   # Backup version précédente
+
 ├── js/
-│   └── flag_script.js          # Logique applicative + support paramètres URL
-├── img/
-│   └── qr_code.png            # QR code de sensibilisation
-└── docs/
+
+**Exemple 4 : Message pédagogique**│   └── flag_script.js          # Logique applicative + support paramètres URL
+
+```├── img/
+
+file:///C:/flag.html?flagger=L'équipe%20IT&msg=La%20sécurité%20commence%20par%20un%20simple%20CTRL+L&icon=🔒│   └── qr_code.png            # QR code de sensibilisation
+
+```└── docs/
+
     ├── PROJECT_CONTEXT         # Contexte du projet
-    └── PROJECT_REFERENCE       # Référence technique
+
+#### **Liste des Icônes Disponibles :**    └── PROJECT_REFERENCE       # Référence technique
+
 ```
 
+😱 | 😞 | 😢 | 😭 | 😨 | 😰 | 😖 | 😫 | 😩 | 🙁 | ☹️ | 😦 | 😧 | 😔 | 😟 | 🤯
+
 ---
+
+#### **Liste des Récompenses Disponibles :**
 
 ## 🎮 Guide d'Utilisation
 
-### Configuration de Base
+- Pause café ☕
 
-1. **Choisir une icône** - Sélectionnez un emoji pour personnaliser l'affichage
-2. **Définir la couleur** - Cliquez sur une couleur prédéfinie ou saisissez un code HEX
-3. **Indiquer votre nom** - Tapez votre nom dans "Flag par"
-4. **Ajouter un message** - (Optionnel) Cochez et écrivez un message personnalisé
-5. **Choisir une récompense** - Sélectionnez la récompense méritée
+- Cookie 🍪### Configuration de Base
 
-### Configuration du Lock
+- Bonbon 🍬
 
-1. **Cocher "Lock"** - Active le système de verrouillage
+- Chocolat 🍫1. **Choisir une icône** - Sélectionnez un emoji pour personnaliser l'affichage
+
+- Gâteau 🍰2. **Définir la couleur** - Cliquez sur une couleur prédéfinie ou saisissez un code HEX
+
+- Pizza 🍕3. **Indiquer votre nom** - Tapez votre nom dans "Flag par"
+
+- Burger 🍔4. **Ajouter un message** - (Optionnel) Cochez et écrivez un message personnalisé
+
+- Glace 🍦5. **Choisir une récompense** - Sélectionnez la récompense méritée
+
+- Bière 🍺
+
+- Vin 🍷### Configuration du Lock
+
+- Cadeau 🎁
+
+- Trophée 🏆1. **Cocher "Lock"** - Active le système de verrouillage
+
 2. **Définir un code** - Tapez le code de sécurité (ex: "TEST")
-3. **Lancer FLAG** - Le code sera demandé pour débloquer
 
-### Déblocage
+---3. **Lancer FLAG** - Le code sera demandé pour débloquer
 
-1. La section de déblocage apparaît en bas à gauche
-2. Entrez le code de sécurité
-3. Message de confirmation avec nom et récompense
-4. Fermeture automatique après 3 secondes
 
----
 
-## 🖼️ Aperçu
+## 🛠️ Technologies Utilisées### Déblocage
 
-### Interface Principale
-- **Colonne Gauche** : Reproduction fidèle du BSoD Windows
+
+
+- **HTML5** - Structure sémantique1. La section de déblocage apparaît en bas à gauche
+
+- **CSS3** - Design moderne et responsive2. Entrez le code de sécurité
+
+- **JavaScript** (Vanilla) - Logique interactive3. Message de confirmation avec nom et récompense
+
+- **PowerShell** - Script de build et minification4. Fermeture automatique après 3 secondes
+
+
+
+------
+
+
+
+## 📝 Licence## 🖼️ Aperçu
+
+
+
+© 2025 Xavier (WolwX). Tous droits réservés.  ### Interface Principale
+
+Ce projet est sous licence propriétaire. Contactez l'auteur pour toute utilisation commerciale.- **Colonne Gauche** : Reproduction fidèle du BSoD Windows
+
 - **Colonne Droite** : Chronomètre, message personnalisé, icône géante, récompense
 
+---
+
 ### Config Bar
-Barre horizontale compacte (52px de hauteur) avec tous les contrôles accessibles
+
+## 👤 AuteurBarre horizontale compacte (52px de hauteur) avec tous les contrôles accessibles
+
+
+
+**Xavier (WolwX)**  ---
+
+📧 Email : wolwx@hotmail.com  
+
+🔗 GitHub : [https://github.com/WolwX/Flag](https://github.com/WolwX/Flag)## 🚦 État du Projet
+
+
+
+---**Version actuelle** : 1.0 (Production Ready - Frontend complet)
+
+
+
+## 🔄 Historique des Versions### ✅ Fonctionnalités Complétées (v1.0)
+
+- [x] Design BSoD fidèle et optimisé
+
+### v1.2 (05/11/2025) - Fichier Standalone- [x] Config bar horizontale complète
+
+- 📦 Version standalone minifiée (flag.html - 51 KB)- [x] Système de Lock avec validation
+
+- 🗜️ Minification CSS et JavaScript (20% de réduction)- [x] Chronomètre de flaggage
+
+- 🔄 Script de build automatique- [x] 16 icônes personnalisables
+
+- 🧹 Nettoyage du projet (suppression fichiers temporaires)- [x] 13 récompenses avec affichage
+
+- 📁 Ajout .gitignore- [x] Messages stylisés (erreur/succès)
+
+- [x] Mode plein écran automatique
+
+### v1.1 (05/11/2025) - Paramètres URL- [x] Palette de couleurs (4 + HEX)
+
+- 🔗 Support complet des paramètres URL (7 paramètres)- [x] QR code intégré
+
+- 🎛️ Config Bar complète avec 6 sections- [x] Gestion des noms personnalisés
+
+- ⏱️ Chronomètre intégré- [x] Validation du code sans sortie plein écran
+
+- 🔒 Système de verrouillage avec code
+
+- 🏆 13 récompenses disponibles### 🔮 Fonctionnalités Futures
+
+- 💬 16 icônes personnalisables
+
+- 🎨 Palette de couleurs étendue#### **v2.0 - Backend & Statistiques**
+
+- ✅ Messages de validation stylisés- [ ] Serveur backend avec API REST
+
+- [ ] Base de données pour stockage des flags
+
+### v1.0 (30/10/2025) - Version Initiale- [ ] Enregistrement automatique des événements
+
+- 💻 Design BSoD fidèle- [ ] Tableau de bord des statistiques
+
+- 📱 QR code intégré- [ ] Classement des flagueurs
+
+- 🏷️ Code de sécurité basique- [ ] Historique complet des flags
+
+- 🎨 Interface 2 colonnes- [ ] Export des données (CSV, JSON)
+
+- [ ] Rapports automatiques
 
 ---
 
-## 🚦 État du Projet
-
-**Version actuelle** : 1.0 (Production Ready - Frontend complet)
-
-### ✅ Fonctionnalités Complétées (v1.0)
-- [x] Design BSoD fidèle et optimisé
-- [x] Config bar horizontale complète
-- [x] Système de Lock avec validation
-- [x] Chronomètre de flaggage
-- [x] 16 icônes personnalisables
-- [x] 13 récompenses avec affichage
-- [x] Messages stylisés (erreur/succès)
-- [x] Mode plein écran automatique
-- [x] Palette de couleurs (4 + HEX)
-- [x] QR code intégré
-- [x] Gestion des noms personnalisés
-- [x] Validation du code sans sortie plein écran
-
-### 🔮 Fonctionnalités Futures
-
-#### **v2.0 - Backend & Statistiques**
-- [ ] Serveur backend avec API REST
-- [ ] Base de données pour stockage des flags
-- [ ] Enregistrement automatique des événements
-- [ ] Tableau de bord des statistiques
-- [ ] Classement des flagueurs
-- [ ] Historique complet des flags
-- [ ] Export des données (CSV, JSON)
-- [ ] Rapports automatiques
-
 #### **v3.0 - Intégrations Entreprise**
-- [ ] Intégration Active Directory / LDAP
+
+## 🤝 Contribution- [ ] Intégration Active Directory / LDAP
+
 - [ ] SSO (Single Sign-On)
-- [ ] Notifications Slack / Teams
-- [ ] Mode multi-langues
-- [ ] Thèmes personnalisés avancés
-- [ ] Dashboard analytics avancé
+
+Les contributions sont les bienvenues ! N'hésitez pas à :- [ ] Notifications Slack / Teams
+
+- Ouvrir une issue pour signaler un bug- [ ] Mode multi-langues
+
+- Proposer de nouvelles fonctionnalités- [ ] Thèmes personnalisés avancés
+
+- Soumettre une pull request- [ ] Dashboard analytics avancé
+
 - [ ] API publique pour intégrations tierces
 
 ---
+
+---
+
+**⚠️ Note :** Cette application est conçue à des fins pédagogiques de sensibilisation à la sécurité informatique. Utilisez-la de manière responsable et avec humour ! 😊
 
 ## 🗺️ Roadmap
 

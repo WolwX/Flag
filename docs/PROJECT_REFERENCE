@@ -1,350 +1,697 @@
-FLAG - DOCUMENT DE RÉFÉRENCE TECHNIQUEROADMAP
+# FLAG - DOCUMENT DE RÉFÉRENCE TECHNIQUEFLAG - DOCUMENT DE RÉFÉRENCE TECHNIQUEROADMAP
 
-=======================================-------
 
-- 0.3 : Mise en place des variables (paramétrage dynamique)
 
-INFORMATIONS GÉNÉRALES- 0.4 : Design validé pour la page gauche et droite avec variables/paramètres
+==============================================================================-------
 
------------------------ 0.5 : Début de la partie serveur (backend, API)
 
-- Nom du projet : Flag (Outil de sensibilisation à la sécurité informatique)- 0.6 : Serveur fonctionnel avec premiers enregistrements de données
 
-- Technologie Front : HTML5 / CSS3 / JavaScript VanillaFLAG - DOCUMENT DE RÉFÉRENCE PROJET
+## INFORMATIONS GÉNÉRALES- 0.3 : Mise en place des variables (paramétrage dynamique)
+
+
+
+- **Nom du projet** : Flag (Outil de sensibilisation à la sécurité informatique)INFORMATIONS GÉNÉRALES- 0.4 : Design validé pour la page gauche et droite avec variables/paramètres
+
+- **Technologie Front** : HTML5 / CSS3 / JavaScript Vanilla
+
+- **Technologie Back** : À venir (v2.0)----------------------- 0.5 : Début de la partie serveur (backend, API)
+
+- **Version actuelle** : v1.2 (05/11/2025)
+
+- **Status** : Production Ready (Frontend complet + Standalone)- Nom du projet : Flag (Outil de sensibilisation à la sécurité informatique)- 0.6 : Serveur fonctionnel avec premiers enregistrements de données
+
+- **Objectif** : Sensibiliser les collaborateurs via simulation BSoD
+
+- **Dépôt GitHub** : https://github.com/WolwX/Flag- Technologie Front : HTML5 / CSS3 / JavaScript VanillaFLAG - DOCUMENT DE RÉFÉRENCE PROJET
+
+- **Développeur** : Xavier (WolwX) - wolwx@hotmail.com
 
 - Technologie Back : Python/Flask ou Node.js/Express (prévu v2.0)====================================
 
+---
+
 - Version actuelle : v1.1 (05/11/2025)
+
+## 📋 CHANGELOG
 
 - Status : Production Ready (Frontend complet)INFORMATIONS GÉNÉRALES
 
-- Objectif : Sensibiliser les collaborateurs via simulation BSoD----------------------
+### v1.2 (05/11/2025) - Fichier Standalone
 
-- Dépôt GitHub : https://github.com/WolwX/Flag- Nom du projet : Flag (Outil de sensibilisation)
+- ✨ **NOUVEAU** : Version standalone minifiée `flag.html` (51 KB)- Objectif : Sensibiliser les collaborateurs via simulation BSoD----------------------
 
-- Développeur : Xavier (WolwX) - wolwx@hotmail.com- Technologie Front : HTML5 / CSS3 / JavaScript (Vanilla)
+- 🗜️ Minification automatique CSS et JavaScript (réduction 20%)
 
-- Technologie Back : Python / Flask (Léger et rapide)
+- 🔄 Script de build `build_standalone_min.ps1`- Dépôt GitHub : https://github.com/WolwX/Flag- Nom du projet : Flag (Outil de sensibilisation)
+
+- 🧹 Nettoyage du projet (suppression fichiers temporaires)
+
+- 📁 Ajout `.gitignore` pour éviter futurs fichiers temporaires- Développeur : Xavier (WolwX) - wolwx@hotmail.com- Technologie Front : HTML5 / CSS3 / JavaScript (Vanilla)
+
+- 📦 Fichier portable avec CSS/JS/QR code inline
+
+- ✅ Support complet des paramètres URL dans version standalone- Technologie Back : Python / Flask (Léger et rapide)
+
+- 🚀 Déploiement simplifié : un seul fichier à copier
 
 STRUCTURE DES FICHIERS v1.1- Version actuelle : v0.2.1.20251030 (Front-end validé, design BSoD conforme)
 
----------------------------- Objectif : Piéger les collègues ayant une session ouverte (Code de sécurité/Croissant).
+### v1.1 (05/11/2025) - Paramètres URL
 
-/flag/- **Dépôt GitHub** : https://github.com/WolwX/Flag
+- ✨ Support complet des paramètres URL (7 paramètres)---------------------------- Objectif : Piéger les collègues ayant une session ouverte (Code de sécurité/Croissant).
 
-├── index.html                      # Page principale avec config bar
+- 🔗 URL dynamiques pour partage rapide
 
-├── test_url_params.html            # Page de test (12 exemples) [v1.1]STRUCTURE DES FICHIERS
+- 🎛️ Config Bar finalisée (6 sections)/flag/- **Dépôt GitHub** : https://github.com/WolwX/Flag
 
-├── README.md                       # Documentation complète----------------------
+- ⏱️ Chronomètre MM:SS
 
-├── EXEMPLES_URL.md                 # Guide paramètres URL [v1.1]/flag/
+- 🔒 Système de Lock avec code personnalisé├── index.html                      # Page principale avec config bar
 
-├── URL_PARAMS_CONFIRMATION.md      # Doc technique URL [v1.1]├── index.html
+- 🏆 13 récompenses disponibles
 
-├── css/├── app.py                      # Backend Python/Flask
+- 💬 16 icônes d'ambiance├── test_url_params.html            # Page de test (12 exemples) [v1.1]STRUCTURE DES FICHIERS
+
+- 🎨 Palette étendue (4 couleurs + HEX)
+
+- ✅ Messages validation stylisés├── README.md                       # Documentation complète----------------------
+
+
+
+### v1.0 (30/10/2025) - Version Initiale├── EXEMPLES_URL.md                 # Guide paramètres URL [v1.1]/flag/
+
+- 💻 Design BSoD Windows fidèle
+
+- 📱 QR code intégré├── URL_PARAMS_CONFIRMATION.md      # Doc technique URL [v1.1]├── index.html
+
+- 🏷️ Saisie de code de sécurité
+
+- 🎨 Interface 2 colonnes (gauche/droite)├── css/├── app.py                      # Backend Python/Flask
+
+- 🚀 Mode plein écran
 
 │   ├── flag_style.css              # Styles optimisés v1.0├── css/
 
+---
+
 │   └── flag_style_backup.css       # Backup version précédente│   └── flag_style.css          # Styles BSoD
+
+## STRUCTURE DES FICHIERS v1.2
 
 ├── js/├── js/
 
-│   └── flag_script.js              # Logique + paramètres URL│   └── flag_script.js          # Logique client
+```
 
-├── img/└── img/
+flag/│   └── flag_script.js              # Logique + paramètres URL│   └── flag_script.js          # Logique client
 
-│   └── qr_code.png                 # QR code sensibilisation    └── qr_code.png             # QR Code (pour la blague ou la sensibilisation)
+├── index.html                   # Page principale (version complète)
+
+├── flag.html                    # Version standalone minifiée (51 KB) ⭐ NOUVEAU├── img/└── img/
+
+├── build_standalone_min.ps1     # Script de build ⭐ NOUVEAU
+
+├── .gitignore                   # Fichiers à ignorer ⭐ NOUVEAU│   └── qr_code.png                 # QR code sensibilisation    └── qr_code.png             # QR Code (pour la blague ou la sensibilisation)
+
+├── README.md                    # Documentation utilisateur
+
+├── css/└── docs/
+
+│   └── flag_style.css          # Styles CSS (8.90 KB)
+
+├── js/    ├── PROJECT_CONTEXT             # Vision globale du projetCONVENTIONS & CHEMINS
+
+│   └── flag_script.js          # Logique JavaScript (20.91 KB)
+
+├── img/    └── PROJECT_REFERENCE           # Ce fichier - Référence technique---------------------
+
+│   ├── qr_code.png             # QR code PNG (17.69 KB)
+
+│   └── bsod_preview.png        # Aperçu- **Endpoint API (Prévu)** : POST vers `/api/flag` pour enregistrer l'événement.
 
 └── docs/
 
-    ├── PROJECT_CONTEXT             # Vision globale du projetCONVENTIONS & CHEMINS
+    ├── PROJECT_CONTEXT          # Contexte projet pour l'IACONVENTIONS HTML- **Code de déblocage (Prévu)** : Vérification via POST vers `/api/check_code`.
 
-    └── PROJECT_REFERENCE           # Ce fichier - Référence technique---------------------
+    └── PROJECT_REFERENCE        # Ce fichier - Référence technique
 
-- **Endpoint API (Prévu)** : POST vers `/api/flag` pour enregistrer l'événement.
+```----------------- **Paramètres URL** :
 
-CONVENTIONS HTML- **Code de déblocage (Prévu)** : Vérification via POST vers `/api/check_code`.
 
------------------ **Paramètres URL** :
 
-### IDs Principaux (index.html)    - `?user=paul` : Utilisateur piégé (pour le logging).
+**Taille totale** : ~159 KB (projet complet)  ### IDs Principaux (index.html)    - `?user=paul` : Utilisateur piégé (pour le logging).
+
+**Taille standalone** : 51 KB (flag.html)
 
     - `&flagger=marie` : Utilisateur qui a posé le Flag.
 
+---
+
 **Config Bar :**    - `&msg=message_perso` : Message affiché à la place du message de déblocage.
+
+## FONCTIONNALITÉS PRINCIPALES
 
 - iconEmojiSelect       : Sélecteur d'icône (16 options)- **Design** : Respecter l'alignement précis du BSoD, notamment pour les petits écrans (`vw` pour les polices).
 
-- mainColorInput        : Input couleur HEX
+### 1. CONFIG BAR (Barre de Configuration)
 
-- colorPalette          : Container des 4 boutons couleursPROCHAINE ÉTAPE
+- **Position** : Fixe en haut, hauteur 52px- mainColorInput        : Input couleur HEX
 
-- flaggerName           : Input nom du flagger---------------
+- **Sections** : 6 groupes de paramètres + bouton FLAG
 
-- customMessage         : Textarea message personnalisé1. Implémenter le Backend Flask (`app.py`).
+- **Responsive** : Adaptatif selon largeur écran- colorPalette          : Container des 4 boutons couleursPROCHAINE ÉTAPE
 
-- selectReward          : Sélecteur de récompense (13 options)2. Mettre à jour le JavaScript (`js/flag_script.js`) pour la communication avec Flask.
-- toggleLock            : Checkbox verrouillage
-- inputSecurityCode     : Input code de sécurité (visible si lock=true)
+
+
+**6 Sections :**- flaggerName           : Input nom du flagger---------------
+
+1. **Icône** : Sélecteur avec 16 emojis
+
+2. **Couleur** : 4 prédéfinies + saisie hexadécimale- customMessage         : Textarea message personnalisé1. Implémenter le Backend Flask (`app.py`).
+
+3. **Flagger Name** : Champ texte (30 char max)
+
+4. **Message** : Champ texte personnalisé (100 char max)- selectReward          : Sélecteur de récompense (13 options)2. Mettre à jour le JavaScript (`js/flag_script.js`) pour la communication avec Flask.
+
+5. **Reward** : Sélecteur avec 13 récompenses- toggleLock            : Checkbox verrouillage
+
+6. **Lock** : Toggle + champ code sécurité (10 char max)- inputSecurityCode     : Input code de sécurité (visible si lock=true)
+
 - startBtn              : Bouton FLAG (déclenche plein écran + timer)
 
-**Affichages Dynamiques :**
-- timerDisplay          : Container du chronomètre
-- timerText             : Texte du timer (MM:SS)
-- emojiBgPreview        : Affichage icône emoji (center)
+### 2. CHRONOMÈTRE
+
+- **Démarrage** : Automatique au clic sur FLAG**Affichages Dynamiques :**
+
+- **Format** : MM:SS (ex: 05:42)- timerDisplay          : Container du chronomètre
+
+- **Position** : Haut de la colonne droite (top 10%)- timerText             : Texte du timer (MM:SS)
+
+- **Style** : Police monospace (Consolas, Courier New)- emojiBgPreview        : Affichage icône emoji (center)
+
 - customMessageDisplay  : Affichage message perso (top 40%)
-- rewardDisplay         : Container récompense (bottom 30%)
-- rewardText            : Texte de la récompense
-- unlockSection         : Section déblocage (visible si lock=true)
-- unlockInput           : Input pour saisir le code de déblocage
 
-**Classes Principales :**
+### 3. SYSTÈME DE VERROUILLAGE- rewardDisplay         : Container récompense (bottom 30%)
+
+- **Toggle** : Checkbox dans config bar- rewardText            : Texte de la récompense
+
+- **Code personnalisé** : Saisi dans inputSecurityCode- unlockSection         : Section déblocage (visible si lock=true)
+
+- **Section déblocage** : Cachée par défaut- unlockInput           : Input pour saisir le code de déblocage
+
+- **Messages** : Overlays rouge (erreur) / vert (succès)
+
+- **Validation** : checkCode() compare avec code attendu**Classes Principales :**
+
 - .config-panel         : Barre de configuration (fixed top, 52px)
-- .config-group         : Groupe de contrôles (flex)
-- .bsod-container       : Container principal 2 colonnes
-- .bsod-left            : Colonne gauche (BSoD classique)
-- .bsod-right           : Colonne droite (éléments personnalisables)
-- .timer-display        : Affichage chronomètre (top 10%)
-- .custom-message-display : Message perso (top 40%)
-- .emoji-bg-preview     : Icône emoji (center)
-- .reward-display       : Récompense (bottom 30%)
-- .footer-row           : Ligne de pied (margins: 0.5vw/2vw)
 
-CONVENTIONS CSS
----------------
-### Variables CSS
-- --main-color          : Couleur principale (défaut: #0078d7)
+### 4. SYSTÈME DE RÉCOMPENSES- .config-group         : Groupe de contrôles (flex)
+
+**13 options disponibles :**- .bsod-container       : Container principal 2 colonnes
+
+- Pause café ☕- .bsod-left            : Colonne gauche (BSoD classique)
+
+- Cookie 🍪- .bsod-right           : Colonne droite (éléments personnalisables)
+
+- Bonbon 🍬- .timer-display        : Affichage chronomètre (top 10%)
+
+- Chocolat 🍫- .custom-message-display : Message perso (top 40%)
+
+- Gâteau 🍰- .emoji-bg-preview     : Icône emoji (center)
+
+- Pizza 🍕- .reward-display       : Récompense (bottom 30%)
+
+- Burger 🍔- .footer-row           : Ligne de pied (margins: 0.5vw/2vw)
+
+- Glace 🍦
+
+- Bière 🍺CONVENTIONS CSS
+
+- Vin 🍷---------------
+
+- Cadeau 🎁### Variables CSS
+
+- Trophée 🏆- --main-color          : Couleur principale (défaut: #0078d7)
+
+- Aucune récompense
 
 ### Couleurs Prédéfinies
-- Blue (Windows)        : #0078d7
-- Red (Erreur)          : #e81123
-- Magenta (Vif)         : #ff00ff
+
+### 5. ICÔNES D'AMBIANCE- Blue (Windows)        : #0078d7
+
+**16 emojis disponibles :**- Red (Erreur)          : #e81123
+
+😱 😞 😢 😭 😨 😰 😖 😫 😩 🙁 ☹️ 😦 😧 😔 😟 🤯- Magenta (Vif)         : #ff00ff
+
 - Green (Succès)        : #00b300
 
+### 6. PARAMÈTRES URL (7 paramètres)
+
 ### Positionnement (Colonne Droite)
-- Timer                 : top: 10%
-- Message perso         : top: 40%
-- Icône emoji           : center (flex)
-- Récompense            : bottom: 30%
 
-### Responsive
-- Font-size en vw       : .sad-face (13vw), .main-message (3vw), etc.
-- Layout 2 colonnes     : display: grid, grid-template-columns: 1fr 1fr
-- Config bar            : flex-direction: row (horizontal compact)
+| Paramètre | Type | Description | Exemple |- Timer                 : top: 10%
 
-CONVENTIONS JAVASCRIPT
-----------------------
-### Variables Globales (flag_script.js)
-- currentFlaggerName    : Nom du flagger (défaut: "votre collègue vigilant")
+|-----------|------|-------------|---------|- Message perso         : top: 40%
+
+| `code` | String (10) | Code de sécurité | `?code=1234` |- Icône emoji           : center (flex)
+
+| `flagger` | String (30) | Nom du flagger | `?flagger=Xavier` |- Récompense            : bottom: 30%
+
+| `msg` | String (100) | Message personnalisé | `?msg=Hello` |
+
+| `icon` | Emoji | Icône d'ambiance | `?icon=😱` |### Responsive
+
+| `color` | String/HEX | Couleur principale | `?color=red` ou `?color=%23FF00FF` |- Font-size en vw       : .sad-face (13vw), .main-message (3vw), etc.
+
+| `reward` | String | Récompense | `?reward=Café%20☕` |- Layout 2 colonnes     : display: grid, grid-template-columns: 1fr 1fr
+
+| `lock` | Boolean | Activer lock | `?lock=true` |- Config bar            : flex-direction: row (horizontal compact)
+
+
+
+**Exemple URL complète :**CONVENTIONS JAVASCRIPT
+
+```----------------------
+
+file:///C:/flag.html?code=AZERTY&flagger=Marie&msg=Verrouille!&icon=😱&color=red&reward=Pizza%20🍕&lock=true### Variables Globales (flag_script.js)
+
+```- currentFlaggerName    : Nom du flagger (défaut: "votre collègue vigilant")
+
 - timerInterval         : Interval du chronomètre
-- startTime             : Timestamp de démarrage du timer
+
+---- startTime             : Timestamp de démarrage du timer
+
 - expectedCode          : Code de sécurité attendu (défini par URL ou config)
-- flaggerName           : Nom du flagger (pour messages)
 
-### Fonctions Principales
-- getUrlParameters()    : Lecture et application des 7 paramètres URL
-- startTimer()          : Démarre le chronomètre (format MM:SS)
-- stopTimer()           : Arrête le chronomètre
-- checkCode()           : Valide le code saisi vs inputSecurityCode
-- showErrorMessage(msg) : Affiche overlay rouge 3s
+## ARCHITECTURE TECHNIQUE- flaggerName           : Nom du flagger (pour messages)
+
+
+
+### HTML (index.html / flag.html)### Fonctions Principales
+
+- **Structure** : Config Bar + Container 2 colonnes- getUrlParameters()    : Lecture et application des 7 paramètres URL
+
+- **Config Bar** : 6 groupes + bouton FLAG- startTimer()          : Démarre le chronomètre (format MM:SS)
+
+- **Colonne gauche** : BSoD authentique (50vw)- stopTimer()           : Arrête le chronomètre
+
+- **Colonne droite** : Zone personnalisable (50vw)- checkCode()           : Valide le code saisi vs inputSecurityCode
+
+- **Éléments dynamiques** : timer, messages, reward, QR code- showErrorMessage(msg) : Affiche overlay rouge 3s
+
 - showSuccessMessage(msg) : Affiche overlay vert 3s puis ferme
-- updateLockState()     : Affiche/cache section déblocage selon toggleLock
-- setIconEmoji(emoji)   : Met à jour l'icône affichée
-- setMainColor(hex)     : Applique la couleur sur body + container
 
-### Event Listeners
-- startBtn click        : Démarre timer + plein écran
+### CSS (flag_style.css)- updateLockState()     : Affiche/cache section déblocage selon toggleLock
+
+- **Taille** : 8.90 KB (version clean)- setIconEmoji(emoji)   : Met à jour l'icône affichée
+
+- **Variables** : --main-color (modifiable dynamiquement)- setMainColor(hex)     : Applique la couleur sur body + container
+
+- **Layout** : Flexbox pour colonnes et config bar
+
+- **Responsive** : vw/vh pour adaptation écran### Event Listeners
+
+- **Z-index** : Config bar (1000), overlays messages (9999)- startBtn click        : Démarre timer + plein écran
+
 - iconEmojiSelect change : Met à jour l'icône
-- colorPalette buttons  : Change la couleur principale
-- mainColorInput input  : Applique couleur HEX custom
-- flaggerName input     : Met à jour .flagger-name spans
-- customMessage input   : Met à jour #custom-message
-- selectReward change   : Affiche/cache récompense
-- toggleLock change     : updateLockState()
+
+**Classes principales :**- colorPalette buttons  : Change la couleur principale
+
+- `.config-panel` : Barre de configuration- mainColorInput input  : Applique couleur HEX custom
+
+- `.bsod-container` : Container principal- flaggerName input     : Met à jour .flagger-name spans
+
+- `.bsod-box-left` : Colonne gauche (BSoD)- customMessage input   : Met à jour #custom-message
+
+- `.bsod-box-right` : Colonne droite (personnalisable)- selectReward change   : Affiche/cache récompense
+
+- `.timer-display` : Affichage chronomètre- toggleLock change     : updateLockState()
+
+- `.reward-display` : Affichage récompense
 
 PARAMÈTRES URL v1.1
--------------------
-### Liste Complète (7 paramètres)
 
-1. **code** (String)
-   - Description : Code de sécurité pour déblocage
+### JavaScript (flag_script.js)-------------------
+
+- **Taille** : 20.91 KB### Liste Complète (7 paramètres)
+
+- **Mode** : Vanilla JavaScript (pas de framework)
+
+- **Event Listeners** : DOMContentLoaded, clicks, inputs1. **code** (String)
+
+- **Fonctions principales** :   - Description : Code de sécurité pour déblocage
+
    - Format : Texte libre (converti en majuscules auto)
-   - Exemple : ?code=SEC2024
-   - Valeur par défaut : (aucune)
 
-2. **flagger** (String)
-   - Description : Nom du flagger (personne qui pose le flag)
+**Chronomètre :**   - Exemple : ?code=SEC2024
+
+```javascript   - Valeur par défaut : (aucune)
+
+startTimer()  // Démarre le chrono
+
+stopTimer()   // Arrête le chrono2. **flagger** (String)
+
+```   - Description : Nom du flagger (personne qui pose le flag)
+
    - Format : Texte libre
-   - Exemple : ?flagger=Jean
-   - Valeur par défaut : "votre collègue vigilant"
-   - Impact : Met à jour tous les .flagger-name spans
 
-3. **msg** (String)
+**Lock System :**   - Exemple : ?flagger=Jean
+
+```javascript   - Valeur par défaut : "votre collègue vigilant"
+
+updateLockState()  // Gère visibilité sections lock   - Impact : Met à jour tous les .flagger-name spans
+
+checkCode()        // Valide le code saisi
+
+```3. **msg** (String)
+
    - Description : Message personnalisé affiché
-   - Format : Texte avec espaces encodés (%20)
-   - Exemple : ?msg=Attention%20phishing!
-   - Valeur par défaut : (aucun)
-   - Impact : Remplace le contenu de #custom-message
+
+**Messages :**   - Format : Texte avec espaces encodés (%20)
+
+```javascript   - Exemple : ?msg=Attention%20phishing!
+
+showErrorMessage(msg)    // Overlay rouge   - Valeur par défaut : (aucun)
+
+showSuccessMessage(msg)  // Overlay vert   - Impact : Remplace le contenu de #custom-message
+
+```
 
 4. **icon** (String/Emoji)
-   - Description : Icône emoji affichée au centre
-   - Format : Emoji ou texte
-   - Exemple : ?icon=🚩
-   - Options : Aucun, 🚩, 😀, 😊, 😂, 😎, 😍, 🤔, 😱, 😡, 🍕, 🍔, 🍰, 🍺, 🏆, ⚠️
+
+**Paramètres URL :**   - Description : Icône emoji affichée au centre
+
+```javascript   - Format : Emoji ou texte
+
+getUrlParameters()  // Parse et applique params URL   - Exemple : ?icon=🚩
+
+```   - Options : Aucun, 🚩, 😀, 😊, 😂, 😎, 😍, 🤔, 😱, 😡, 🍕, 🍔, 🍰, 🍺, 🏆, ⚠️
+
    - Valeur par défaut : (aucun)
-   - Impact : Affiche dans #emojiBgPreview
 
-5. **color** (String)
-   - Description : Couleur de fond principale
-   - Format : Nom prédéfini ou code HEX
+**Personnalisation :**   - Impact : Affiche dans #emojiBgPreview
+
+```javascript
+
+setIconEmoji(emoji)  // Change l'icône d'ambiance5. **color** (String)
+
+setMainColor(hex)    // Change couleur principale   - Description : Couleur de fond principale
+
+```   - Format : Nom prédéfini ou code HEX
+
    - Exemples : 
-     * ?color=blue → #0078d7
-     * ?color=red → #e81123
-     * ?color=magenta → #ff00ff
-     * ?color=green → #00b300
-     * ?color=ff5733 → #ff5733 (orange)
-     * ?color=#2ecc71 → #2ecc71 (vert clair, # optionnel)
+
+### Fichier Standalone (flag.html)     * ?color=blue → #0078d7
+
+- **Taille** : 51 KB minifié     * ?color=red → #e81123
+
+- **Contenu** : HTML + CSS inline + JS inline + QR Base64     * ?color=magenta → #ff00ff
+
+- **Minification** : Espaces réduits, commentaires supprimés     * ?color=green → #00b300
+
+- **Portable** : Aucune dépendance externe     * ?color=ff5733 → #ff5733 (orange)
+
+- **Build** : Script PowerShell `build_standalone_min.ps1`     * ?color=#2ecc71 → #2ecc71 (vert clair, # optionnel)
+
    - Options prédéfinies : blue, red, magenta, green
-   - Code HEX : 6 caractères avec ou sans #
-   - Valeur par défaut : #0078d7 (blue)
-   - Impact : Applique sur body et .bsod-container background
 
-6. **reward** (String)
-   - Description : Récompense affichée en bas
-   - Format : Texte correspondant aux options du select
+**Process de build :**   - Code HEX : 6 caractères avec ou sans #
+
+1. Lecture des fichiers sources (HTML, CSS, JS, QR PNG)   - Valeur par défaut : #0078d7 (blue)
+
+2. Conversion QR code en Base64   - Impact : Applique sur body et .bsod-container background
+
+3. Minification CSS (regex patterns)
+
+4. Minification JS (regex patterns)6. **reward** (String)
+
+5. Remplacement des liens externes par contenu inline   - Description : Récompense affichée en bas
+
+6. Écriture du fichier final   - Format : Texte correspondant aux options du select
+
    - Exemple : ?reward=Café
-   - Options : Aucun, Café, Boisson, Croissant, Chocolat, Bonbon, Gâteau, Pizza, Repas, Bière, Bisous, Câlin, Service
+
+---   - Options : Aucun, Café, Boisson, Croissant, Chocolat, Bonbon, Gâteau, Pizza, Repas, Bière, Bisous, Câlin, Service
+
    - Valeur par défaut : Aucun (caché)
-   - Impact : Affiche dans #rewardText et montre #rewardDisplay
 
-7. **lock** (Boolean)
-   - Description : État du verrouillage (affiche section déblocage)
-   - Format : Boolean string
-   - Exemples : ?lock=true, ?lock=1, ?lock=on
-   - Valeurs acceptées : true, false, 1, 0, on, off
-   - Valeur par défaut : false (unchecked)
-   - Impact : Check/uncheck #toggleLock + updateLockState()
+## VARIABLES ET IDS IMPORTANTS   - Impact : Affiche dans #rewardText et montre #rewardDisplay
 
-### Exemples d'URLs Complètes
 
-**Configuration Simple :**
-index.html?code=TEST123&flagger=Jean
 
-**Configuration Complète :**
-index.html?code=ULTIMATE2024&flagger=Équipe%20Sécurité&msg=Bravo!&icon=🏆&color=green&reward=Café&lock=true
+### IDs HTML7. **lock** (Boolean)
 
-**Configuration Visuelle :**
-index.html?icon=⚠️&color=red&msg=Tentative%20de%20phishing%20détectée!
+- `bodyFlag` : Body principal   - Description : État du verrouillage (affiche section déblocage)
+
+- `startBtn` : Bouton FLAG   - Format : Boolean string
+
+- `iconSelector` : Sélecteur d'icône   - Exemples : ?lock=true, ?lock=1, ?lock=on
+
+- `colorSelector` : Sélecteur de couleur   - Valeurs acceptées : true, false, 1, 0, on, off
+
+- `customColorPicker` : Color picker HEX   - Valeur par défaut : false (unchecked)
+
+- `flaggerName` : Input nom flagger   - Impact : Check/uncheck #toggleLock + updateLockState()
+
+- `customMessageInput` : Input message perso
+
+- `rewardSelector` : Sélecteur récompense### Exemples d'URLs Complètes
+
+- `lockToggle` : Checkbox lock
+
+- `inputSecurityCode` : Input code sécurité (config bar)**Configuration Simple :**
+
+- `codeInput` : Input code déblocage (section lock)index.html?code=TEST123&flagger=Jean
+
+- `timerDisplay` : Container chronomètre
+
+- `timerText` : Texte chronomètre (MM:SS)**Configuration Complète :**
+
+- `customMessageDisplay` : Affichage message persoindex.html?code=ULTIMATE2024&flagger=Équipe%20Sécurité&msg=Bravo!&icon=🏆&color=green&reward=Café&lock=true
+
+- `rewardDisplay` : Container récompense
+
+- `rewardText` : Texte récompense**Configuration Visuelle :**
+
+- `emojiBgPreview` : Prévisualisation icône fondindex.html?icon=⚠️&color=red&msg=Tentative%20de%20phishing%20détectée!
+
+- `smiley` : Smiley BSoD ":("
 
 **Configuration Formation :**
-index.html?code=FORMATION&flagger=IT&msg=Module%20terminé&icon=🎓&color=blue&reward=Croissant&lock=true
 
-**Configuration HEX Custom :**
-index.html?icon=🏆&color=ff5733&msg=Champion%20de%20la%20sécurité
+### Variables JavaScriptindex.html?code=FORMATION&flagger=IT&msg=Module%20terminé&icon=🎓&color=blue&reward=Croissant&lock=true
 
-### Encodage URL
-- Espaces : %20 ou +
+```javascript
+
+let currentFlaggerName  // Nom du flagger actuel**Configuration HEX Custom :**
+
+let timerInterval       // Interval du chronomètreindex.html?icon=🏆&color=ff5733&msg=Champion%20de%20la%20sécurité
+
+let startTime           // Timestamp début chrono
+
+let expectedCode        // Code de sécurité attendu### Encodage URL
+
+```- Espaces : %20 ou +
+
 - Caractères spéciaux : Utiliser encodeURIComponent()
-- Émojis : Support natif dans l'URL
+
+---- Émojis : Support natif dans l'URL
+
 - Codes HEX : Avec ou sans # (les deux acceptés)
 
+## MESSAGES SYSTÈME
+
 ENDPOINTS API (Prévu v2.0)
---------------------------
-### POST /api/flag
-Enregistre un événement de flag
-Body : {
-  "user": "paul",
+
+### Message d'erreur (code invalide)--------------------------
+
+```### POST /api/flag
+
+❌ Code invalide.Enregistre un événement de flag
+
+Contactez [Nom du flagger] pour obtenir le code de déverrouillage.Body : {
+
+```  "user": "paul",
+
   "flagger": "marie",
-  "timestamp": "2025-11-05T14:30:00Z",
-  "message": "Message personnalisé",
-  "reward": "Café"
-}
-Response : {
-  "success": true,
-  "flag_id": 123
-}
 
-### POST /api/check_code
+### Message de succès (code valide)  "timestamp": "2025-11-05T14:30:00Z",
+
+```  "message": "Message personnalisé",
+
+✅ Félicitations ! Code correct.  "reward": "Café"
+
+Session débloquée.}
+
+Response : {
+
+Votre collègue : [Nom du flagger]  "success": true,
+
+mérite son reward : [Récompense]  "flag_id": 123
+
+```}
+
+
+
+---### POST /api/check_code
+
 Vérifie un code de déblocage
-Body : {
+
+## COULEURS DISPONIBLESBody : {
+
   "code": "SEC2024",
-  "flag_id": 123
-}
-Response : {
-  "valid": true,
-  "message": "Code correct"
+
+### Couleurs prédéfinies  "flag_id": 123
+
+- **Bleu (BSoD)** : `#0078D7` (défaut)}
+
+- **Vert (GSoD)** : `#008272`Response : {
+
+- **Noir (BSoD Ancien)** : `#1F1F1F`  "valid": true,
+
+- **Rouge (RSoD)** : `#FF0000`  "message": "Code correct"
+
 }
 
-### GET /api/stats
-Récupère les statistiques
+### Couleur personnalisée
+
+- Saisie hexadécimale : `#RRGGBB`### GET /api/stats
+
+- Validation regex : `/^#[0-9A-Fa-f]{6}$/`Récupère les statistiques
+
 Query : ?period=week&user=paul
-Response : {
-  "total_flags": 42,
-  "top_flaggers": [...],
-  "top_flagged": [...],
-  "rewards_distributed": {...}
-}
 
-COMPORTEMENTS CLÉS
-------------------
-### Plein Écran
-- Déclenché au clic sur bouton FLAG (#startBtn)
-- Utilise requestFullscreen() sur document.documentElement
-- Compatible tous navigateurs (fallback mozRequestFullScreen, webkitRequestFullscreen)
+---Response : {
+
+  "total_flags": 42,
+
+## GESTION DU PLEIN ÉCRAN  "top_flaggers": [...],
+
+  "top_flagged": [...],
+
+```javascript  "rewards_distributed": {...}
+
+// Entrée en plein écran}
+
+if (document.documentElement.requestFullscreen) {
+
+    document.documentElement.requestFullscreen();COMPORTEMENTS CLÉS
+
+} else if (document.documentElement.webkitRequestFullscreen) {------------------
+
+    document.documentElement.webkitRequestFullscreen();### Plein Écran
+
+} else if (document.documentElement.msRequestFullscreen) {- Déclenché au clic sur bouton FLAG (#startBtn)
+
+    document.documentElement.msRequestFullscreen();- Utilise requestFullscreen() sur document.documentElement
+
+}- Compatible tous navigateurs (fallback mozRequestFullScreen, webkitRequestFullscreen)
+
+```
 
 ### Timer/Chronomètre
-- Format : MM:SS (minutes:secondes, padStart 2 zéros)
-- Démarrage : Au clic FLAG, stocke Date.now() dans startTime
-- Update : setInterval 1000ms, calcule elapsed time
-- Affichage : Dans #timerText, container #timerDisplay (display: block au démarrage)
-- Arrêt : clearInterval(timerInterval)
 
-### Système de Lock
+**Déclenchement** : Automatique au clic sur bouton FLAG  - Format : MM:SS (minutes:secondes, padStart 2 zéros)
+
+**Config Bar** : Masquée en mode plein écran  - Démarrage : Au clic FLAG, stocke Date.now() dans startTime
+
+**Messages** : Affichés sans sortie du plein écran (overlays)- Update : setInterval 1000ms, calcule elapsed time
+
+- Affichage : Dans #timerText, container #timerDisplay (display: block au démarrage)
+
+---- Arrêt : clearInterval(timerInterval)
+
+
+
+## COMPATIBILITÉ NAVIGATEURS### Système de Lock
+
 - Toggle : #toggleLock (checkbox, unchecked par défaut)
-- Si checked : 
-  * Affiche #inputSecurityCode (champ code dans config bar)
-  * Affiche #unlockSection (section déblocage en bas)
-- Si unchecked :
-  * Cache #inputSecurityCode (display: none)
+
+✅ Chrome / Edge (Chromium)  - Si checked : 
+
+✅ Firefox    * Affiche #inputSecurityCode (champ code dans config bar)
+
+✅ Safari    * Affiche #unlockSection (section déblocage en bas)
+
+✅ Opera  - Si unchecked :
+
+⚠️ Internet Explorer (non supporté)  * Cache #inputSecurityCode (display: none)
+
   * Cache #unlockSection (display: none)
 
+---
+
 ### Validation du Code
-- Code attendu : inputSecurityCode.value (depuis config bar)
+
+## DÉPLOIEMENT- Code attendu : inputSecurityCode.value (depuis config bar)
+
 - Code saisi : unlockInput.value (section déblocage)
-- Comparaison : toUpperCase() des deux valeurs
-- Si valide : showSuccessMessage() avec flagger + récompense, ferme après 3s
-- Si invalide : showErrorMessage() rouge 3s
 
-### Messages (Sans Sortie Fullscreen)
+### Version Standalone- Comparaison : toUpperCase() des deux valeurs
+
+1. Télécharger `flag.html`- Si valide : showSuccessMessage() avec flagger + récompense, ferme après 3s
+
+2. Copier sur PC cible- Si invalide : showErrorMessage() rouge 3s
+
+3. Double-clic pour ouvrir
+
+4. Aucune installation requise### Messages (Sans Sortie Fullscreen)
+
 - ❌ NE JAMAIS utiliser alert() → sort du plein écran
-- ✅ Utiliser overlays personnalisés :
-  * showErrorMessage() : overlay rouge (#e81123), 3s, animated
-  * showSuccessMessage() : overlay vert (#00b300), affiche infos, 3s puis window.close()
 
-### Application Dynamique
+### Version Complète- ✅ Utiliser overlays personnalisés :
+
+1. Cloner le dépôt GitHub  * showErrorMessage() : overlay rouge (#e81123), 3s, animated
+
+2. Ouvrir `index.html` dans navigateur  * showSuccessMessage() : overlay vert (#00b300), affiche infos, 3s puis window.close()
+
+3. Modifier CSS/JS si besoin
+
+4. Regénérer standalone : `powershell -ExecutionPolicy Bypass -File build_standalone_min.ps1`### Application Dynamique
+
 - Icône : setIconEmoji() → met à jour #emojiBgPreview.textContent
-- Couleur : setMainColor() → CSS var + body + container background
+
+---- Couleur : setMainColor() → CSS var + body + container background
+
 - Flagger : querySelectorAll('.flagger-name').forEach() → textContent
-- Message : #custom-message.innerHTML
+
+## SÉCURITÉ & BONNES PRATIQUES- Message : #custom-message.innerHTML
+
 - Récompense : #rewardText.textContent + #rewardDisplay (display: block/none)
 
-TESTS & VALIDATION
-------------------
-### Page de Test
+⚠️ **Utilisation responsable** : Outil pédagogique uniquement  
+
+⚠️ **Code de sécurité** : Ne pas utiliser de vrais mots de passe  TESTS & VALIDATION
+
+⚠️ **Consentement** : Informer les collaborateurs de l'existence de l'outil  ------------------
+
+⚠️ **Humour** : Maintenir une approche ludique et bienveillante### Page de Test
+
 - Fichier : test_url_params.html
-- Contenu : 12 exemples cliquables de configurations
+
+---- Contenu : 12 exemples cliquables de configurations
+
 - Usage : Ouvrir dans navigateur, cliquer sur les liens pour tester
 
+## CONTACT & SUPPORT
+
 ### Tests Recommandés
-1. Paramètres de base : ?code=TEST&flagger=Jean
-2. Icône + Couleur : ?icon=🚩&color=blue
-3. Récompense : ?reward=Café&icon=☕
-4. Lock activé : ?code=LOCK123&lock=true
+
+**Développeur** : Xavier (WolwX)  1. Paramètres de base : ?code=TEST&flagger=Jean
+
+**Email** : wolwx@hotmail.com  2. Icône + Couleur : ?icon=🚩&color=blue
+
+**GitHub** : https://github.com/WolwX/Flag  3. Récompense : ?reward=Café&icon=☕
+
+**Issues** : https://github.com/WolwX/Flag/issues4. Lock activé : ?code=LOCK123&lock=true
+
 5. Config complète : ?code=ALL&flagger=Admin&msg=Test&icon=🏆&color=green&reward=Pizza&lock=true
 
+---
+
 ### Validation
-- Tous les paramètres doivent s'appliquer visuellement
+
+**© 2025 Xavier (WolwX). Tous droits réservés.**- Tous les paramètres doivent s'appliquer visuellement
+
 - Config bar doit refléter les valeurs URL
 - Timer doit démarrer au clic FLAG
 - Lock doit afficher/cacher les sections appropriées

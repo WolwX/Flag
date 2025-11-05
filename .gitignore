@@ -1,0 +1,26 @@
+# Fichiers temporaires
+*.tmp
+*.temp
+qr_base64*.txt
+
+# Fichiers de backup
+*_backup.*
+*_clean.*
+
+# Fichiers de build (sauf le script principal)
+build_standalone.py
+build_standalone.ps1
+
+# Fichiers de test
+test_*.html
+
+# Fichiers de documentation temporaires
+*_CONFIRMATION.md
+EXEMPLES_*.md
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db

@@ -2,17 +2,13 @@
 
 
 
-## 📍 SOURCE OFFICIELLE## 🗺️ Roadmap
+## 📍 SOURCE OFFICIELLE
 
 **Dépôt** : https://github.com/WolwX/Flag
 
-**Version** : 1.1 (05/11/2025)- 0.3 : Mise en place des variables (paramétrage dynamique)
+**Version** : 1.2 (05/11/2025)
 
-- 0.4 : Design validé pour la page gauche et droite avec variables/paramètres
-
-> ⚠️ **IMPORTANT** : Ce document définit les objectifs, le design final et l'état actuel du projet.- 0.5 : Début de la partie serveur (backend, API)
-
-- 0.6 : Serveur fonctionnel avec premiers enregistrements de données
+> ⚠️ **IMPORTANT** : Ce document définit les objectifs, le design final et l'état actuel du projet.
 
 ---# FLAG - CONTEXTE PROJET (Pour l'Assistance IA)
 
