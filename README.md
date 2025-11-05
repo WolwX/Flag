@@ -1,34 +1,20 @@
-# 🚩 Flag — Sensibilisation Sécurité---
-
-
-
-[![Version](https://img.shields.io/badge/version-1.0-brightgreen)](https://github.com/WolwX/flag)## 🗺️ Roadmap
-
-[![Licence](https://img.shields.io/badge/licence-Proprietary-red)](LICENSE)
-
-- **0.3** : Mise en place des variables (paramétrage dynamique)
-
-## 🆕 Version 1.0 — Production Ready- **0.4** : Design validé pour la page gauche et droite avec variables/paramètres
-
-- **0.5** : Début de la partie serveur (backend, API)
-
-> **Release v1.0 - 05/11/2025**- **0.6** : Serveur fonctionnel avec premiers enregistrements de données
-
 # 🚩 Flag — Sensibilisation Sécurité
 
+[![Version](https://img.shields.io/badge/version-1.1-brightgreen)](https://github.com/WolwX/Flag/releases/tag/v1.1)
+[![Licence](https://img.shields.io/badge/licence-Proprietary-red)](LICENSE)
+
+## 🆕 Version 1.1 — Paramètres URL
+
+> **Release v1.1 - 05/11/2025**
+
 - ✨ **Design finalisé** - Reproduction fidèle du BSoD Windows avec optimisations visuelles
-
-- 🎛️ **Config Bar complète** - Paramétrage dynamique via interface intuitive (6 sections)[![Version](https://img.shields.io/badge/version-1.0-brightgreen)](https://github.com/WolwX/flag/releases/tag/v1.0)
-
-- ⏱️ **Chronomètre intégré** - Suivi du temps de flaggage en temps réel (format MM:SS)[![Licence](https://img.shields.io/badge/licence-Proprietary-red)](LICENSE)
-
+- 🎛️ **Config Bar complète** - Paramétrage dynamique via interface intuitive (6 sections)
+- ⏱️ **Chronomètre intégré** - Suivi du temps de flaggage en temps réel (format MM:SS)
 - 🔒 **Système de Lock** - Verrouillage avec code de sécurité personnalisé
-
-- 🏆 **Système de récompenses** - 13 récompenses disponibles avec affichage dynamique## 🆕 Version 1.0 — Production Ready
-
+- 🏆 **Système de récompenses** - 13 récompenses disponibles avec affichage dynamique
 - 💬 **Messages personnalisés** - Texte et icônes personnalisables (16 options)
-
-- 🎨 **Palette de couleurs** - 4 couleurs prédéfinies + saisie hexadécimale> **Release v1.0 - 05/11/2025**
+- 🎨 **Palette de couleurs** - 4 couleurs prédéfinies + saisie hexadécimale
+- 🔗 **Support URL complet** - **NOUVEAU v1.1** : Tous les paramètres accessibles via URL (7 paramètres)
 
 - 📱 **Interface 2 colonnes** - BSoD authentique (gauche) + personnalisation (droite)
 
@@ -305,7 +291,8 @@ Barre horizontale compacte (52px de hauteur) avec tous les contrôles accessible
 
 - **v0.1-0.2** : Design initial et validation du concept
 - **v0.3** : Mise en place des variables et paramétrage dynamique
-- **v1.0** : ✅ **Version Fonctionnelle - Frontend complet (Design finalisé + Config Bar + Lock + Chronomètre + Récompenses)**
+- **v1.0** : ✅ **Version Fonctionnelle - Frontend complet (Design finalisé + Config Bar + Lock + Chronomètre + Récompenses)** - 05/11/2025
+- **v1.1** : ✅ **Support Paramètres URL - Tous les paramètres accessibles via URL (7 paramètres)** - 05/11/2025
 - **v2.0** : Backend avec serveur, API REST, base de données et statistiques complètes
 - **v3.0** : Intégrations entreprise (Active Directory, SSO, Slack/Teams, Dashboard avancé)
 

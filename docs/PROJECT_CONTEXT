@@ -1,80 +1,366 @@
----
+# FLAG - CONTEXTE PROJET (Pour l'Assistance IA)---
 
-## 🗺️ Roadmap
 
-- 0.3 : Mise en place des variables (paramétrage dynamique)
+
+## 📍 SOURCE OFFICIELLE## 🗺️ Roadmap
+
+**Dépôt** : https://github.com/WolwX/Flag
+
+**Version** : 1.1 (05/11/2025)- 0.3 : Mise en place des variables (paramétrage dynamique)
+
 - 0.4 : Design validé pour la page gauche et droite avec variables/paramètres
-- 0.5 : Début de la partie serveur (backend, API)
-- 0.6 : Serveur fonctionnel avec premiers enregistrements de données
-# FLAG - CONTEXTE PROJET (Pour l'Assistance IA)
 
-## 📍 SOURCE OFFICIELLE
+> ⚠️ **IMPORTANT** : Ce document définit les objectifs, le design final et l'état actuel du projet.- 0.5 : Début de la partie serveur (backend, API)
+
+- 0.6 : Serveur fonctionnel avec premiers enregistrements de données
+
+---# FLAG - CONTEXTE PROJET (Pour l'Assistance IA)
+
+
+
+## ⚡ INFOS RAPIDES## 📍 SOURCE OFFICIELLE
+
 **Dépôt** : https://github.com/WolwX/flag
 
-> ⚠️ **IMPORTANT** : Ce document définit les objectifs et le design final.
+- **Nom** : Flag (Outil de sensibilisation à la sécurité informatique)
 
----
+- **Type** : Application web de sensibilisation - Simulation BSoD> ⚠️ **IMPORTANT** : Ce document définit les objectifs et le design final.
 
-## ⚡ INFOS RAPIDES
+- **Tech** : HTML5 / CSS3 / JavaScript Vanilla (Frontend 100% client-side)
 
-- **Nom** : Flag (ou Croissantage BSoD)
-- **Type** : Outil de sensibilisation à la sécurité informatique
-- **Tech** : HTML / CSS / JS (Client léger) + Python / Flask (Backend API simple)
+- **Version actuelle** : **v1.1** (05/11/2025)---
+
+- **Phase** : Frontend Production Ready - Backend prévu en v2.0
+
+- **Objectif** : Simuler un Écran Bleu de la Mort (BSoD) pour sensibiliser les collaborateurs qui laissent leur session ouverte## ⚡ INFOS RAPIDES
+
+- **Développeur** : Xavier (WolwX)
+
+- **Contact** : wolwx@hotmail.com- **Nom** : Flag (ou Croissantage BSoD)
+
+- **GitHub** : https://github.com/WolwX- **Type** : Outil de sensibilisation à la sécurité informatique
+
+- **Assistance IA** : GitHub Copilot / Claude- **Tech** : HTML / CSS / JS (Client léger) + Python / Flask (Backend API simple)
+
 - **Version actuelle** : v0.2.1.20251030 (Front-end validé, design BSoD conforme)
-- **Phase** : Finalisation du Front-end et implémentation du Backend.
+
+---- **Phase** : Finalisation du Front-end et implémentation du Backend.
+
 - **Objectif** : Simuler un Écran Bleu de la Mort (BSoD) pour piéger les collègues qui laissent leur session ouverte.
-- **Développeur** : (Votre Nom / Alias)
+
+## 📋 ÉTAT ACTUEL v1.1 (Résumé)- **Développeur** : (Votre Nom / Alias)
+
 - **Assistance IA** : Gemini
 
----
+**Version** : 1.1 - Support Complet des Paramètres URL  
+
+**Date** : 05/11/2025  ---
+
+**Status** : ✅ Production Ready (Frontend complet)
 
 ## 📋 ÉTAT ACTUEL (Résumé)
 
+### ✅ Fonctionnalités Implémentées
+
 **Version** : 0.2.1.20251030 - Front-end validé, design BSoD conforme
 
-**Avancement** :
-- ✅ Design BSoD (Bleu) implémenté en CSS.
-- ✅ Structure HTML complète et validée.
-- ✅ Correction des problèmes de superposition et d'alignement (smiley, champ de saisie centré en bas).
-- ⏳ Fonctionnalité JS de base (lecture de l'URL et validation du code) à finaliser.
-- ⏳ Implémentation du Backend (Flask/Python) pour l'enregistrement des 'Flags' et la vérification du code.
+**Interface & Design :**
 
-**Fichiers du projet** :
-1. **index.html** : Structure de la page.
-2. **css/flag_style.css** : Styles (BSoD, responsive, positionnement).
-3. **js/flag_script.js** : Logique client (URL, full-screen, envoi des données).
-4. **app.py** (à créer) : Backend Flask pour l'API.
+- ✅ Design BSoD authentique (Windows 10/11) avec couleur #0078d7**Avancement** :
+
+- ✅ Layout 2 colonnes (gauche: BSoD classique, droite: éléments personnalisables)- ✅ Design BSoD (Bleu) implémenté en CSS.
+
+- ✅ Config bar horizontale compacte (52px, position fixed top, z-index 1000)- ✅ Structure HTML complète et validée.
+
+- ✅ 6 sections de configuration + bouton FLAG (130px, vert, position absolute)- ✅ Correction des problèmes de superposition et d'alignement (smiley, champ de saisie centré en bas).
+
+- ✅ Espacement optimisé selon le BSoD Windows original (.footer-row: 0.5vw/2vw)- ⏳ Fonctionnalité JS de base (lecture de l'URL et validation du code) à finaliser.
+
+- ✅ Responsive et compatible tous navigateurs modernes- ⏳ Implémentation du Backend (Flask/Python) pour l'enregistrement des 'Flags' et la vérification du code.
+
+
+
+**Configuration Bar (6 sections) :****Fichiers du projet** :
+
+1. ✅ **Icône** : Sélecteur avec 16 émojis (Aucun, 🚩, 😀 😊 😂 😎 😍 🤔 😱 😡, 🍕 🍔 🍰 🍺, 🏆 ⚠️)1. **index.html** : Structure de la page.
+
+2. ✅ **Couleur** : 4 couleurs prédéfinies (Blue, Red, Magenta, Green) + saisie HEX personnalisée2. **css/flag_style.css** : Styles (BSoD, responsive, positionnement).
+
+3. ✅ **Flag par** : Champ texte pour le nom du flagger (met à jour 2 emplacements en gras)3. **js/flag_script.js** : Logique client (URL, full-screen, envoi des données).
+
+4. ✅ **Message perso** : Zone de texte personnalisable (affichage top 40% colonne droite)4. **app.py** (à créer) : Backend Flask pour l'API.
+
+5. ✅ **Récompense** : Sélecteur avec 13 récompenses (Aucun, ☕ Café, 🥤 Boisson, 🥐 Croissant, 🍫 Chocolat, 🍬 Bonbon, 🍰 Gâteau, 🍕 Pizza, 🍽️ Repas, 🍺 Bière, 💋 Bisous, 🤗 Câlin, 🤝 Service)
+
+6. ✅ **Lock** : Toggle pour activer/désactiver le verrouillage (unchecked par défaut)---
+
+
+
+**Fonctionnalités Dynamiques :**## 🎨 DESIGN & OBJECTIFS CLÉS
+
+- ✅ **Chronomètre/Timer** : Format MM:SS, démarre au clic FLAG, position top 10% colonne droite
+
+- ✅ **Système de verrouillage** : Code de sécurité configurable, validation contre inputSecurityCode### Thème Visuel
+
+- ✅ **Messages personnalisés** : Overlay rouge (erreur) et vert (succès), sans sortie du plein écran- **Inspiration** : Écran Bleu de la Mort (BSoD) de Windows 10/11.
+
+- ✅ **Application dynamique** : Tous les paramètres s'appliquent en temps réel- **Couleur Primaire** : Bleu Windows (`#0078D7`).
+
+- ✅ **Plein écran automatique** : Au clic sur le bouton FLAG- **Typographie** : Claire, moderne (simulant 'Segoe UI').
+
+- ✅ **Icône dynamique** : Preview et affichage au centre de la colonne droite
+
+- ✅ **Couleur dynamique** : Application sur tout le fond (body + bsod-container)### Éléments d'Interface (Front-end)
+
+- ✅ **Récompense dynamique** : Affichage bottom 30% colonne droite- **Smiley Triste** : `:( ` (Grand, en haut à gauche).
+
+- **Zone d'information (QR Code)** : Positionnée en bas à gauche, avec alignement strict pour éviter la superposition.
+
+**Paramètres URL (v1.1 - NOUVEAU) :**- **Champ de Saisie** : Positionné et centré en bas de l'écran, pour saisir le "Code de sécurité".
+
+✨ **7 paramètres supportés** : 100% de la config bar accessible via URL
+
+  * `code` : Code de sécurité (exemple: `?code=SEC2024`)### Logique Fonctionnelle (Backend à venir)
+
+  * `flagger` : Nom du flagger (exemple: `?flagger=Jean`)- **URL de Flag** : La page doit accepter des paramètres dans l'URL (`?user=X&msg=Y`) pour personnaliser le piège.
+
+  * `msg` : Message personnalisé (exemple: `?msg=Attention%20phishing!`)- **Enregistrement** : Le Backend doit enregistrer l'événement ("Flag") incluant l'heure, l'utilisateur piégé, et l'utilisateur qui a posé le Flag.
+
+  * `icon` : Icône emoji, 16 options (exemple: `?icon=🚩`)- **Déblocage** : Un code secret doit être vérifié via une API pour débloquer la page.
+
+  * `color` : Couleur de fond (exemple: `?color=blue` ou `?color=ff5733`)
+
+    - 4 couleurs prédéfinies : blue (#0078d7), red (#e81123), magenta (#ff00ff), green (#00b300)---
+
+    - Code HEX personnalisé : avec ou sans # (exemple: `ff5733` ou `#ff5733`)
+
+  * `reward` : Récompense, 13 options (exemple: `?reward=Café`)## 🤖 INSTRUCTIONS POUR L'IA
+
+  * `lock` : État du verrouillage (exemple: `?lock=true`, accepte: true/false/1/0/on/off)
+
+**Workflow systématique** :
+
+**Exemples d'URLs complètes :**1. Lire ce `PROJECT_CONTEXT.txt` pour la vision globale.
+
+```2. Consulter le `PROJECT_REFERENCE.txt` pour les conventions.
+
+Simple    : index.html?code=TEST&flagger=Jean3. Procéder à la tâche demandée.
+
+Complet   : index.html?code=SEC2024&flagger=Admin&msg=Bravo!&icon=🏆&color=green&reward=Café&lock=true
+
+Visuel    : index.html?icon=⚠️&color=red&msg=Attention!**Phase Actuelle** : Développement du **Backend (Python/Flask)** et finalisation du **`js/flag_script.js`**.
+
+Formation : index.html?code=FORM&flagger=IT&icon=🎓&color=blue&reward=Croissant&lock=true
+
+```**Priorités** :
+
+1. Finaliser le script **`flag_script.js`** pour l'envoi des données au backend.
+
+---2. Créer l'application **`app.py`** (Flask) avec un point de terminaison de réception des Flags.
+
+## 📁 Structure des Fichiers (v1.1)
+
+```
+flag/
+├── index.html                      # Page principale avec config bar et layout 2 colonnes
+├── test_url_params.html            # Page de test interactive (12 exemples) [v1.1]
+├── README.md                       # Documentation complète v1.1
+├── EXEMPLES_URL.md                 # Guide des paramètres URL (25+ exemples) [v1.1]
+├── URL_PARAMS_CONFIRMATION.md      # Documentation technique paramètres [v1.1]
+├── css/
+│   ├── flag_style.css              # Styles optimisés (version propre v1.0)
+│   └── flag_style_backup.css       # Backup de la version précédente
+├── js/
+│   └── flag_script.js              # Logique applicative complète + paramètres URL
+├── img/
+│   └── qr_code.png                 # QR code de sensibilisation
+└── docs/
+    ├── PROJECT_CONTEXT             # Ce fichier - Contexte du projet
+    └── PROJECT_REFERENCE           # Référence technique détaillée
+```
 
 ---
 
 ## 🎨 DESIGN & OBJECTIFS CLÉS
 
 ### Thème Visuel
-- **Inspiration** : Écran Bleu de la Mort (BSoD) de Windows 10/11.
-- **Couleur Primaire** : Bleu Windows (`#0078D7`).
-- **Typographie** : Claire, moderne (simulant 'Segoe UI').
+- **Inspiration** : Écran Bleu de la Mort (BSoD) de Windows 10/11
+- **Couleur Primaire** : Bleu Windows (`#0078d7`)
+- **Couleurs Alternatives** : Rouge (`#e81123`), Magenta (`#ff00ff`), Vert (`#00b300`)
+- **Typographie** : Segoe UI (Windows) avec fallback sur system-ui
+
+### Layout
+**2 colonnes (50/50) :**
+- **Colonne Gauche** : BSoD classique (smiley triste, message erreur, QR code, texte support)
+- **Colonne Droite** : Éléments personnalisables
+  * Timer (top 10%)
+  * Message personnalisé (top 40%)
+  * Icône emoji (center)
+  * Récompense (bottom 30%)
 
 ### Éléments d'Interface (Front-end)
-- **Smiley Triste** : `:( ` (Grand, en haut à gauche).
-- **Zone d'information (QR Code)** : Positionnée en bas à gauche, avec alignement strict pour éviter la superposition.
-- **Champ de Saisie** : Positionné et centré en bas de l'écran, pour saisir le "Code de sécurité".
+- **Config Bar** : Fixed top, 52px height, 6 groupes de contrôles
+- **Bouton FLAG** : 130px width, vert gradient, position absolute right 20px
+- **Timer** : MM:SS format, monospace font, démarre au clic FLAG
+- **Smiley Triste** : `:( ` (Grand, en haut colonne gauche, taille 13vw)
+- **QR Code** : En bas colonne gauche avec texte explicatif
+- **Message d'erreur** : Red overlay (#e81123), 3s display, animated
+- **Message de succès** : Green overlay (#00b300), affiche flagger + récompense, 3s puis fermeture
 
-### Logique Fonctionnelle (Backend à venir)
-- **URL de Flag** : La page doit accepter des paramètres dans l'URL (`?user=X&msg=Y`) pour personnaliser le piège.
-- **Enregistrement** : Le Backend doit enregistrer l'événement ("Flag") incluant l'heure, l'utilisateur piégé, et l'utilisateur qui a posé le Flag.
-- **Déblocage** : Un code secret doit être vérifié via une API pour débloquer la page.
+### Positionnement Précis
+- Timer : `top: 10%` (colonne droite)
+- Message perso : `top: 40%` (colonne droite)
+- Icône emoji : `center` (colonne droite)
+- Récompense : `bottom: 30%` (colonne droite)
+- Footer (100% achevés) : `margin-top: 0.5vw`, `margin-bottom: 2vw`
+
+---
+
+## 🚀 Logique Fonctionnelle
+
+### Front-end (Actuel v1.1)
+- **Paramètres URL** : Lecture et application automatique au chargement
+- **Config Bar** : Modification dynamique en temps réel
+- **Timer** : Démarrage au clic FLAG, update chaque seconde
+- **Verrouillage** : 
+  * Toggle unchecked par défaut
+  * Si checked : affiche champ code + section déblocage
+  * Validation contre `inputSecurityCode.value`
+- **Messages** : 
+  * Erreur : overlay rouge, "Code invalide. Contactez [Nom]."
+  * Succès : overlay vert, "Félicitations ! Code correct. Session débloquée." + flagger + récompense
+- **Plein écran** : Automatique au clic FLAG avec `requestFullscreen()`
+
+### Backend (Prévu v2.0)
+- **Serveur** : Python/Flask ou Node.js/Express
+- **Base de données** : SQLite ou PostgreSQL
+- **API REST** :
+  * POST `/api/flag` : Enregistrer un événement
+  * POST `/api/check_code` : Vérifier un code
+  * GET `/api/stats` : Récupérer les statistiques
+- **Fonctionnalités** :
+  * Enregistrement de l'heure, utilisateur piégé, flagger
+  * Validation des codes de sécurité
+  * Dashboard de statistiques
+  * Historique des flags
+
+---
+
+## 🗺️ ROADMAP
+
+### ✅ Version 0.1-0.2 (Octobre 2024)
+- Design BSoD initial
+- Structure HTML de base
+- Styles CSS
+
+### ✅ Version 0.3 (Octobre 2024)
+- Variables dynamiques
+- Paramétrage initial
+
+### ✅ Version 1.0 (05/11/2025) - Frontend Complete
+- Config bar horizontale complète (6 sections)
+- Timer/chronomètre fonctionnel
+- Système de verrouillage avec toggle
+- Messages stylisés sans sortie fullscreen
+- CSS nettoyé (duplications supprimées)
+- Espacement BSoD optimisé
+- Documentation complète (README.md)
+- Métadonnées HTML
+
+### ✅ Version 1.1 (05/11/2025) - Paramètres URL
+- Support complet des 7 paramètres URL
+- Documentation enrichie (EXEMPLES_URL.md)
+- Page de test interactive (test_url_params.html)
+- Synchronisation config bar ↔ URL
+
+### 📋 Version 2.0 (À venir) - Backend & Statistiques
+- Serveur backend (Python/Flask ou Node.js)
+- Base de données pour enregistrement des flags
+- API REST complète
+- Dashboard de statistiques
+- Authentification pour admin
+- Export des données (CSV/JSON)
+
+### 📋 Version 3.0 (Future) - Intégrations Entreprise
+- Intégration Active Directory
+- Notifications Slack/Teams
+- Rapports automatiques
+- Multi-tenant
+- Gamification avancée
 
 ---
 
 ## 🤖 INSTRUCTIONS POUR L'IA
 
 **Workflow systématique** :
-1. Lire ce `PROJECT_CONTEXT.txt` pour la vision globale.
-2. Consulter le `PROJECT_REFERENCE.txt` pour les conventions.
-3. Procéder à la tâche demandée.
+1. Lire ce `PROJECT_CONTEXT` pour la vision globale et l'état actuel
+2. Consulter le `PROJECT_REFERENCE` pour les conventions techniques
+3. Vérifier le README.md pour la documentation utilisateur
+4. Procéder à la tâche demandée
 
-**Phase Actuelle** : Développement du **Backend (Python/Flask)** et finalisation du **`js/flag_script.js`**.
+**Phase Actuelle** : **Frontend v1.1 - Production Ready**
 
-**Priorités** :
-1. Finaliser le script **`flag_script.js`** pour l'envoi des données au backend.
-2. Créer l'application **`app.py`** (Flask) avec un point de terminaison de réception des Flags.
+**Priorités v1.1** :
+1. ✅ Support complet des paramètres URL (7 paramètres)
+2. ✅ Documentation enrichie (README, EXEMPLES_URL, tests)
+3. ✅ Page de test interactive
+4. ✅ Synchronisation URL ↔ Config Bar
+
+**Prochaines Priorités (v2.0)** :
+1. ⏳ Conception de l'architecture backend
+2. ⏳ Implémentation de l'API REST
+3. ⏳ Base de données pour les flags
+4. ⏳ Dashboard de statistiques
+
+**Conventions de Code** :
+- JavaScript Vanilla (pas de framework)
+- CSS avec variables CSS (--main-color)
+- IDs explicites pour les éléments (iconEmojiSelect, mainColorInput, etc.)
+- Fonctions nommées clairement (getUrlParameters, startTimer, checkCode, etc.)
+- Commentaires en français pour la logique métier
+
+**Points d'Attention** :
+- Ne JAMAIS utiliser `alert()` (sortie du plein écran) → utiliser overlays
+- Encoder les espaces dans les URLs avec `%20`
+- Codes HEX acceptés avec ou sans `#`
+- Lock unchecked par défaut
+- Timer démarre uniquement au clic FLAG
+- Messages personnalisés avec nom du flagger
+
+---
+
+## 📊 STATISTIQUES PROJET v1.1
+
+- **Version** : 1.1
+- **Lignes de code** : ~1500 lignes (HTML + CSS + JS)
+- **Poids total** : < 100 KB
+- **Temps de chargement** : < 1 seconde
+- **Compatibilité** : Tous navigateurs modernes (2020+)
+- **Date de release v1.0** : 05/11/2025
+- **Date de release v1.1** : 05/11/2025
+- **Commits GitHub** : 2 releases (v1.0: f4d7a9f, v1.1: 5e1015d)
+- **Fichiers** : 9 fichiers principaux + 3 docs
+
+---
+
+## 📞 SUPPORT & CONTRIBUTION
+
+**Pour l'Assistance IA** :
+- Toujours consulter ce document avant toute modification
+- Respecter les conventions de code établies
+- Vérifier la compatibilité avec l'existant
+- Tester les modifications avec test_url_params.html
+
+**Pour le Développeur** :
+- **Email** : wolwx@hotmail.com
+- **GitHub** : https://github.com/WolwX
+- **Repository** : https://github.com/WolwX/Flag
+
+**Contributions** :
+- Projet actuellement en développement privé
+- Contributions externes non acceptées pour le moment
+- Suggestions et bug reports : contacter directement l'auteur
+
+---
+
+**© 2025 Xavier (WolwX) - Tous droits réservés**
