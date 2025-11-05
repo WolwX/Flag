@@ -159,7 +159,7 @@ body {
 .smiley {
     font-size: 8vw;
     font-weight: 200;
-    margin-bottom: 1vw;
+    margin-bottom: 0;
     color: #fff;
     user-select: none;
     text-align: left;
@@ -175,7 +175,7 @@ body {
     font-size: 2vw;
     color: #fff;
     font-weight: 400;
-    line-height: 1.2;
+    line-height: 1.3;
     text-align: left;
     word-break: break-word;
 }
@@ -184,7 +184,7 @@ body {
     display: block;
     font-size: 1.2vw;
     font-weight: 300;
-    margin-top: 0.8vw;
+    margin-top: 1vw;
 }
 
 .red-flag-emoji {
@@ -201,8 +201,8 @@ body {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    margin-top: 0.5vw;
-    margin-bottom: 2vw;
+    margin-top: 6vw;
+    margin-bottom: 6vw;
     gap: 1.5vw;
 }
 
@@ -219,8 +219,8 @@ body {
 }
 
 .completion-text {
-    font-size: 1.6vw;
-    font-weight: 300;
+    font-size: 1.8vw;
+    font-weight: normal;
     color: #fff;
     margin: 0;
     text-align: left;
@@ -247,13 +247,13 @@ body {
     justify-content: flex-start;
     margin-top: 0 !important;
     margin-bottom: 0;
-    gap: 1.5vw;
+    gap: 2vw;
 }
 
 .qr-section {
     display: flex;
     flex-direction: column;
-    gap: 0.5vw;
+    gap: 0.8vw;
     width: 100%;
 }
 
@@ -261,7 +261,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    gap: 1vw;
+    gap: 1.2vw;
 }
 
 .qr-image-block {
@@ -285,14 +285,14 @@ body {
 .qr-text-block {
     display: flex;
     flex-direction: column;
-    gap: 0.5vw;
+    gap: 0.8vw;
     flex: 1;
 }
 
 .qr-description {
-    font-size: 0.95vw;
+    font-size: 1vw;
     font-weight: 300;
-    line-height: 1.3;
+    line-height: 1.4;
     color: #fff;
 }
 
@@ -302,9 +302,9 @@ body {
 }
 
 .code-defaillance {
-    font-size: 1vw;
+    font-size: 1.1vw;
     font-weight: 300;
-    line-height: 1.3;
+    line-height: 1.4;
     color: #fff;
 }
 
@@ -325,7 +325,7 @@ body {
 
 .custom-message-display {
     position: absolute;
-    top: 40%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #fff;
@@ -337,34 +337,6 @@ body {
     max-width: 80%;
     word-wrap: break-word;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.timer-display {
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #fff;
-    text-align: center;
-    z-index: 10;
-    padding: 0.8em;
-    max-width: 80%;
-}
-
-.timer-label {
-    font-size: 1.5vw;
-    font-weight: 400;
-    margin: 0 0 0.3em 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.timer-text {
-    font-size: 4vw;
-    font-weight: 700;
-    margin: 0;
-    letter-spacing: 0.1em;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
-    font-family: 'Consolas', 'Courier New', monospace;
 }
 
 .emoji-bg-preview {

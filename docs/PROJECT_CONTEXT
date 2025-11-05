@@ -1,3 +1,11 @@
+---
+
+## 🗺️ Roadmap
+
+- 0.3 : Mise en place des variables (paramétrage dynamique)
+- 0.4 : Design validé pour la page gauche et droite avec variables/paramètres
+- 0.5 : Début de la partie serveur (backend, API)
+- 0.6 : Serveur fonctionnel avec premiers enregistrements de données
 # FLAG - CONTEXTE PROJET (Pour l'Assistance IA)
 
 ## 📍 SOURCE OFFICIELLE

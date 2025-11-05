@@ -1,0 +1,758 @@
+/* Conteneur principal en deux colonnes */
+.bsod-container {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+}
+.bsod-box-left {
+    width: 50vw;
+    min-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    padding-left: 7vw;
+    padding-top: 7vh;
+}
+.bsod-box-right {
+    width: 50vw;
+    min-width: 200px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.right-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-message-display {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 2.5vw;
+    font-weight: 500;
+    text-align: center;
+    z-index: 10;
+    padding: 1em;
+    max-width: 80%;
+    word-wrap: break-word;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.reward-display {
+    position: absolute;
+    bottom: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    text-align: center;
+    z-index: 10;
+    padding: 1em;
+    max-width: 80%;
+}
+
+.reward-label {
+    font-size: 1.3vw;
+    font-weight: 600;
+    margin: 0 0 0.5em 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.reward-text {
+    font-size: 2vw;
+    font-weight: 500;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.footer-inline {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1vw;
+    white-space: nowrap;
+    justify-content: space-between;
+    width: 100%;
+}
+.completion-text {
+    flex-shrink: 0;
+}
+/* Bloc principal pour le message centré et limité à la moitié de l'écran */
+.main-message {
+    max-width: 50vw;
+    width: 100%;
+    margin-bottom: 0;
+}
+.main-message p {
+    font-size: 2vw;
+    color: #fff;
+    font-weight: 400;
+    line-height: 1.3;
+    text-align: left;
+    word-break: break-word;
+}
+.main-message .secondary-message {
+    display: block;
+    font-size: 1.2vw;
+    font-weight: 300;
+    margin-top: 1vw;
+}
+#custom-message {
+    margin-bottom: 0.7vw;
+}
+/* Emoji drapeau rouge à côté du mot Flag */
+.red-flag-emoji {
+    font-size: 1.2em;
+    vertical-align: middle;
+    color: #e53935;
+    margin-left: 0.15em;
+    filter: drop-shadow(0 0 1px #fff);
+}
+/* Ligne horizontale pour 100% achevés + champ code + bouton */
+.footer-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 2vw;
+    margin-bottom: 0;
+    gap: 1.5vw;
+}
+.completion-text {
+    font-size: 1.8vw;
+    font-weight: normal;
+    color: #fff;
+    margin: 0;
+    text-align: left;
+    white-space: nowrap;
+}
+.footer-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-top: 6vw;
+    margin-bottom: 6vw;
+    gap: 1.5vw;
+}
+.footer-left {
+    flex: 1 1 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+.footer-right {
+    flex: 1 1 50%;
+    min-height: 60px;
+    /* Ajoute ici du contenu plus tard */
+}
+/* Ligne info-row en 2 colonnes : 100% achevés à gauche, QR code + texte à droite */
+.info-area {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-top: 0 !important;
+    margin-bottom: 0;
+    gap: 2vw;
+}
+.qr-block {
+    flex: 0 0 130px;
+    min-width: 130px;
+    max-width: 130px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 0;
+}
+.qr-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 0;
+}
+/* Nettoyage : suppression des doublons et erreurs de syntaxe */
+/* Style de base pour l'effet BSoD (Écran Bleu de la Mort) */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0078D7;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow: hidden;
+    padding-left: 7vw;
+    padding-top: 7vh;
+    box-sizing: border-box;
+}
+/* Conteneur principal blanc centré */
+/* Suppression du conteneur blanc, retour au style plein écran bleu */
+/* Le smiley triste :) */
+.smiley {
+    font-size: 8vw;
+    font-weight: 200;
+    margin-bottom: 0;
+    color: #fff;
+    user-select: none;
+    text-align: left;
+}
+/* Titre principal */
+h1 {
+    font-size: 2.5vw;
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 2vw;
+    line-height: 1.2;
+    text-align: left;
+    color: #fff;
+}
+/* Contenu des paragraphes */
+.content p {
+    font-size: 1.3vw;
+    line-height: 1.5;
+    margin-bottom: 1.2vw;
+    font-weight: 300;
+    max-width: 700px;
+    text-align: left;
+    color: #fff;
+}
+/* ------------------------------------------------------------------ */
+/* MODIF 2 : ZONE DE SAISIE CENTRÉE EN BAS DE PAGE */
+/* ------------------------------------------------------------------ */
+.footer-input-area {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 2vw 0 0 0;
+    gap: 10px;
+}
+/* Champ de saisie */
+#codeInput {
+    padding: 10px;
+    width: 180px;
+    max-width: 30vw;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1vw;
+    color: #222;
+    background: #fff;
+    outline: none;
+}
+/* Bouton de validation */
+button {
+    padding: 10px 22px;
+    background-color: #fff;
+    color: #0078D7;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1vw;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+button:hover {
+    background-color: #e6e6e6;
+}
+/* ------------------------------------------------------------------ */
+/* MODIF 3 : ZONE D'INFORMATION (QR Code) */
+/* ------------------------------------------------------------------ */
+.info-area {
+    margin-top: 2.5vw;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.qr-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8vw;
+    width: 100%;
+}
+
+.qr-row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.2vw;
+}
+
+.qr-image-block {
+    flex-shrink: 0;
+}
+
+.qr-code {
+    width: 9.1vw;
+    height: 9.1vw;
+    min-width: 117px;
+    min-height: 117px;
+    max-width: 156px;
+    max-height: 156px;
+    flex-shrink: 0;
+    border-radius: 0;
+    background: none;
+    border: none;
+    display: block;
+}
+
+.qr-text-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8vw;
+    flex: 1;
+}
+
+.qr-description {
+    font-size: 1vw;
+    font-weight: 300;
+    line-height: 1.4;
+    color: #fff;
+}
+
+.qr-description p {
+    margin: 0;
+    padding: 0;
+}
+
+.code-defaillance {
+    font-size: 1.1vw;
+    font-weight: 300;
+    line-height: 1.4;
+    color: #fff;
+}
+
+.code-defaillance p {
+    margin: 0;
+    padding: 0;
+}
+/* Affichage et style de la config bar */
+.config-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    background: #e3f0ff;
+    color: #222;
+    padding: 0.3em 0 0.3em 1vw;
+    font-size: 0.85em;
+    display: flex;
+    align-items: stretch;
+    border-bottom: 1px solid #b3d1f7;
+    box-sizing: border-box;
+    margin-bottom: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 12px #0001;
+    height: 52px;
+    position: relative;
+}
+.main-left {
+    padding-left: 7vw;
+    padding-top: 7vh;
+    box-sizing: border-box;
+}
+.main-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 100vh;
+}
+.emoji-bg-preview {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20vw;
+    opacity: 0.3;
+    user-select: none;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+/* Config bar grid layout */
+.config-bar-grid {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    gap: 0.5em;
+    width: calc(100% - 130px);
+    height: 100%;
+    position: relative;
+}
+
+.config-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
+    max-width: 150px;
+    flex: 1 1 0;
+    padding: 0;
+    box-sizing: border-box;
+    gap: 0.2em;
+}
+
+.config-group[style*="min-width:140px"] {
+    min-width: 140px !important;
+    max-width: 160px;
+}
+
+.config-label {
+    font-weight: 600;
+    font-size: 0.8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    flex-shrink: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.config-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3em;
+    width: 100%;
+}
+
+.config-input input,
+.config-input select {
+    font-size: 0.85em;
+    padding: 0.2em 0.3em;
+}
+
+.config-legend {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85em;
+    color: #444;
+    flex-shrink: 0;
+}
+
+.start-btn-vertical {
+    height: 100%;
+    min-width: 130px;
+    width: 130px;
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 0;
+    box-shadow: 0 2px 8px #0003;
+    cursor: pointer;
+    letter-spacing: 0.15em;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+    outline: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0 1.2em 0 1.5em;
+    gap: 0.6em;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.start-btn-vertical:hover, .start-btn-vertical:focus {
+    background: linear-gradient(135deg, #34ce57 0%, #28efb5 100%);
+    box-shadow: 0 4px 16px #0004;
+    transform: scale(1.03);
+}
+.bsod-box-right {
+    width: 50vw;
+    min-width: 200px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+.footer-inline {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1vw;
+    white-space: nowrap;
+    justify-content: space-between;
+    width: 100%;
+}
+.completion-text {
+    flex-shrink: 0;
+}
+/* Bloc principal pour le message centré et limité à la moitié de l'écran */
+.main-message {
+    max-width: 50vw;
+    width: 100%;
+    margin-bottom: 1vw;
+}
+.main-message p {
+    font-size: 2vw;
+    color: #fff;
+    font-weight: 400;
+    line-height: 1.3;
+    text-align: left;
+    word-break: break-word;
+}
+.main-message .secondary-message {
+    display: block;
+    font-size: 1.2vw;
+    font-weight: 300;
+    margin-top: 1vw;
+}
+#custom-message {
+    margin-bottom: 0.7vw;
+}
+/* Emoji drapeau rouge à côté du mot Flag */
+.red-flag-emoji {
+    font-size: 1.2em;
+    vertical-align: middle;
+    color: #e53935;
+    margin-left: 0.15em;
+    filter: drop-shadow(0 0 1px #fff);
+}
+/* Ligne horizontale pour 100% achevés + champ code + bouton */
+.footer-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 2vw;
+    margin-bottom: 0;
+    gap: 1.5vw;
+}
+
+.completion-text {
+    font-size: 1.575vw;
+    font-weight: normal;
+    color: #fff;
+    margin: 0;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.footer-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-top: 0.5vw;
+    margin-bottom: 0;
+    gap: 1.5vw;
+}
+.footer-left {
+    flex: 1 1 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+.footer-right {
+    flex: 1 1 50%;
+    min-height: 60px;
+    /* Ajoute ici du contenu plus tard */
+}
+/* Ligne info-row en 2 colonnes : 100% achevés à gauche, QR code + texte à droite */
+.info-area {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-top: 0 !important;
+    margin-bottom: 0;
+}
+
+.qr-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 0;
+}
+
+/* Nettoyage : suppression des doublons et erreurs de syntaxe */
+/* Style de base pour l'effet BSoD (Écran Bleu de la Mort) */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0078D7;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* Conteneur principal blanc centré */
+/* Suppression du conteneur blanc, retour au style plein écran bleu */
+
+/* Le smiley triste :) */
+.smiley {
+    font-size: 8vw;
+    font-weight: 200;
+    margin-bottom: 0;
+    color: #fff;
+    user-select: none;
+    text-align: left;
+}
+
+/* Titre principal */
+h1 {
+    font-size: 2.5vw;
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 2vw;
+    line-height: 1.2;
+    text-align: left;
+    color: #fff;
+}
+
+/* Contenu des paragraphes */
+.content p {
+    font-size: 1.3vw;
+    line-height: 1.5;
+    margin-bottom: 1.2vw;
+    font-weight: 300;
+    max-width: 700px;
+    text-align: left;
+    color: #fff;
+}
+
+/* ------------------------------------------------------------------ */
+/* MODIF 2 : ZONE DE SAISIE CENTRÉE EN BAS DE PAGE */
+/* ------------------------------------------------------------------ */
+.footer-input-area {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 2vw 0 0 0;
+    gap: 10px;
+}
+
+/* Champ de saisie */
+#codeInput {
+    padding: 10px;
+    width: 180px;
+    max-width: 30vw;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1vw;
+    color: #222;
+    background: #fff;
+    outline: none;
+}
+
+/* Bouton de validation */
+button {
+    padding: 10px 22px;
+    background-color: #fff;
+    color: #0078D7;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1vw;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #e6e6e6;
+}
+
+
+/* ------------------------------------------------------------------ */
+/* MODIF 3 : ZONE D'INFORMATION (QR Code) */
+/* ------------------------------------------------------------------ */
+
+.info-area {
+    margin-top: 2.5vw;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0;
+}
+
+.qr-code {
+    width: 9.1vw;
+    height: 9.1vw;
+    min-width: 117px;
+    min-height: 117px;
+    max-width: 156px;
+    max-height: 156px;
+    margin-right: 0;
+    flex-shrink: 0;
+    border-radius: 0;
+    background: none;
+    border: none;
+}
+
+/* Conteneur pour les lignes de texte à côté du QR Code */
+.stop-code {
+    font-size: 1.1vw;
+    font-weight: 300;
+    line-height: 1.4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: -2.5vw;
+    color: #fff;
+}
+
+/* Cibler le paragraphe et résoudre la superposition */
+.stop-code p {
+    margin: 0;
+    padding: 0;
+    white-space: pre-wrap;
+    text-align: left;
+}
+
+.main-content {
+    width: 100vw;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.bsod-container {
+    width: 100vw;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
