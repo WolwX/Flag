@@ -88,7 +88,7 @@ Interface de paramétrage horizontale (52px de hauteur) avec 6 sections :
 
 6. **🔒 Lock** - Activation du verrouillage avec code de sécurité```bash
 
-git clone https://github.com/WolwX/flag.git
+git clone https://github.com/WolwX/Flag.git
 
 ### ⏱️ Chronomètrecd flag
 
@@ -160,9 +160,9 @@ git clone https://github.com/WolwX/flag.git
 
 ```bash- [x] Saisie code de sécurité
 
-git clone https://github.com/WolwX/flag.git- [ ] Personnalisation avancée (à venir)
+git clone https://github.com/WolwX/Flag.git- [ ] Personnalisation avancée (à venir)
 
-cd flag- [ ] Intégration avec d’autres outils (à venir)
+cd flag- [ ] Intégration avec d'autres outils (à venir)
 
 # Ouvrir index.html dans votre navigateur
 

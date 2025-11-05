@@ -244,7 +244,7 @@ index.html?code=SECURITY2024&flagger=RSSI&msg=Incident%20de%20sécurité%20évit
 
 - **Documentation complète** : Voir README.md
 - **Page de test** : test_url_params.html
-- **Repository GitHub** : https://github.com/WolwX/flag
+- **Repository GitHub** : https://github.com/WolwX/Flag
 
 ---
 

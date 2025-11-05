@@ -30,7 +30,7 @@ STRUCTURE DES FICHIERS v1.1- Version actuelle : v0.2.1.20251030 (Front-end valid
 
 ---------------------------- Objectif : Piéger les collègues ayant une session ouverte (Code de sécurité/Croissant).
 
-/flag/- **Dépôt GitHub** : https://github.com/WolwX/flag
+/flag/- **Dépôt GitHub** : https://github.com/WolwX/Flag
 
 ├── index.html                      # Page principale avec config bar
 
