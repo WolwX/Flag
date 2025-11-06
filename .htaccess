@@ -1,0 +1,33 @@
+# Force UTF-8 encoding
+AddDefaultCharset UTF-8
+AddCharset UTF-8 .html .htm .php .js .css .json
+
+# Force UTF-8 pour tous les types de fichiers texte
+<FilesMatch "\.(html|htm|php|js|css|json)$">
+    ForceType 'text/html; charset=UTF-8'
+</FilesMatch>
+
+# Corriger l'encodage des fichiers CSS
+<FilesMatch "\.css$">
+    ForceType 'text/css; charset=UTF-8'
+</FilesMatch>
+
+# Corriger l'encodage des fichiers JavaScript
+<FilesMatch "\.js$">
+    ForceType 'application/javascript; charset=UTF-8'
+</FilesMatch>
+
+# Page par défaut
+DirectoryIndex index.html
+
+# Désactiver les listings de répertoires
+Options -Indexes
+
+# Activer le suivi des liens symboliques
+Options +FollowSymLinks
+
+# Protection contre les injections
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /flag/
+</IfModule>
