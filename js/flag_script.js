@@ -1,48 +1,141 @@
-// Variables dynamiques pour la version 0.3
-document.addEventListener('DOMContentLoaded', function() {
-    // Variables globales
-    let currentFlaggerName = 'votre collègue vigilant'; // Nom par défaut
+// Variables dynamiques pour la version 2.0
+
+// ===== VARIABLES GLOBALES v2.0 =====
+let currentFlaggerName = 'votre collègue vigilant'; // Nom par défaut
+let flagData = {}; // Stockage temporaire des données du flag
+
+// Variables pour le timer (globales pour être accessibles partout)
+let timerInterval = null;
+let startTime = null;
+
+// ===== FONCTIONS GLOBALES v2.0 =====
+
+/**
+ * Envoie les données du flag au backend PHP
+ * @param {Object} data - Données du flag à enregistrer
+ */
+function sendFlagToBackend(data) {
+    // Vérifier si l'API est disponible (optionnel - mode dégradé)
+    const apiUrl = 'api/save_flag.php';
     
-    // Variables pour le timer
-    let timerInterval = null;
-    let startTime = null;
+    fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(result => {
+        console.log('✅ Flag enregistré avec succès:', result);
+        // Optionnel : afficher une notification discrète
+    })
+    .catch(error => {
+        console.warn('⚠️ Impossible d\'enregistrer le flag (mode dégradé):', error);
+        // L'application continue de fonctionner même si l'API est indisponible
+    });
+}
+
+/**
+ * Récupère le nom de l'ordinateur (simulation)
+ * En JavaScript, on ne peut pas récupérer le vrai nom de l'ordinateur
+ * On utilise plutôt des informations du navigateur
+ */
+function getComputerName() {
+    // Essayer de récupérer un identifiant unique du navigateur
+    const userAgent = navigator.userAgent;
+    const platform = navigator.platform;
+    
+    // Créer un identifiant basé sur le user agent (simplifié)
+    const hash = userAgent.split('').reduce((a, b) => {
+        a = ((a << 5) - a) + b.charCodeAt(0);
+        return a & a;
+    }, 0);
+    
+    return `${platform}-${Math.abs(hash).toString(16).substring(0, 8).toUpperCase()}`;
+}
+
+/**
+ * Fonction pour démarrer le chronomètre
+ */
+function startTimer() {
     const timerDisplay = document.getElementById('timerDisplay');
     const timerText = document.getElementById('timerText');
     
-    // Fonction pour démarrer le chronomètre
-    function startTimer() {
-        if (timerInterval) return; // Empêche les multiples démarrages
+    if (timerInterval) return; // Empêche les multiples démarrages
+    
+    startTime = Date.now();
+    if (timerDisplay) timerDisplay.style.display = 'block';
+    
+    timerInterval = setInterval(function() {
+        const elapsed = Date.now() - startTime;
+        const seconds = Math.floor(elapsed / 1000);
+        const minutes = Math.floor(seconds / 60);
+        const displaySeconds = seconds % 60;
         
-        startTime = Date.now();
-        if (timerDisplay) timerDisplay.style.display = 'block';
+        const formattedTime = 
+            String(minutes).padStart(2, '0') + ':' + 
+            String(displaySeconds).padStart(2, '0');
         
-        timerInterval = setInterval(function() {
-            const elapsed = Date.now() - startTime;
-            const seconds = Math.floor(elapsed / 1000);
-            const minutes = Math.floor(seconds / 60);
-            const displaySeconds = seconds % 60;
-            
-            const formattedTime = 
-                String(minutes).padStart(2, '0') + ':' + 
-                String(displaySeconds).padStart(2, '0');
-            
-            if (timerText) timerText.textContent = formattedTime;
-        }, 1000);
+        if (timerText) timerText.textContent = formattedTime;
+    }, 1000);
+}
+
+/**
+ * Fonction pour arrêter le chronomètre et retourner le temps écoulé
+ */
+function stopTimer() {
+    if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
     }
     
-    // Fonction pour arrêter le chronomètre
-    function stopTimer() {
-        if (timerInterval) {
-            clearInterval(timerInterval);
-            timerInterval = null;
-        }
+    // Calculer le temps écoulé en secondes
+    if (startTime) {
+        const elapsed = Math.floor((Date.now() - startTime) / 1000);
+        return elapsed;
     }
+    return 0;
+}
+
+// ===== INITIALISATION DOMContentLoaded =====
+document.addEventListener('DOMContentLoaded', function() {
+    const timerDisplay = document.getElementById('timerDisplay');
+    const timerText = document.getElementById('timerText');
     
     // START button logic
     const startBtn = document.getElementById('startBtn');
     const configPanel = document.querySelector('.config-panel');
     if (startBtn) {
         startBtn.addEventListener('click', function() {
+            // ===== ENVOI AU BACKEND v2.0 =====
+            // Récupérer toutes les données de configuration
+            const inputFlagger = document.getElementById('inputFlagger');
+            const inputTarget = document.getElementById('inputTarget');
+            const inputCustomText = document.getElementById('inputCustomText');
+            const mainColorInput = document.getElementById('mainColorInput');
+            const inputSecurityCode = document.getElementById('inputSecurityCode');
+            const toggleLock = document.getElementById('toggleLock');
+            
+            // Préparer les données à envoyer
+            flagData = {
+                computer_name: getComputerName(),
+                flagger_name: inputFlagger ? inputFlagger.value.trim() || 'Anonyme' : 'Anonyme',
+                target_name: inputTarget ? inputTarget.value.trim() || 'Inconnu' : 'Inconnu',
+                message: inputCustomText ? inputCustomText.value.trim() : '',
+                color: mainColorInput ? mainColorInput.value : '#007BD7',
+                has_code: toggleLock ? toggleLock.checked : false,
+                unlock_time_seconds: null // Sera mis à jour au déblocage
+            };
+            
+            // Envoyer immédiatement au backend
+            sendFlagToBackend(flagData);
+            
             // Démarrer le chronomètre
             startTimer();
             
@@ -368,6 +461,17 @@ function checkCode() {
     // Vérification du code
     if (codeEntré === codeAttendu) { 
         // Code correct : Déblocage
+        
+        // ===== MISE À JOUR DU TEMPS DE DÉBLOCAGE v2.0 =====
+        const unlockTime = stopTimer(); // Arrêter le timer et récupérer le temps
+        
+        // Mettre à jour les données du flag avec le temps de déblocage
+        if (typeof sendFlagToBackend === 'function' && typeof flagData !== 'undefined') {
+            flagData.unlock_time_seconds = unlockTime;
+            // Renvoyer les données mises à jour au backend
+            sendFlagToBackend(flagData);
+        }
+        
         // Récupérer le nom du flagger et la récompense
         const flaggerNameElement = document.getElementById('flaggerName1');
         const currentName = flaggerNameElement ? flaggerNameElement.textContent : 'votre collègue vigilant';
@@ -380,6 +484,7 @@ function checkCode() {
         if (currentReward) {
             successMessage += `\nmérite son reward : ${currentReward}`;
         }
+        successMessage += `\n\nTemps écoulé : ${Math.floor(unlockTime / 60)}min ${unlockTime % 60}s`;
         
         // Afficher le message de succès
         showSuccessMessage(successMessage);
@@ -535,6 +640,31 @@ window.onload = function() {
     document.getElementById('codeInput').addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
             checkCode();
+        }
+    });
+    
+    // ===== GESTION DE LA TOUCHE ÉCHAP v2.0 =====
+    // Touche Échap : Arrête le chrono + Envoie les stats + Ferme la page
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' || e.key === 'Esc' || e.keyCode === 27) {
+            // Arrêter le chronomètre et récupérer le temps écoulé
+            const unlockTime = stopTimer();
+            
+            // Mettre à jour et envoyer les stats au backend
+            if (typeof sendFlagToBackend === 'function' && typeof flagData !== 'undefined') {
+                flagData.unlock_time_seconds = unlockTime;
+                flagData.escaped = true; // Marqueur pour indiquer une sortie via Échap
+                sendFlagToBackend(flagData);
+            }
+            
+            // Fermer la page
+            setTimeout(function() {
+                if (window.opener) {
+                    window.close();
+                } else {
+                    window.location.href = "about:blank";
+                }
+            }, 500); // Petit délai pour laisser l'envoi se terminer
         }
     });
 

@@ -1,0 +1,14 @@
+# Protection du dossier stats
+# Bloquer l'accès direct aux fichiers JSON
+
+<FilesMatch "\.json$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Autoriser l'accès depuis le serveur local uniquement
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_URI} \.json$ [NC]
+    RewriteRule .* - [F,L]
+</IfModule>

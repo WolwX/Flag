@@ -1,0 +1,15 @@
+{
+  "version": "2.0",
+  "last_updated": null,
+  "flags": [],
+  "statistics": {
+    "total_flags": 0,
+    "unique_computers": 0,
+    "unique_flaggers": 0,
+    "unique_targets": 0,
+    "average_unlock_time": 0,
+    "top_flaggers": [],
+    "top_targets": [],
+    "top_computers": []
+  }
+}
