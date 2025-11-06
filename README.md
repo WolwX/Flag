@@ -3,8 +3,17 @@
 
 
 [![Version](https://img.shields.io/badge/version-1.2-brightgreen)](https://github.com/WolwX/Flag/releases/tag/v1.2)
-
 [![Licence](https://img.shields.io/badge/licence-Proprietary-red)](LICENSE)
+
+
+## 📖 À propos
+
+Flag 🚩 est un outil de sensibilisation à la sécurité informatique conçu pour simuler un écran bleu de la mort (BSoD) Windows. L'application permet de sensibiliser les collaborateurs aux bonnes pratiques de sécurité de manière ludique et interactive.
+
+### 🎯 Objectif
+
+Simuler un incident de sécurité pour encourager la vigilance et le signalement des comportements suspects auprès des équipes de sécurité.
+
 
 ## 🆕 Version 1.2 — Fichier Standalone
 
@@ -14,42 +23,29 @@
 
 ### ✨ Nouveautés v1.2
 
-- 📦 **Fichier standalone** - `flag.html` (36 KB) - Version portable avec CSS/JS/QR code inline## 🆕 Version 1.2 — Fichier Standalone
+- 📦 **Fichier standalone** - `flag.html` (36 KB) - Version portable avec CSS/JS/QR code inline-
 
-- 🔄 **Script de build** - `build_standalone.ps1` pour regénérer le fichier standalone
+- 🔄 **Script de build** - `build_standalone.ps1` pour regénérer le fichier standalone-
 
-- 🧹 **Projet nettoyé** - Suppression des fichiers temporaires et backups
+- 🧹 **Projet nettoyé** - Suppression des fichiers temporaires et backups-
 
-- 📁 **Structure organisée** - `.gitignore` pour éviter les futurs fichiers temporaires
+- 📁 **Structure organisée** - `.gitignore` pour éviter les futurs fichiers temporaires-
 
+- 📦 **Fichier standalone minifié** - `flag.html` (51 KB) - Version portable avec CSS/JS/QR code inline-
+
+- 🗜️ **Minification automatique** - CSS et JavaScript optimisés (réduction de 20%)-
+
+- 🧹 **Projet nettoyé** - Suppression des fichiers temporaires et backups-
 
 ---
 
 
 
-## 📖 À propos
-
-### ✨ Nouveautés v1.2
-
-**Flag ÔYS©** est un outil de sensibilisation à la sécurité informatique conçu pour simuler un écran bleu de la mort (BSoD) Windows. L'application permet de sensibiliser les collaborateurs aux bonnes pratiques de sécurité de manière ludique et interactive.
-
-- 📦 **Fichier standalone minifié** - `flag.html` (51 KB) - Version portable avec CSS/JS/QR code inline-
-
-### 🎯 Objectif
-
-Simuler un incident de sécurité pour encourager la vigilance et le signalement des comportements suspects auprès des équipes de sécurité.- 🗜️ **Minification automatique** - CSS et JavaScript optimisés (réduction de 20%)-
+## 🚀 Installation
 
 
 
----- 🔄 **Script de build** - `build_standalone_min.ps1` pour regénérer le fichier standalone-
-
-
-
-## 🚀 Installation- 🧹 **Projet nettoyé** - Suppression des fichiers temporaires et backups-
-
-
-
-### Option 1 : Fichier Standalone (Recommandé) ⭐- 📁 **Structure organisée** - `.gitignore` pour éviter les futurs fichiers temporaires-
+### Option 1 : Fichier Standalone (Recommandé) ⭐
 
 
 
@@ -57,11 +53,11 @@ Simuler un incident de sécurité pour encourager la vigilance et le signalement
 
 
 
-1. Téléchargez `flag.html` (36 KB)### 🎯 Fonctionnalités v1.1
+1. Téléchargez `flag.html` (36 KB)
 
 2. Ouvrez-le dans votre navigateur
 
-3. C'est tout ! Aucune dépendance externe- ✨ **Design finalisé** - Reproduction fidèle du BSoD Windows avec optimisations visuelles-
+3. C'est tout ! Aucune dépendance externe
 
 
 
