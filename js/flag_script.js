@@ -108,6 +108,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const timerDisplay = document.getElementById('timerDisplay');
     const timerText = document.getElementById('timerText');
     
+    // ===== GESTION NOM PC (LocalStorage) v1.5 =====
+    const inputComputerName = document.getElementById('inputComputerName');
+    
+    // Charger le nom PC sauvegardé
+    if (inputComputerName) {
+        const savedComputerName = localStorage.getItem('flag_computer_name');
+        if (savedComputerName) {
+            inputComputerName.value = savedComputerName;
+            console.log('💻 Nom PC restauré:', savedComputerName);
+        }
+        
+        // Sauvegarder automatiquement quand modifié
+        inputComputerName.addEventListener('blur', function() {
+            const computerName = inputComputerName.value.trim();
+            if (computerName) {
+                localStorage.setItem('flag_computer_name', computerName);
+                console.log('💾 Nom PC sauvegardé:', computerName);
+            }
+        });
+    }
+    
     // START button logic
     const startBtn = document.getElementById('startBtn');
     const configPanel = document.querySelector('.config-panel');
@@ -121,10 +142,21 @@ document.addEventListener('DOMContentLoaded', function() {
             const mainColorInput = document.getElementById('mainColorInput');
             const inputSecurityCode = document.getElementById('inputSecurityCode');
             const toggleLock = document.getElementById('toggleLock');
+            const inputComputerName = document.getElementById('inputComputerName');
+            
+            // Récupérer le nom PC (priorité: champ > LocalStorage > fallback)
+            let computerName = '';
+            if (inputComputerName && inputComputerName.value.trim()) {
+                computerName = inputComputerName.value.trim();
+                // Sauvegarder dans LocalStorage
+                localStorage.setItem('flag_computer_name', computerName);
+            } else {
+                computerName = localStorage.getItem('flag_computer_name') || getComputerName();
+            }
             
             // Préparer les données à envoyer
             flagData = {
-                computer_name: getComputerName(),
+                computer_name: computerName,
                 flagger_name: inputFlagger ? inputFlagger.value.trim() || 'Anonyme' : 'Anonyme',
                 target_name: inputTarget ? inputTarget.value.trim() || 'Inconnu' : 'Inconnu',
                 message: inputCustomText ? inputCustomText.value.trim() : '',

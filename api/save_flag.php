@@ -88,18 +88,35 @@ if ($jsonData === null) {
     ];
 }
 
+// Détecter le nom de l'ordinateur côté serveur
+// Priorité 1: Utiliser le nom fourni par le client (depuis LocalStorage)
+// Priorité 2: Détecter automatiquement via reverse DNS et User-Agent
+$clientComputerName = isset($data['computer_name']) ? sanitize($data['computer_name']) : '';
+$detectedComputerName = detectComputerName();
+
+// Si le client a fourni un nom valide (pas un hash généré), l'utiliser
+$finalComputerName = $clientComputerName;
+if (empty($clientComputerName) || preg_match('/^Win\d+-\w+-\d+-[A-F0-9]{4}$/i', $clientComputerName)) {
+    // Si vide ou si c'est un hash auto-généré, utiliser la détection serveur
+    $finalComputerName = $detectedComputerName;
+}
+
 // Créer le nouvel enregistrement de flag
 $newFlag = [
     'id' => count($jsonData['flags']) + 1,
     'timestamp' => date('c'), // Format ISO 8601
-    'computer_name' => sanitize($data['computer_name']),
+    'computer_name' => $finalComputerName, // Nom final retenu
+    'computer_name_client' => $clientComputerName, // Nom fourni par le client
+    'computer_name_detected' => $detectedComputerName, // Nom détecté par le serveur
     'flagger_name' => sanitize($data['flagger_name']),
     'target_name' => sanitize($data['target_name']),
     'message' => isset($data['message']) ? sanitize($data['message']) : '',
     'color' => isset($data['color']) ? sanitize($data['color']) : '007BD7',
     'has_code' => isset($data['has_code']) ? (bool)$data['has_code'] : false,
     'unlock_time_seconds' => isset($data['unlock_time_seconds']) ? (int)$data['unlock_time_seconds'] : null,
-    'ip_address' => $_SERVER['REMOTE_ADDR'] ?? 'unknown'
+    'ip_address' => $_SERVER['REMOTE_ADDR'] ?? 'unknown',
+    'user_agent' => $_SERVER['HTTP_USER_AGENT'] ?? 'unknown',
+    'remote_host' => $_SERVER['REMOTE_HOST'] ?? null
 ];
 
 // Ajouter le flag
@@ -126,6 +143,83 @@ echo json_encode([
     'flag_id' => $newFlag['id'],
     'timestamp' => $newFlag['timestamp']
 ]);
+
+/**
+ * Détection améliorée du nom de l'ordinateur
+ */
+function detectComputerName() {
+    $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
+    
+    // 1. Essayer le hostname via reverse DNS
+    $hostname = null;
+    if (isset($_SERVER['REMOTE_ADDR'])) {
+        $hostname = @gethostbyaddr($_SERVER['REMOTE_ADDR']);
+        // Si gethostbyaddr retourne l'IP ou un hostname FAI, ignorer
+        if ($hostname && 
+            $hostname !== $_SERVER['REMOTE_ADDR'] && 
+            !preg_match('/\d{1,3}-\d{1,3}-\d{1,3}-\d{1,3}/', $hostname) && // Pas format IP
+            !preg_match('/\.(com|net|fr|org|eu)$/i', $hostname)) { // Pas un domaine public
+            
+            $parts = explode('.', $hostname);
+            $computerName = strtoupper($parts[0]);
+            
+            // Vérifier que c'est un vrai nom d'ordinateur (pas juste des chiffres)
+            if (!preg_match('/^\d+$/', $computerName)) {
+                return $computerName;
+            }
+        }
+    }
+    
+    // 2. Analyser le User-Agent pour extraire des infos système
+    $os = 'PC';
+    $browser = '';
+    
+    // Détecter Windows version
+    if (preg_match('/Windows NT 10\.0/i', $userAgent)) {
+        $os = 'Win10';
+    } elseif (preg_match('/Windows NT 11\.0/i', $userAgent)) {
+        $os = 'Win11';
+    } elseif (preg_match('/Windows NT 6\.3/i', $userAgent)) {
+        $os = 'Win8.1';
+    } elseif (preg_match('/Windows NT 6\.1/i', $userAgent)) {
+        $os = 'Win7';
+    } elseif (preg_match('/Windows/i', $userAgent)) {
+        $os = 'Windows';
+    } elseif (preg_match('/Macintosh.*Mac OS X (\d+)_(\d+)/i', $userAgent, $matches)) {
+        $os = 'Mac' . $matches[1] . '.' . $matches[2];
+    } elseif (preg_match('/Linux/i', $userAgent)) {
+        $os = 'Linux';
+    }
+    
+    // Détecter le navigateur
+    if (preg_match('/Edge\/(\d+)/i', $userAgent, $matches)) {
+        $browser = 'Edge' . $matches[1];
+    } elseif (preg_match('/Chrome\/(\d+)/i', $userAgent, $matches)) {
+        $browser = 'Chrome' . $matches[1];
+    } elseif (preg_match('/Firefox\/(\d+)/i', $userAgent, $matches)) {
+        $browser = 'Firefox' . $matches[1];
+    } elseif (preg_match('/Safari\/(\d+)/i', $userAgent)) {
+        $browser = 'Safari';
+    }
+    
+    // 3. Créer un identifiant basé sur IP locale (dernier octet)
+    $ip = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
+    $ipParts = explode('.', $ip);
+    $lastOctet = str_pad(end($ipParts), 3, '0', STR_PAD_LEFT);
+    
+    // 4. Hash court du User-Agent pour identifier la machine
+    $uaHash = strtoupper(substr(md5($userAgent), 0, 4));
+    
+    // 5. Construire un nom composite lisible
+    // Format: Win10-Chrome141-137-A3F5
+    $computerName = $os;
+    if ($browser) {
+        $computerName .= '-' . $browser;
+    }
+    $computerName .= '-' . $lastOctet . '-' . $uaHash;
+    
+    return $computerName;
+}
 
 /**
  * Fonction de nettoyage des données
