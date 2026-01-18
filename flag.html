@@ -368,8 +368,30 @@ document.addEventListener('DOMContentLoaded', function() {
     if (inputCustomText && customMessageDisplay) {
         inputCustomText.addEventListener('input', function() {
             const message = inputCustomText.value.trim();
-            customMessageDisplay.textContent = message;
-            customMessageDisplay.style.display = message ? 'block' : 'none';
+            // Afficher seulement si le toggle est activé ET qu'il y a un message
+            if (toggleCustomText && toggleCustomText.checked && message) {
+                customMessageDisplay.textContent = message;
+                customMessageDisplay.style.display = 'block';
+            } else {
+                customMessageDisplay.style.display = 'none';
+            }
+        });
+    }
+    
+    // Toggle du message personnalisé
+    if (toggleCustomText && customMessageDisplay && inputCustomText) {
+        toggleCustomText.addEventListener('change', function() {
+            if (toggleCustomText.checked) {
+                // Activé : afficher le message s'il existe
+                const message = inputCustomText.value.trim();
+                if (message) {
+                    customMessageDisplay.textContent = message;
+                    customMessageDisplay.style.display = 'block';
+                }
+            } else {
+                // Désactivé : masquer le message
+                customMessageDisplay.style.display = 'none';
+            }
         });
     }
     
@@ -585,8 +607,17 @@ function checkCode() {
     const inputSecurityCode = document.getElementById('inputSecurityCode');
     const securityCode = inputSecurityCode ? inputSecurityCode.value.trim().toUpperCase() : '';
     
-    // Si aucun code n'est défini dans la config, utiliser expectedCode (pour compatibilité URL)
-    const codeAttendu = securityCode || expectedCode;
+    // Si un code est défini dans la config, l'utiliser
+    // Sinon, si aucun code n'est défini (vide), accepter un code vide
+    // Pour compatibilité URL, utiliser expectedCode seulement si pas de config bar
+    let codeAttendu;
+    if (inputSecurityCode) {
+        // Config bar présente : utiliser le code configuré (même si vide)
+        codeAttendu = securityCode;
+    } else {
+        // Pas de config bar (URL directe) : utiliser expectedCode
+        codeAttendu = expectedCode;
+    }
 
     // Vérification du code
     if (codeEntré === codeAttendu) { 
@@ -609,11 +640,10 @@ function checkCode() {
         
         // Fermeture après 3 secondes
         setTimeout(function() {
-            if (window.opener) {
-                window.close();
-            } else {
-                window.location.href = "about:blank"; 
-            }
+            window.close();
+            setTimeout(function() {
+                document.body.innerHTML = '<div style="display:flex;justify-content:center;align-items:center;height:100vh;background:#28a745;color:#fff;font-family:Consolas,monospace;text-align:center;flex-direction:column;"><h1 style="font-size:3vw;margin-bottom:1em;">✅ Débloqué avec succès !</h1><p style="font-size:1.5vw;margin-bottom:2em;">Vous pouvez fermer cet onglet</p><p style="font-size:1.2vw;opacity:0.8;">(Appuyez sur Ctrl+W ou fermez l\'onglet manuellement)</p></div>';
+            }, 100);
         }, 3000);
 
     } else {
