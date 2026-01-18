@@ -1,110 +1,135 @@
-# FLAG - CONTEXTE PROJET (Pour l'Assistance IA)---
+# FLAG - CONTEXTE PROJET (Pour l'Assistance IA)
 
-
+---
 
 ## 📍 SOURCE OFFICIELLE
 
 **Dépôt** : https://github.com/WolwX/Flag
 
-**Version** : 1.2 (05/11/2025)
+**Version** : 1.3 (18/01/2026)
 
 > ⚠️ **IMPORTANT** : Ce document définit les objectifs, le design final et l'état actuel du projet.
 
----# FLAG - CONTEXTE PROJET (Pour l'Assistance IA)
+---
 
-
-
-## ⚡ INFOS RAPIDES## 📍 SOURCE OFFICIELLE
-
-**Dépôt** : https://github.com/WolwX/Flag
+## ⚡ INFOS RAPIDES
 
 - **Nom** : Flag (Outil de sensibilisation à la sécurité informatique)
-
-- **Type** : Application web de sensibilisation - Simulation BSoD> ⚠️ **IMPORTANT** : Ce document définit les objectifs et le design final.
-
+- **Type** : Application web de sensibilisation - Simulation BSoD
 - **Tech** : HTML5 / CSS3 / JavaScript Vanilla (Frontend 100% client-side)
-
-- **Version actuelle** : **v1.1** (05/11/2025)---
-
+- **Version actuelle** : **v1.3** (18/01/2026)
 - **Phase** : Frontend Production Ready - Backend prévu en v2.0
-
-- **Objectif** : Simuler un Écran Bleu de la Mort (BSoD) pour sensibiliser les collaborateurs qui laissent leur session ouverte## ⚡ INFOS RAPIDES
-
+- **Objectif** : Simuler un Écran Bleu de la Mort (BSoD) pour sensibiliser les collaborateurs qui laissent leur session ouverte
 - **Développeur** : Xavier (WolwX)
+- **Contact** : wolwx@hotmail.com
+- **GitHub** : https://github.com/WolwX
+- **Assistance IA** : GitHub Copilot / Claude
 
-- **Contact** : wolwx@hotmail.com- **Nom** : Flag (ou Croissantage BSoD)
+---
 
-- **GitHub** : https://github.com/WolwX- **Type** : Outil de sensibilisation à la sécurité informatique
+## 📋 ÉTAT ACTUEL v1.3 (Résumé)
 
-- **Assistance IA** : GitHub Copilot / Claude- **Tech** : HTML / CSS / JS (Client léger) + Python / Flask (Backend API simple)
-
-- **Version actuelle** : v0.2.1.20251030 (Front-end validé, design BSoD conforme)
-
----- **Phase** : Finalisation du Front-end et implémentation du Backend.
-
-- **Objectif** : Simuler un Écran Bleu de la Mort (BSoD) pour piéger les collègues qui laissent leur session ouverte.
-
-## 📋 ÉTAT ACTUEL v1.1 (Résumé)- **Développeur** : (Votre Nom / Alias)
-
-- **Assistance IA** : Gemini
-
-**Version** : 1.1 - Support Complet des Paramètres URL  
-
-**Date** : 05/11/2025  ---
-
-**Status** : ✅ Production Ready (Frontend complet)
-
-## 📋 ÉTAT ACTUEL (Résumé)
-
-### ✅ Fonctionnalités Implémentées
-
-**Version** : 0.2.1.20251030 - Front-end validé, design BSoD conforme
+**Version** : 1.3 - Branding & Corrections  
+**Date** : 18/01/2026  
+**Status** : ✅ Production Ready (Frontend complet + Branding personnalisable)
 
 **Interface & Design :**
 
-- ✅ Design BSoD authentique (Windows 10/11) avec couleur #0078d7**Avancement** :
+- ✅ Design BSoD authentique (Windows 10/11) avec couleur #0078d7
+- ✅ Layout 2 colonnes (gauche: BSoD classique, droite: éléments personnalisables)
+- ✅ Config bar horizontale compacte (52px, position fixed top, z-index 1000)
+- ✅ 6 sections de configuration + bouton FLAG (130px, vert, position absolute)
+- ✅ Espacement optimisé selon le BSoD Windows original (.footer-row: 0.5vw/2vw)
+- ✅ Responsive et compatible tous navigateurs modernes
+- ✅ Branding line personnalisable avec emoji Unicode ℹ️
 
-- ✅ Layout 2 colonnes (gauche: BSoD classique, droite: éléments personnalisables)- ✅ Design BSoD (Bleu) implémenté en CSS.
+**Configuration Bar (6 sections) :**
 
-- ✅ Config bar horizontale compacte (52px, position fixed top, z-index 1000)- ✅ Structure HTML complète et validée.
-
-- ✅ 6 sections de configuration + bouton FLAG (130px, vert, position absolute)- ✅ Correction des problèmes de superposition et d'alignement (smiley, champ de saisie centré en bas).
-
-- ✅ Espacement optimisé selon le BSoD Windows original (.footer-row: 0.5vw/2vw)- ⏳ Fonctionnalité JS de base (lecture de l'URL et validation du code) à finaliser.
-
-- ✅ Responsive et compatible tous navigateurs modernes- ⏳ Implémentation du Backend (Flask/Python) pour l'enregistrement des 'Flags' et la vérification du code.
-
-
-
-**Configuration Bar (6 sections) :****Fichiers du projet** :
-
-1. ✅ **Icône** : Sélecteur avec 16 émojis (Aucun, 🚩, 😀 😊 😂 😎 😍 🤔 😱 😡, 🍕 🍔 🍰 🍺, 🏆 ⚠️)1. **index.html** : Structure de la page.
-
-2. ✅ **Couleur** : 4 couleurs prédéfinies (Blue, Red, Magenta, Green) + saisie HEX personnalisée2. **css/flag_style.css** : Styles (BSoD, responsive, positionnement).
-
-3. ✅ **Flag par** : Champ texte pour le nom du flagger (met à jour 2 emplacements en gras)3. **js/flag_script.js** : Logique client (URL, full-screen, envoi des données).
-
-4. ✅ **Message perso** : Zone de texte personnalisable (affichage top 40% colonne droite)4. **app.py** (à créer) : Backend Flask pour l'API.
-
+1. ✅ **Icône** : Sélecteur avec 16 émojis (Aucun, 🚩, 😀 😊 😂 😎 😍 🤔 😱 😡, 🍕 🍔 🍰 🍺, 🏆 ⚠️)
+2. ✅ **Couleur** : 4 couleurs prédéfinies (Blue, Red, Magenta, Green) + saisie HEX personnalisée
+3. ✅ **Flag par** : Champ texte pour le nom du flagger (met à jour 2 emplacements en gras)
+4. ✅ **Message perso** : Zone de texte personnalisable (affichage top 40% colonne droite)
 5. ✅ **Récompense** : Sélecteur avec 13 récompenses (Aucun, ☕ Café, 🥤 Boisson, 🥐 Croissant, 🍫 Chocolat, 🍬 Bonbon, 🍰 Gâteau, 🍕 Pizza, 🍽️ Repas, 🍺 Bière, 💋 Bisous, 🤗 Câlin, 🤝 Service)
+6. ✅ **Lock** : Toggle pour activer/désactiver le verrouillage (unchecked par défaut)
 
-6. ✅ **Lock** : Toggle pour activer/désactiver le verrouillage (unchecked par défaut)---
-
-
-
-**Fonctionnalités Dynamiques :**## 🎨 DESIGN & OBJECTIFS CLÉS
+**Fonctionnalités Dynamiques :**
 
 - ✅ **Chronomètre/Timer** : Format MM:SS, démarre au clic FLAG, position top 10% colonne droite
-
-- ✅ **Système de verrouillage** : Code de sécurité configurable, validation contre inputSecurityCode### Thème Visuel
-
-- ✅ **Messages personnalisés** : Overlay rouge (erreur) et vert (succès), sans sortie du plein écran- **Inspiration** : Écran Bleu de la Mort (BSoD) de Windows 10/11.
-
-- ✅ **Application dynamique** : Tous les paramètres s'appliquent en temps réel- **Couleur Primaire** : Bleu Windows (`#0078D7`).
-
-- ✅ **Plein écran automatique** : Au clic sur le bouton FLAG- **Typographie** : Claire, moderne (simulant 'Segoe UI').
-
+- ✅ **Système de verrouillage** : Code de sécurité configurable, validation contre inputSecurityCode
+- ✅ **Bouton déverrouillage simple** : Apparaît uniquement après FLAG si lock désactivé
+- ✅ **Messages personnalisés** : Overlay rouge (erreur) et vert (succès), sans sortie du plein écran
+- ✅ **Application dynamique** : Tous les paramètres s'appliquent en temps réel
+- ✅ **Plein écran automatique** : Au clic sur le bouton FLAG
 - ✅ **Icône dynamique** : Preview et affichage au centre de la colonne droite
+- ✅ **Couleur dynamique** : Application sur tout le fond (body + bsod-container)
+- ✅ **Récompense dynamique** : Affichage bottom 30% colonne droite
+
+**Paramètres URL (v1.3 - 9 paramètres) :**
+
+✨ **9 paramètres supportés** : 100% de la config bar + branding accessible via URL
+
+  * `code` : Code de sécurité (exemple: `?code=SEC2024`)
+  * `flagger` : Nom du flagger (exemple: `?flagger=Jean`)
+  * `msg` : Message personnalisé (exemple: `?msg=Attention%20phishing!`)
+  * `icon` : Icône emoji, 16 options (exemple: `?icon=🚩`)
+  * `color` : Couleur de fond (exemple: `?color=blue` ou `?color=ff5733`)
+    - 4 couleurs prédéfinies : blue (#0078d7), red (#e81123), magenta (#ff00ff), green (#00b300)
+    - Code HEX personnalisé : avec ou sans # (exemple: `ff5733` ou `#ff5733`)
+  * `reward` : Récompense, 13 options (exemple: `?reward=Café`)
+  * `lock` : État du verrouillage (exemple: `?lock=true`, accepte: true/false/1/0/on/off)
+  * `client` : Nom du client pour branding (exemple: `?client=Entreprise%20XYZ`)
+  * `brandingurl` : URL du lien branding (exemple: `?brandingurl=https://exemple.com`)
+
+**Exemples d'URLs complètes :**
+
+```
+Simple    : index.html?code=TEST&flagger=Jean
+Complet   : index.html?code=SEC2024&flagger=Admin&msg=Bravo!&icon=🏆&color=green&reward=Café&lock=true
+Branding  : index.html?client=ACME%20Corp&brandingurl=https://acme.com
+Formation : index.html?code=FORM&flagger=IT&icon=🎓&color=blue&reward=Croissant&lock=true
+```
+
+---
+
+## 📁 Structure des Fichiers (v1.3)
+
+```
+flag/
+├── index.html                      # Page principale avec config bar et layout 2 colonnes
+├── flag.html                       # Fichier standalone (emoji Unicode ℹ️)
+├── test_url_params.html            # Page de test interactive (12 exemples) [v1.1]
+├── README.md                       # Documentation complète v1.3
+├── EXEMPLES_URL.md                 # Guide des paramètres URL (25+ exemples) [v1.1]
+├── URL_PARAMS_CONFIRMATION.md      # Documentation technique paramètres [v1.1]
+├── build_standalone.ps1            # Script de build standalone
+├── .gitignore                      # Fichiers à ignorer
+├── css/
+│   └── flag_style.css              # Styles optimisés (avec branding)
+├── js/
+│   └── flag_script.js              # Logique applicative complète + 9 paramètres URL
+├── img/
+│   └── qr_code.png                 # QR code de sensibilisation
+│   └── qr_standalone.txt           # QR Base64 pour standalone
+├── api/
+│   ├── get_stats.php               # API statistiques
+│   ├── save_flag.php               # API enregistrement
+│   └── README.md                   # Doc API
+├── stats/
+│   └── flags.json                  # Stockage JSON
+└── docs/
+    ├── PROJECT_CONTEXT             # Ce fichier - Contexte du projet
+    └── PROJECT_REFERENCE           # Référence technique détaillée
+```
+
+---
+
+## 🎨 DESIGN & OBJECTIFS CLÉS
+
+### Thème Visuel
+- **Inspiration** : Écran Bleu de la Mort (BSoD) de Windows 10/11
+- **Couleur Primaire** : Bleu Windows (`#0078d7`)
+- **Couleurs Alternatives** : Rouge (`#e81123`), Magenta (`#ff00ff`), Vert (`#00b300`)
+- **Typographie** : Segoe UI (Windows) avec fallback sur system-ui
 
 - ✅ **Couleur dynamique** : Application sur tout le fond (body + bsod-container)### Éléments d'Interface (Front-end)
 
