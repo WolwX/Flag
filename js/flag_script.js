@@ -2,6 +2,7 @@
 
 // ===== VARIABLES GLOBALES v2.0 =====
 let currentFlaggerName = 'votre collègue vigilant'; // Nom par défaut
+let expectedCode = 'RECOMPENSE'; // Code par défaut centralisé
 let flagData = {}; // Stockage temporaire des données du flag
 
 // Variables pour le timer (globales pour être accessibles partout)
@@ -103,8 +104,82 @@ function stopTimer() {
     return 0;
 }
 
+/**
+ * Gestion du verrouillage (fonction globale pour compatibilité URL)
+ */
+function updateLockState() {
+    const toggleLock = document.getElementById('toggleLock');
+    const inputSecurityCode = document.getElementById('inputSecurityCode');
+    const unlockSection = document.getElementById('unlockSection');
+    const simpleUnlockSection = document.getElementById('simpleUnlockSection');
+    
+    // Si toggleLock existe ET est coché = lock activé
+    // Sinon (pas de toggleLock ou non coché) = bouton simple
+    const isLocked = toggleLock && toggleLock.checked;
+    
+    if (isLocked) {
+        // Lock activé : afficher section avec code
+        if (inputSecurityCode) inputSecurityCode.style.display = '';
+        if (unlockSection) unlockSection.style.display = '';
+        if (simpleUnlockSection) simpleUnlockSection.style.display = 'none';
+    } else {
+        // Lock désactivé ou absent : afficher bouton simple
+        if (inputSecurityCode) inputSecurityCode.style.display = 'none';
+        if (unlockSection) unlockSection.style.display = 'none';
+        if (simpleUnlockSection) simpleUnlockSection.style.display = 'block';
+    }
+}
+
+/**
+ * Déverrouillage simple (sans code) quand le lock n'est pas activé
+ */
+function simpleUnlock() {
+    // Arrêter le timer et récupérer le temps écoulé
+    const unlockTime = stopTimer();
+    
+    // Mettre à jour et envoyer les stats au backend
+    if (typeof sendFlagToBackend === 'function' && typeof flagData !== 'undefined') {
+        flagData.unlock_time_seconds = unlockTime;
+        flagData.simple_unlock = true; // Marqueur pour indiquer un déverrouillage simple
+        sendFlagToBackend(flagData);
+    }
+    
+    // Sortir du mode plein écran
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+    } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+    }
+    
+    // Afficher message de succès
+    const flaggerNameElement = document.getElementById('flaggerName1');
+    const currentName = flaggerNameElement ? flaggerNameElement.textContent : 'votre collègue vigilant';
+    
+    let successMessage = '✅ Écran déverrouillé\n\n';
+    successMessage += `Signalé par : ${currentName}`;
+    successMessage += `\n\nTemps écoulé : ${Math.floor(unlockTime / 60)}min ${unlockTime % 60}s`;
+    
+    showSuccessMessage(successMessage);
+    
+    // Fermeture après 3 secondes
+    setTimeout(function() {
+        window.close();
+        setTimeout(function() {
+            document.body.innerHTML = '<div style="display:flex;justify-content:center;align-items:center;height:100vh;background:#28a745;color:#fff;font-family:Consolas,monospace;text-align:center;flex-direction:column;"><h1 style="font-size:3vw;margin-bottom:1em;">✅ Écran déverrouillé !</h1><p style="font-size:1.5vw;margin-bottom:2em;">Vous pouvez fermer cet onglet</p><p style="font-size:1.2vw;opacity:0.8;">(Appuyez sur Ctrl+W ou fermez l\'onglet manuellement)</p></div>';
+        }, 100);
+    }, 3000);
+}
+
 // ===== INITIALISATION DOMContentLoaded =====
 document.addEventListener('DOMContentLoaded', function() {
+    // Charger les paramètres URL en premier
+    if (typeof getUrlParameters === 'function') {
+        getUrlParameters();
+    }
     const timerDisplay = document.getElementById('timerDisplay');
     const timerText = document.getElementById('timerText');
     
@@ -137,7 +212,6 @@ document.addEventListener('DOMContentLoaded', function() {
             // ===== ENVOI AU BACKEND v2.0 =====
             // Récupérer toutes les données de configuration
             const inputFlagger = document.getElementById('inputFlagger');
-            const inputTarget = document.getElementById('inputTarget');
             const inputCustomText = document.getElementById('inputCustomText');
             const mainColorInput = document.getElementById('mainColorInput');
             const inputSecurityCode = document.getElementById('inputSecurityCode');
@@ -158,7 +232,6 @@ document.addEventListener('DOMContentLoaded', function() {
             flagData = {
                 computer_name: computerName,
                 flagger_name: inputFlagger ? inputFlagger.value.trim() || 'Anonyme' : 'Anonyme',
-                target_name: inputTarget ? inputTarget.value.trim() || 'Inconnu' : 'Inconnu',
                 message: inputCustomText ? inputCustomText.value.trim() : '',
                 color: mainColorInput ? mainColorInput.value : '#007BD7',
                 has_code: toggleLock ? toggleLock.checked : false,
@@ -181,6 +254,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             // Masquer la config bar
             if (configPanel) configPanel.style.display = 'none';
+            
+            // Afficher le bon bouton de déverrouillage selon le mode lock
+            updateLockState();
         });
     }
     // Gestion de l'icône emoji
@@ -293,31 +369,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialisation du titre
     document.title = 'Pris en Flag';
 
-    // Gestion du verrouillage
-    function updateLockState() {
-        if (toggleLock && toggleLock.checked) {
-            // Lock activé : afficher le champ code et la section débloquer
-            if (inputSecurityCode) {
-                inputSecurityCode.style.display = '';
-            }
-            if (unlockSection) {
-                unlockSection.style.display = '';
-            }
-        } else {
-            // Lock désactivé : cacher le champ code et la section débloquer
-            if (inputSecurityCode) {
-                inputSecurityCode.style.display = 'none';
-            }
-            if (unlockSection) {
-                unlockSection.style.display = 'none';
-            }
-        }
-    }
-    
+    // Initialiser le listener du toggle lock
     if (toggleLock) {
         toggleLock.addEventListener('change', updateLockState);
-        // Initialisation (désactivé par défaut)
-        updateLockState();
+        updateLockState(); // Initialisation
     }
 });
 // --- 🚩 CONFIGURATION IMPORTANTE (À MODIFIER) ---
@@ -326,9 +381,6 @@ document.addEventListener('DOMContentLoaded', function() {
 const URL_SERVEUR_LOG = "http://votre-serveur/api/enregistrer_flag"; 
 
 // --- VARIABLES GLOBALES ---
-
-let expectedCode = "RECOMPENSE"; // Code par défaut si l'URL ne fournit pas de code
-let flaggerName = "Un Collègue Vigilant"; // Nom par défaut
 
 // --- FONCTIONS LOGIQUES ---
 
@@ -349,9 +401,8 @@ function getUrlParameters() {
     // 2. Définition du Nom du Flagger (pour le message de reward)
     if (urlParams.has('flagger')) {
         const name = urlParams.get('flagger').trim();
-        flaggerName = name;
         currentFlaggerName = name;
-        const nameInput = document.getElementById('flaggerName');
+        const nameInput = document.getElementById('inputFlagger');
         if (nameInput) {
             nameInput.value = name;
         }
@@ -363,11 +414,11 @@ function getUrlParameters() {
     }
     
     // 3. Mise à jour du Message personnalisé
-    const customMessageElement = document.getElementById('custom-message');
+    const customMessageElement = document.getElementById('customMessageDisplay');
     if (urlParams.has('msg') && customMessageElement) {
         const msg = decodeURIComponent(urlParams.get('msg')); 
         customMessageElement.innerHTML = msg;
-        const msgInput = document.getElementById('customMessage');
+        const msgInput = document.getElementById('inputCustomText');
         if (msgInput) {
             msgInput.value = msg;
         }
@@ -380,7 +431,7 @@ function getUrlParameters() {
         if (iconSelect) {
             iconSelect.value = icon;
             // Déclencher manuellement l'update
-            const emojiBgPreview = document.getElementById('emojiBgPreview');
+            const emojiBgPreview = document.getElementById('emoji-bg-preview');
             if (emojiBgPreview) {
                 emojiBgPreview.textContent = icon;
                 emojiBgPreview.style.display = icon ? 'flex' : 'none';
@@ -523,11 +574,12 @@ function checkCode() {
         
         // Fermeture après 3 secondes
         setTimeout(function() {
-            if (window.opener) {
-                window.close();
-            } else {
-                window.location.href = "about:blank"; 
-            }
+            // Tenter de fermer l'onglet
+            window.close();
+            // Si window.close() échoue, afficher page de remerciement
+            setTimeout(function() {
+                document.body.innerHTML = '<div style="display:flex;justify-content:center;align-items:center;height:100vh;background:#28a745;color:#fff;font-family:Consolas,monospace;text-align:center;flex-direction:column;"><h1 style="font-size:3vw;margin-bottom:1em;">✅ Déblocage réussi !</h1><p style="font-size:1.5vw;margin-bottom:2em;">Vous pouvez fermer cet onglet</p><p style="font-size:1.2vw;opacity:0.8;">(Appuyez sur Ctrl+W ou fermez l\'onglet manuellement)</p></div>';
+            }, 100);
         }, 3000);
 
     } else {
@@ -664,16 +716,26 @@ function enregistrerFlag(success, flagger) {
 // --- DÉMARRAGE ET GESTION DES ÉVÉNEMENTS ---
 
 window.onload = function() {
-    getUrlParameters(); // Récupère les paramètres de l'URL
-    enterFullscreen(); 
-    document.getElementById('codeInput').focus();
+    // getUrlParameters(); // Déjà appelé dans DOMContentLoaded
+    enterFullscreen();
+    
+    // Afficher le bon bouton de déverrouillage selon le mode lock
+    updateLockState();
+    
+    // Focus sur le champ code seulement s'il est visible
+    const codeInput = document.getElementById('codeInput');
+    if (codeInput && codeInput.offsetParent !== null) {
+        codeInput.focus();
+    }
     
     // Permet de valider en appuyant sur 'Entrée'
-    document.getElementById('codeInput').addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            checkCode();
-        }
-    });
+    if (codeInput) {
+        codeInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkCode();
+            }
+        });
+    }
     
     // ===== GESTION DE LA TOUCHE ÉCHAP v2.0 =====
     // Touche Échap : Arrête le chrono + Envoie les stats + Ferme la page
@@ -691,11 +753,12 @@ window.onload = function() {
             
             // Fermer la page
             setTimeout(function() {
-                if (window.opener) {
-                    window.close();
-                } else {
-                    window.location.href = "about:blank";
-                }
+                // Tenter de fermer l'onglet
+                window.close();
+                // Si window.close() échoue, afficher page de remerciement
+                setTimeout(function() {
+                    document.body.innerHTML = '<div style="display:flex;justify-content:center;align-items:center;height:100vh;background:#007BD7;color:#fff;font-family:Consolas,monospace;text-align:center;flex-direction:column;"><h1 style="font-size:3vw;margin-bottom:1em;">Session terminée</h1><p style="font-size:1.5vw;margin-bottom:2em;">Vous pouvez fermer cet onglet</p><p style="font-size:1.2vw;opacity:0.8;">(Appuyez sur Ctrl+W ou fermez l\'onglet manuellement)</p></div>';
+                }, 100);
             }, 500); // Petit délai pour laisser l'envoi se terminer
         }
     });

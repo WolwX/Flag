@@ -123,6 +123,7 @@ body{margin:0;padding:0;background-color:#0078D7;color:white;font-family:'Segoe 
                 <div class="footer-left">
                     <span class="completion-text">100% achevés</span>
                 </div>
+                <!-- Section pour déblocage AVEC code (quand lock activé) -->
                 <div class="footer-right" id="unlockSection" style="display:none;">
                     <div class="footer-inline">
                         <input type="password" id="codeInput" placeholder="Code de sécurité..." autofocus>
@@ -141,7 +142,7 @@ body{margin:0;padding:0;background-color:#0078D7;color:white;font-family:'Segoe 
                                 <p>Pour plus d'informations sur les bonnes pratiques de sécurité, scannez le code.</p>
                             </div>
                             <div class="code-defaillance">
-                                <p>Code de défaillance : <b>OBLI_VERROUILLAGE</b></p>
+                                <p>Code de défaillance : <b>OUBLIE_VERROUILLAGE</b></p>
                             </div>
                         </div>
                     </div>
@@ -153,6 +154,10 @@ body{margin:0;padding:0;background-color:#0078D7;color:white;font-family:'Segoe 
                 <div id="timerDisplay" class="timer-display" style="display:none;">
                     <p class="timer-label">⏱️ Flaggé depuis</p>
                     <p id="timerText" class="timer-text">00:00</p>
+                </div>
+                <!-- Bouton pour déverrouillage SANS code (quand lock désactivé) -->
+                <div id="simpleUnlockSection" style="display:none;position:absolute;top:28%;left:50%;transform:translateX(-50%);z-index:20;">
+                    <button onclick="simpleUnlock()" style="background-color:#28a745;color:#fff;font-size:1.3vw;padding:15px 40px;border:none;border-radius:8px;cursor:pointer;font-weight:bold;box-shadow:0 4px 15px rgba(0,0,0,0.3);transition:all 0.3s;" onmouseover="this.style.backgroundColor='#218838';this.style.transform='scale(1.05)';" onmouseout="this.style.backgroundColor='#28a745';this.style.transform='scale(1)';">🔓 Déverrouiller mon écran</button>
                 </div>
                 <p id="customMessageDisplay" class="custom-message-display"></p>
                 <div id="emoji-bg-preview" class="emoji-bg-preview"></div>
@@ -202,11 +207,52 @@ document.addEventListener('DOMContentLoaded', function() {
             clearInterval(timerInterval);
             timerInterval = null;
         }
+        // Retourner le temps écoulé en secondes
+        if (startTime) {
+            return Math.floor((Date.now() - startTime) / 1000);
+        }
+        return 0;
     }
+    
+    // Fonction de déverrouillage simple (sans code)
+    window.simpleUnlock = function() {
+        // Arrêter le timer et récupérer le temps écoulé
+        const unlockTime = stopTimer();
+        
+        // Sortir du mode plein écran
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        }
+        
+        // Afficher message de succès
+        const flaggerNameElement = document.getElementById('flaggerName1');
+        const currentName = flaggerNameElement ? flaggerNameElement.textContent : 'votre collègue vigilant';
+        
+        let successMessage = '✅ Écran déverrouillé\n\n';
+        successMessage += `Signalé par : ${currentName}`;
+        successMessage += `\n\nTemps écoulé : ${Math.floor(unlockTime / 60)}min ${unlockTime % 60}s`;
+        
+        showSuccessMessage(successMessage);
+        
+        // Fermeture après 3 secondes
+        setTimeout(function() {
+            window.close();
+            setTimeout(function() {
+                document.body.innerHTML = '<div style="display:flex;justify-content:center;align-items:center;height:100vh;background:#28a745;color:#fff;font-family:Consolas,monospace;text-align:center;flex-direction:column;"><h1 style="font-size:3vw;margin-bottom:1em;">✅ Écran déverrouillé !</h1><p style="font-size:1.5vw;margin-bottom:2em;">Vous pouvez fermer cet onglet</p><p style="font-size:1.2vw;opacity:0.8;">(Appuyez sur Ctrl+W ou fermez l\'onglet manuellement)</p></div>';
+            }, 100);
+        }, 3000);
+    };
     
     // START button logic
     const startBtn = document.getElementById('startBtn');
     const configPanel = document.querySelector('.config-panel');
+    const simpleUnlockSection = document.getElementById('simpleUnlockSection');
     if (startBtn) {
         startBtn.addEventListener('click', function() {
             // Démarrer le chronomètre
@@ -222,6 +268,17 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             // Masquer la config bar
             if (configPanel) configPanel.style.display = 'none';
+            
+            // Afficher le bon bouton de déverrouillage selon le mode lock
+            if (toggleLock && toggleLock.checked) {
+                // Lock activé : afficher section avec code
+                if (unlockSection) unlockSection.style.display = 'block';
+                if (simpleUnlockSection) simpleUnlockSection.style.display = 'none';
+            } else {
+                // Lock désactivé : afficher bouton simple
+                if (unlockSection) unlockSection.style.display = 'none';
+                if (simpleUnlockSection) simpleUnlockSection.style.display = 'block';
+            }
         });
     }
     // Gestion de l'icône emoji
