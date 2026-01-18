@@ -510,6 +510,24 @@ function getUrlParameters() {
             updateLockState();
         }
     }
+    
+    // 8. Paramètre client pour personnalisation branding
+    if (urlParams.has('client')) {
+        const clientName = decodeURIComponent(urlParams.get('client'));
+        const clientNameSpan = document.getElementById('clientName');
+        if (clientNameSpan) {
+            clientNameSpan.textContent = clientName;
+        }
+    }
+    
+    // 9. URL de branding personnalisée
+    if (urlParams.has('brandingurl')) {
+        const brandingUrl = decodeURIComponent(urlParams.get('brandingurl'));
+        const brandingLink = document.getElementById('brandingLink');
+        if (brandingLink) {
+            brandingLink.href = brandingUrl;
+        }
+    }
 }
 
 
