@@ -1,10 +1,7 @@
 # 🚩 Flag — Sensibilisation Sécurité
 
-
-
-[![Version](https://img.shields.io/badge/version-1.2-brightgreen)](https://github.com/WolwX/Flag/releases/tag/v1.2)
+[![Version](https://img.shields.io/badge/version-1.3-brightgreen)](https://github.com/WolwX/Flag/releases/tag/v1.3)
 [![Licence](https://img.shields.io/badge/licence-Proprietary-red)](LICENSE)
-
 
 ## 📖 À propos
 
@@ -14,62 +11,37 @@ Flag 🚩 est un outil de sensibilisation à la sécurité informatique conçu p
 
 Simuler un incident de sécurité pour encourager la vigilance et le signalement des comportements suspects auprès des équipes de sécurité.
 
+## 🆕 Version 1.3 — Branding & Corrections
 
-## 🆕 Version 1.2 — Fichier Standalone
+> **Release v1.3 - 18/01/2026**
 
-> **Release v1.2 - 05/11/2025**
+### ✨ Nouveautés v1.3
 
-
-
-### ✨ Nouveautés v1.2
-
-- 📦 **Fichier standalone** - `flag.html` (36 KB) - Version portable avec CSS/JS/QR code inline-
-
-- 🔄 **Script de build** - `build_standalone.ps1` pour regénérer le fichier standalone-
-
-- 🧹 **Projet nettoyé** - Suppression des fichiers temporaires et backups-
-
-- 📁 **Structure organisée** - `.gitignore` pour éviter les futurs fichiers temporaires-
-
-- 📦 **Fichier standalone minifié** - `flag.html` (51 KB) - Version portable avec CSS/JS/QR code inline-
-
-- 🗜️ **Minification automatique** - CSS et JavaScript optimisés (réduction de 20%)-
-
-- 🧹 **Projet nettoyé** - Suppression des fichiers temporaires et backups-
+- 🏷️ **Branding personnalisable** - Ligne "Sensibilisation hygiène numérique by XR" avec lien cliquable ℹ️
+- 📦 **Emoji Unicode natif** - Icône ℹ️ sans dépendance CDN (version standalone 100% offline)
+- 🔓 **Bouton déverrouillage simple** - Apparaît uniquement après FLAG si lock désactivé
+- 🔧 **2 nouveaux paramètres URL** - `client` et `brandingurl` pour personnaliser le branding
+- 🐛 **Corrections bugs** - simpleUnlockSection, toggle message, code vide, fermeture page
+- 🌐 **URL branding** - Changement vers https://www.wolwx.net
 
 ---
 
-
-
 ## 🚀 Installation
-
-
 
 ### Option 1 : Fichier Standalone (Recommandé) ⭐
 
-
-
 **Le plus simple pour un usage immédiat !**
 
-
-
-1. Téléchargez `flag.html` (36 KB)
-
+1. Téléchargez `flag.html` (51 KB)
 2. Ouvrez-le dans votre navigateur
-
 3. C'est tout ! Aucune dépendance externe
 
-
-
-**Avantages :**- 🎛️ **Config Bar complète** - Paramétrage dynamique via interface intuitive (6 sections)-
-
+**Avantages :**
 - ✅ Portable (un seul fichier)
-
-- ✅ Fonctionne hors ligne- ⏱️ **Chronomètre intégré** - Suivi du temps de flaggage en temps réel (format MM:SS)-
-
+- ✅ Fonctionne hors ligne (emoji Unicode, pas de CDN)
 - ✅ Pas de serveur web nécessaire
-
-- ✅ Encodage UTF-8 correct- 🔒 **Système de Lock** - Verrouillage avec code de sécurité personnalisé-
+- ✅ Encodage UTF-8 correct
+- ✅ Branding personnalisable via URL
 
 
 
@@ -830,8 +802,10 @@ Les contributions sont les bienvenues ! N'hésitez pas à :- [ ] Notifications S
 
 - **v0.1-0.2** : Design initial et validation du concept
 - **v0.3** : Mise en place des variables et paramétrage dynamique
-- **v1.0** : ✅ **Version Fonctionnelle - Frontend complet (Design finalisé + Config Bar + Lock + Chronomètre + Récompenses)** - 05/11/2025
-- **v1.1** : ✅ **Support Paramètres URL - Tous les paramètres accessibles via URL (7 paramètres)** - 05/11/2025
+- **v1.0** : ✅ **Version Fonctionnelle - Frontend complet (Design finalisé + Config Bar + Lock + Chronomètre + Récompenses)** - 30/10/2025
+- **v1.1** : ✅ **Support Paramètres URL - 7 paramètres accessibles via URL** - 05/11/2025
+- **v1.2** : ✅ **Fichier Standalone - Version minifiée portable (51 KB)** - 05/11/2025
+- **v1.3** : ✅ **Branding & Corrections - 9 paramètres URL + branding personnalisable + fixes majeurs** - 18/01/2026
 - **v2.0** : Backend avec serveur, API REST, base de données et statistiques complètes
 - **v3.0** : Intégrations entreprise (Active Directory, SSO, Slack/Teams, Dashboard avancé)
 
@@ -870,6 +844,8 @@ index.html?param1=valeur1&param2=valeur2&param3=valeur3
 | `color` | String | Couleur de fond | `?color=red` ou `?color=ff0000` | `blue`, `red`, `magenta`, `green`, ou code HEX (6 caractères) |
 | `reward` | String | Récompense affichée | `?reward=Café` | Voir liste des 13 récompenses ci-dessous |
 | `lock` | Boolean | État du verrouillage | `?lock=true` | `true`, `false`, `1`, `0`, `on`, `off` |
+| `client` | String | Nom du client (branding) | `?client=ACME%20Corp` | Texte libre (ajouté après "hygiène numérique") |
+| `brandingurl` | String | URL du lien branding | `?brandingurl=https://exemple.com` | URL complète valide |
 
 #### 🎨 Icônes disponibles (paramètre `icon`)
 
@@ -946,6 +922,16 @@ index.html?icon=😊&color=magenta&msg=Merci%20de%20votre%20attention&reward=Cho
 **Configuration entreprise (verrouillée) :**
 ```
 index.html?code=COMPANY2024&flagger=Équipe%20Sécurité&msg=Session%20de%20formation%20complétée&icon=🚩&color=0078d7&reward=Service&lock=true
+```
+
+**Configuration avec branding personnalisé :**
+```
+index.html?client=ACME%20Corporation&brandingurl=https://acme.com&flagger=IT&code=SEC2024
+```
+
+**Configuration formation complète :**
+```
+index.html?code=FORMATION&flagger=Service%20IT&msg=Module%20sécurité%20validé&icon=🎓&color=blue&reward=Croissant&lock=true&client=Entreprise%20XYZ&brandingurl=https://xyz.com
 ```
 
 #### 💡 Conseils d'utilisation
