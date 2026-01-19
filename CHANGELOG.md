@@ -2,6 +2,34 @@
 
 Toutes les modifications notables du projet Flag seront documentées dans ce fichier.
 
+## [1.4.0] - 2026-01-19
+
+### ✨ Ajouté
+- **QR Code dynamique** : Changement automatique du QR code selon la couleur BSoD sélectionnée
+  - 4 couleurs prédéfinies avec QR codes spécifiques : Blue (#0078D7), Red (#E81123), Magenta (#FF00FF), Green (#00B300)
+  - QR code par défaut pour toutes les autres couleurs
+  - 5 nouveaux fichiers QR : `qr-code-wx-{blue,red,magenta,green,defaut}.png`
+- **Paramètre URL `popup_time`** : Personnalisation de la durée d'affichage des popups (en secondes)
+  - Valeur par défaut : 3 secondes
+  - Exemple : `?popup_time=5` pour afficher les popups pendant 5 secondes
+- **Fonction `updateQRCode()`** : Gestion du mapping couleur → fichier QR code
+- **Variable QR_CODE_BASE64** : QR code organisé en variable JavaScript pour meilleure maintenabilité
+
+### 🔧 Modifié
+- **`setMainColor()`** : Appelle maintenant `updateQRCode()` pour synchroniser le QR avec la couleur
+- **`getUrlParameters()`** : Gère le paramètre `popup_time` et met à jour le QR code si couleur spécifiée en URL
+- **Structure QR code** : Migration de `<img src="img/qr_code.png">` vers variable JavaScript + assignation au DOMContentLoaded
+- **`popupDisplayTime`** : Variable globale configurable (3000ms par défaut, modifiable via URL)
+
+### 📁 Fichiers ajoutés
+- `img/qr-code-wx-blue.png`
+- `img/qr-code-wx-red.png`
+- `img/qr-code-wx-magenta.png`
+- `img/qr-code-wx-green.png`
+- `img/qr-code-wx-defaut.png`
+
+---
+
 ## [1.3.0] - 2026-01-18
 
 ### ✨ Ajouté

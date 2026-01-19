@@ -4,6 +4,7 @@
 let currentFlaggerName = 'votre collègue vigilant'; // Nom par défaut
 let expectedCode = 'RECOMPENSE'; // Code par défaut centralisé
 let flagData = {}; // Stockage temporaire des données du flag
+let popupDisplayTime = 3000; // Temps d'affichage des popups en ms (par défaut 3s)
 
 // Variables pour le timer (globales pour être accessibles partout)
 let timerInterval = null;
@@ -165,13 +166,13 @@ function simpleUnlock() {
     
     showSuccessMessage(successMessage);
     
-    // Fermeture après 3 secondes
+    // Fermeture après le délai configuré
     setTimeout(function() {
         window.close();
         setTimeout(function() {
             document.body.innerHTML = '<div style="display:flex;justify-content:center;align-items:center;height:100vh;background:#28a745;color:#fff;font-family:Consolas,monospace;text-align:center;flex-direction:column;"><h1 style="font-size:3vw;margin-bottom:1em;">✅ Écran déverrouillé !</h1><p style="font-size:1.5vw;margin-bottom:2em;">Vous pouvez fermer cet onglet</p><p style="font-size:1.2vw;opacity:0.8;">(Appuyez sur Ctrl+W ou fermez l\'onglet manuellement)</p></div>';
         }, 100);
-    }, 3000);
+    }, popupDisplayTime);
 }
 
 // ===== INITIALISATION DOMContentLoaded =====
@@ -293,7 +294,32 @@ document.addEventListener('DOMContentLoaded', function() {
             bsodContainer.style.backgroundColor = hex;
         }
         document.body.style.backgroundColor = hex;
+        
+        updateQRCode(hex);
     }
+    
+    /**
+     * Met à jour le QR code selon la couleur sélectionnée
+     */
+    function updateQRCode(hexColor) {
+        const qrImage = document.querySelector('.qr-code');
+        if (!qrImage) return;
+        
+        const normalizedColor = hexColor.replace('#', '').toUpperCase();
+        
+        const colorToQR = {
+            '0078D7': 'qr-code-wx-blue.png',
+            'E81123': 'qr-code-wx-red.png',
+            'FF00FF': 'qr-code-wx-magenta.png',
+            '00B300': 'qr-code-wx-green.png'
+        };
+        
+        const qrFile = colorToQR[normalizedColor] || 'qr-code-wx-defaut.png';
+        qrImage.src = `img/${qrFile}`;
+        
+        console.log(`🔄 QR code mis à jour : ${qrFile} (couleur: ${hexColor})`);
+    }
+    
     // Palette boutons
     if (colorPalette) {
         colorPalette.querySelectorAll('.color-btn').forEach(btn => {
@@ -388,6 +414,15 @@ function getUrlParameters() {
     /** Récupère les paramètres de l'URL et met à jour le contenu/code secret **/
     const urlParams = new URLSearchParams(window.location.search);
     
+    // 0. Définition du temps d'affichage des popups
+    if (urlParams.has('popup_time')) {
+        const time = parseInt(urlParams.get('popup_time'));
+        if (!isNaN(time) && time > 0) {
+            popupDisplayTime = time * 1000; // Convertir secondes en millisecondes
+            console.log(`⏱️ Temps popup personnalisé: ${time}s (${popupDisplayTime}ms)`);
+        }
+    }
+    
     // 1. Définition du Code Secret
     if (urlParams.has('code')) {
         const code = urlParams.get('code').trim().toUpperCase();
@@ -475,6 +510,8 @@ function getUrlParameters() {
             if (mainColorInput) {
                 mainColorInput.value = hexColor.toUpperCase();
             }
+            
+            updateQRCode(hexColor);
         }
     }
     
@@ -590,7 +627,7 @@ function checkCode() {
         // Afficher le message de succès
         showSuccessMessage(successMessage);
         
-        // Fermeture après 3 secondes
+        // Fermeture après le délai configuré
         setTimeout(function() {
             // Tenter de fermer l'onglet
             window.close();
@@ -598,7 +635,7 @@ function checkCode() {
             setTimeout(function() {
                 document.body.innerHTML = '<div style="display:flex;justify-content:center;align-items:center;height:100vh;background:#28a745;color:#fff;font-family:Consolas,monospace;text-align:center;flex-direction:column;"><h1 style="font-size:3vw;margin-bottom:1em;">✅ Déblocage réussi !</h1><p style="font-size:1.5vw;margin-bottom:2em;">Vous pouvez fermer cet onglet</p><p style="font-size:1.2vw;opacity:0.8;">(Appuyez sur Ctrl+W ou fermez l\'onglet manuellement)</p></div>';
             }, 100);
-        }, 3000);
+        }, popupDisplayTime);
 
     } else {
         // Code incorrect : Afficher message sans sortir du plein écran
@@ -651,14 +688,14 @@ function showErrorMessage(message) {
         errorDiv.style.transform = 'translate(-50%, -50%) scale(1)';
     }, 10);
     
-    // Masquer après 3 secondes avec animation
+    // Masquer après le délai configuré avec animation
     setTimeout(function() {
         errorDiv.style.opacity = '0';
         errorDiv.style.transform = 'translate(-50%, -50%) scale(0.8)';
         setTimeout(function() {
             errorDiv.style.display = 'none';
         }, 300);
-    }, 3000);
+    }, popupDisplayTime);
 }
 
 // Fonction pour afficher un message de succès (même style mais en vert)
