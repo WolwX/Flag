@@ -9,8 +9,8 @@
     <meta name="author" content="Xavier (WolwX)">
     <meta name="description" content="Flag - Application de sensibilisation à la sécurité informatique en entreprise. Simule un écran bleu Windows (BSoD) pour rappeler l'importance de verrouiller son poste.">
     <meta name="keywords" content="sécurité informatique, sensibilisation, BSoD, verrouillage, formation">
-    <meta name="version" content="1.1">
-    <meta name="release-date" content="2025-11-05">
+    <meta name="version" content="1.4">
+    <meta name="release-date" content="2026-01-19">
     <meta name="repository" content="https://github.com/WolwX/Flag">
     <meta name="contact" content="wolwx@hotmail.com">
     <meta name="copyright" content="© 2025 Xavier (WolwX). All Rights Reserved.">
@@ -149,9 +149,7 @@
                             </div>
                             <div class="branding-line">
                                 Sensibilisation hygiène numérique<span id="clientName"></span> by XR
-                                <a href="https://www.wolwx.net" target="_blank" id="brandingLink" class="branding-icon" title="Plus d'infos">
-                                    <i class="fa-solid fa-circle-info"></i>
-                                </a>
+                                <a href="https://www.wolwx.net" target="_blank" id="brandingLink" class="branding-icon" title="Plus d'infos">ℹ️</a>
                             </div>
                         </div>
                     </div>
@@ -164,6 +162,10 @@
                     <p class="timer-label">⏱️ Flaggé depuis</p>
                     <p id="timerText" class="timer-text">00:00</p>
                 </div>
+                <!-- Bouton pour déverrouillage SANS code (quand lock désactivé) -->
+                <div id="simpleUnlockSection" style="display:none;position:absolute;top:28%;left:50%;transform:translateX(-50%);z-index:20;">
+                    <button onclick="simpleUnlock()" style="background-color:#28a745;color:#fff;font-size:1.3vw;padding:15px 40px;border:none;border-radius:8px;cursor:pointer;font-weight:bold;box-shadow:0 4px 15px rgba(0,0,0,0.3);transition:all 0.3s;" onmouseover="this.style.backgroundColor='#218838';this.style.transform='scale(1.05)';" onmouseout="this.style.backgroundColor='#28a745';this.style.transform='scale(1)';">🔓 Déverrouiller mon écran</button>
+                </div>
                 <p id="customMessageDisplay" class="custom-message-display"></p>
                 <div id="emoji-bg-preview" class="emoji-bg-preview"></div>
                 <div id="rewardDisplay" class="reward-display">
@@ -173,6 +175,38 @@
             </div>
         </div>
     </div>
+    <script>
+// Fonction globale pour gérer le verrouillage
+function updateLockState() {
+    const toggleLock = document.getElementById('toggleLock');
+    const inputSecurityCode = document.getElementById('inputSecurityCode');
+    const unlockSection = document.getElementById('unlockSection');
+    const simpleUnlockSection = document.getElementById('simpleUnlockSection');
+    
+    // Si toggleLock existe ET est coché = lock activé
+    // Sinon (pas de toggleLock ou non coché) = bouton simple
+    const isLocked = toggleLock && toggleLock.checked;
+    
+    if (isLocked) {
+        // Lock activé : afficher section avec code
+        if (inputSecurityCode) inputSecurityCode.style.display = '';
+        if (unlockSection) unlockSection.style.display = '';
+        if (simpleUnlockSection) simpleUnlockSection.style.display = 'none';
+    } else {
+        // Lock désactivé ou absent : afficher bouton simple
+        if (inputSecurityCode) inputSecurityCode.style.display = 'none';
+        if (unlockSection) unlockSection.style.display = 'none';
+        if (simpleUnlockSection) simpleUnlockSection.style.display = 'block';
+    }
+}
+
+// Fonction pour déverrouillage simple (sans code)
+function simpleUnlock() {
+    setTimeout(() => {
+        window.close();
+    }, 300);
+}
+    </script>
     <script src="js/flag_script.js"></script> 
 </body>
 </html>

@@ -373,7 +373,18 @@ document.addEventListener('DOMContentLoaded', function() {
         inputCustomText.addEventListener('input', function() {
             const message = inputCustomText.value.trim();
             customMessageDisplay.textContent = message;
-            customMessageDisplay.style.display = message ? 'block' : 'none';
+            // Afficher seulement si checkbox cochée ET message non vide
+            const isChecked = toggleCustomText && toggleCustomText.checked;
+            customMessageDisplay.style.display = (message && isChecked) ? 'block' : 'none';
+        });
+    }
+    
+    // Toggle message personnalisé
+    if (toggleCustomText && customMessageDisplay) {
+        toggleCustomText.addEventListener('change', function() {
+            const message = inputCustomText ? inputCustomText.value.trim() : '';
+            // Afficher seulement si checkbox cochée ET message non vide
+            customMessageDisplay.style.display = (toggleCustomText.checked && message) ? 'block' : 'none';
         });
     }
     
@@ -398,7 +409,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialiser le listener du toggle lock
     if (toggleLock) {
         toggleLock.addEventListener('change', updateLockState);
-        updateLockState(); // Initialisation
+        // updateLockState(); // SUPPRIMÉ : ne doit s'afficher qu'après le clic sur FLAG
     }
 });
 // --- 🚩 CONFIGURATION IMPORTANTE (À MODIFIER) ---
@@ -544,7 +555,7 @@ function getUrlParameters() {
         const lockToggle = document.getElementById('toggleLock');
         if (lockToggle) {
             lockToggle.checked = (lockValue === 'true' || lockValue === '1' || lockValue === 'on');
-            updateLockState();
+            // updateLockState(); // SUPPRIMÉ : ne doit s'afficher qu'après le clic sur FLAG
         }
     }
     
@@ -593,10 +604,11 @@ function checkCode() {
     const inputSecurityCode = document.getElementById('inputSecurityCode');
     const securityCode = inputSecurityCode ? inputSecurityCode.value.trim().toUpperCase() : '';
     
-    // Si aucun code n'est défini dans la config, utiliser expectedCode (pour compatibilité URL)
-    const codeAttendu = securityCode || expectedCode;
+    // Si un code est défini dans la config (même vide), l'utiliser en priorité
+    // Sinon utiliser expectedCode (pour compatibilité URL)
+    const codeAttendu = inputSecurityCode ? securityCode : expectedCode;
 
-    // Vérification du code
+    // Vérification du code (accepte code vide si configuré ainsi)
     if (codeEntré === codeAttendu) { 
         // Code correct : Déblocage
         
@@ -772,10 +784,9 @@ function enregistrerFlag(success, flagger) {
 
 window.onload = function() {
     // getUrlParameters(); // Déjà appelé dans DOMContentLoaded
-    enterFullscreen();
+    // enterFullscreen(); // SUPPRIMÉ : ne pas forcer le plein écran au chargement
     
-    // Afficher le bon bouton de déverrouillage selon le mode lock
-    updateLockState();
+    // updateLockState(); // SUPPRIMÉ : ne doit s'afficher qu'après le clic sur FLAG
     
     // Focus sur le champ code seulement s'il est visible
     const codeInput = document.getElementById('codeInput');
