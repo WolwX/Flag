@@ -1,6 +1,6 @@
 # 🚩 Flag — Sensibilisation Sécurité
 
-[![Version](https://img.shields.io/badge/version-1.3-brightgreen)](https://github.com/WolwX/Flag/releases/tag/v1.3)
+[![Version](https://img.shields.io/badge/version-1.4.1-brightgreen)](https://github.com/WolwX/Flag/releases/tag/v1.4.1)
 [![Licence](https://img.shields.io/badge/licence-Proprietary-red)](LICENSE)
 
 ## 📖 À propos
@@ -11,18 +11,22 @@ Flag 🚩 est un outil de sensibilisation à la sécurité informatique conçu p
 
 Simuler un incident de sécurité pour encourager la vigilance et le signalement des comportements suspects auprès des équipes de sécurité.
 
-## 🆕 Version 1.3 — Branding & Corrections
+## 🆕 Version 1.4.1 — Paramètre Delay
 
-> **Release v1.3 - 18/01/2026**
+> **Release v1.4.1 - 19/01/2026**
 
-### ✨ Nouveautés v1.3
+### ✨ Nouveautés v1.4.1
 
-- 🏷️ **Branding personnalisable** - Ligne "Sensibilisation hygiène numérique by XR" avec lien cliquable ℹ️
-- 📦 **Emoji Unicode natif** - Icône ℹ️ sans dépendance CDN (version standalone 100% offline)
-- 🔓 **Bouton déverrouillage simple** - Apparaît uniquement après FLAG si lock désactivé
-- 🔧 **2 nouveaux paramètres URL** - `client` et `brandingurl` pour personnaliser le branding
-- 🐛 **Corrections bugs** - simpleUnlockSection, toggle message, code vide, fermeture page
-- 🌐 **URL branding** - Changement vers https://www.wolwx.net
+- ⏱️ **Paramètre URL `delay`** - Contrôle du délai de fermeture automatique (en secondes)
+  - flag.html : défaut 3 secondes
+  - index.html : défaut 0.3 secondes
+  - Exemple : `?delay=5` pour 5 secondes, `?delay=0` pour fermeture immédiate
+
+### 🔧 Améliorations v1.4
+
+- 📱 **QR Code dynamique** - Changement automatique selon la couleur BSoD
+- ⏲️ **Paramètre `popup_time`** - Personnalisation durée d'affichage des popups
+- 🎨 **5 QR codes** - Blue, Red, Magenta, Green, Defaut
 
 ---
 

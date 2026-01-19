@@ -220,6 +220,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Variables globales
     let currentFlaggerName = 'votre collègue vigilant'; // Nom par défaut
+    let closeDelay = 3000; // Délai de fermeture par défaut (3 secondes)
     
     // Variables pour le timer
     let timerInterval = null;
@@ -287,13 +288,13 @@ document.addEventListener('DOMContentLoaded', function() {
         
         showSuccessMessage(successMessage);
         
-        // Fermeture après 3 secondes
+        // Fermeture après le délai configuré (par défaut 3 secondes, modifiable via ?delay=secondes)
         setTimeout(function() {
             window.close();
             setTimeout(function() {
                 document.body.innerHTML = '<div style="display:flex;justify-content:center;align-items:center;height:100vh;background:#28a745;color:#fff;font-family:Consolas,monospace;text-align:center;flex-direction:column;"><h1 style="font-size:3vw;margin-bottom:1em;">✅ Écran déverrouillé !</h1><p style="font-size:1.5vw;margin-bottom:2em;">Vous pouvez fermer cet onglet</p><p style="font-size:1.2vw;opacity:0.8;">(Appuyez sur Ctrl+W ou fermez l\'onglet manuellement)</p></div>';
             }, 100);
-        }, 3000);
+        }, closeDelay);
     };
     
     // START button logic
@@ -621,6 +622,14 @@ function getUrlParameters() {
         const brandingLink = document.getElementById('brandingLink');
         if (brandingLink) {
             brandingLink.href = brandingUrl;
+        }
+    }
+    
+    // 8. Définition du Délai de fermeture (en secondes)
+    if (urlParams.has('delay')) {
+        const delayValue = parseInt(urlParams.get('delay'));
+        if (!isNaN(delayValue) && delayValue >= 0) {
+            closeDelay = delayValue * 1000; // Conversion en millisecondes
         }
     }
 }

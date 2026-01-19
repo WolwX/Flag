@@ -200,11 +200,23 @@ function updateLockState() {
     }
 }
 
+// Variable pour le délai de fermeture (par défaut 300ms, modifiable via ?delay=secondes)
+let closeDelay = 300;
+
+// Récupérer le paramètre delay de l'URL
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.has('delay')) {
+    const delayValue = parseInt(urlParams.get('delay'));
+    if (!isNaN(delayValue) && delayValue >= 0) {
+        closeDelay = delayValue * 1000; // Conversion en millisecondes
+    }
+}
+
 // Fonction pour déverrouillage simple (sans code)
 function simpleUnlock() {
     setTimeout(() => {
         window.close();
-    }, 300);
+    }, closeDelay);
 }
     </script>
     <script src="js/flag_script.js"></script> 

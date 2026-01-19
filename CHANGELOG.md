@@ -2,6 +2,24 @@
 
 Toutes les modifications notables du projet Flag seront documentées dans ce fichier.
 
+## [1.4.1] - 2026-01-19
+
+### ✨ Ajouté
+- **Paramètre URL `delay`** : Contrôle du délai de fermeture automatique de la popup de succès
+  - Valeur en **secondes** pour simplicité utilisateur
+  - `flag.html` : délai par défaut de 3 secondes
+  - `index.html` : délai par défaut de 0.3 secondes
+  - Exemples : `?delay=5` (5 secondes), `?delay=0` (immédiat)
+  - Conversion automatique en millisecondes en interne (delayValue * 1000)
+
+### 🔧 Modifié
+- **Variable globale `closeDelay`** : Initialisée à 3000ms (flag.html) et 300ms (index.html)
+- **Fonction `getUrlParameters()`** (flag.html) : Lecture et validation du paramètre `delay` avec conversion en millisecondes
+- **Fonction `simpleUnlock()`** (index.html) : Utilisation de `closeDelay` au lieu de valeur codée en dur
+- **Commentaires code** : Mise à jour pour indiquer "secondes" au lieu de "millisecondes"
+
+---
+
 ## [1.4.0] - 2026-01-19
 
 ### ✨ Ajouté
